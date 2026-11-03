@@ -709,6 +709,128 @@ svg {
     color: var(--ink-secondary);
 }
 
+/* === FUSION EVALUATION BRIEF === */
+.evaluation-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 28px;
+    flex: 1;
+    min-height: 0;
+}
+
+.evaluation-panel {
+    background: var(--surface-card);
+    border: 1.5px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 28px 32px;
+}
+
+.evaluation-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 22px;
+    text-align: left;
+}
+
+.evaluation-table caption {
+    text-align: left;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.evaluation-table th,
+.evaluation-table td {
+    padding: 22px 12px;
+    border-bottom: 1px solid var(--border-hairline);
+}
+
+.evaluation-table thead th {
+    font-size: 18px;
+    color: var(--ink-secondary);
+    vertical-align: top;
+}
+
+.evaluation-table td {
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+}
+
+.evaluation-table .fusion-result {
+    color: var(--cobalt);
+    background: var(--surface-cobalt);
+}
+
+.evaluation-table .index-score {
+    font-size: 48px;
+    line-height: 1.1;
+}
+
+.evaluation-note {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink-secondary);
+    margin-top: 22px;
+}
+
+.evaluation-readout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.evaluation-readout .cap-name {
+    font-size: 30px;
+    margin: 0 0 10px;
+}
+
+.slide .evaluation-readout .cap-detail {
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.evaluation-boundary {
+    background: var(--amber-bg);
+    border: 1.5px solid var(--amber-border);
+    border-radius: 14px;
+    padding: 18px 24px;
+    font-size: 20px;
+    line-height: 1.45;
+    margin-top: 20px;
+}
+
+.evaluation-sources {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--ink-muted);
+}
+
+.evaluation-sources a {
+    color: var(--cobalt);
+    text-underline-offset: 4px;
+}
+
+.benchmark-diagram {
+    height: 216px;
+}
+
+.methodology-cards {
+    flex: 1;
+}
+
+.methodology-cards .cap-name {
+    font-size: 26px;
+}
+
+.slide .methodology-cards .cap-detail {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
 /* === SPEAKER MODE (DEFAULT: KEY CONCEPTS + 1-LINE BRIEF) === */
 body.speaker-mode .cap-card {
     padding: 22px 26px;
@@ -908,7 +1030,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">9 CORE CAPABILITIES</span>
-                    <span class="page-num">01 / 15</span>
+                    <span class="page-num">01 / 17</span>
                 </div>
             </header>
 
@@ -927,8 +1049,8 @@ body:not(.speaker-mode) .cap-detail {
                             <div class="cover-stat-label">核心发布与适用边界</div>
                         </div>
                         <div class="cover-stat">
-                            <div class="cover-stat-num">-40%</div>
-                            <div class="cover-stat-label">Fusion Critique 耗时降幅</div>
+                            <div class="cover-stat-num">约 -40%</div>
+                            <div class="cover-stat-label">Fusion Max / CLI 耗时（官方比较）</div>
                         </div>
                         <div class="cover-stat">
                             <div class="cover-stat-num">26 个</div>
@@ -980,7 +1102,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">4 GA · 4 PREVIEW · 1 EXP</span>
-                    <span class="page-num">02 / 15</span>
+                    <span class="page-num">02 / 17</span>
                 </div>
             </header>
 
@@ -1081,7 +1203,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">GENERALLY AVAILABLE</span>
-                    <span class="page-num">03 / 15</span>
+                    <span class="page-num">03 / 17</span>
                 </div>
             </header>
 
@@ -1092,8 +1214,8 @@ body:not(.speaker-mode) .cap-detail {
                     <p class="feature-tagline">开发者声明 Effort 投入预算，系统逐轮动态匹配 Single、Cascade 或 Critique 执行模式。</p>
                 </div>
                 <div class="hero-kpi">
-                    <div class="hero-kpi-label">SWE-BENCH / BENCHMARK</div>
-                    <div class="hero-kpi-value">Score 60 · 耗时 -40%</div>
+                    <div class="hero-kpi-label">AA INDEX v2.0 · FUSION MAX / CLI</div>
+                    <div class="hero-kpi-value">60 · 官方称耗时约 -40%</div>
                 </div>
             </div>
 
@@ -1224,7 +1346,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ARCHITECTURE INTERNALS</span>
-                    <span class="page-num">04 / 15</span>
+                    <span class="page-num">04 / 17</span>
                 </div>
             </header>
 
@@ -1336,10 +1458,159 @@ body:not(.speaker-mode) .cap-detail {
             </footer>
         </section>
 
+        <!-- Fusion Max results: AA v2.0, not an all-effort guarantee. -->
+        <section class="slide" data-slide="5" id="fusion-results" data-edit-scope="fusion-results">
+            <header class="exec-topbar">
+                <div class="exec-breadcrumb">
+                    <span class="exec-dot"></span>
+                    <span>FEATURE 01 · FUSION EVALUATION RESULTS</span>
+                </div>
+                <div class="exec-meta-right">
+                    <span class="maturity-pill cobalt">AA CODING AGENT INDEX v2.0</span>
+                    <span class="page-num">05 / 17</span>
+                </div>
+            </header>
+
+            <div class="feature-hero reveal d1">
+                <div class="feature-title-group">
+                    <div class="feature-index-tag">FUSION MAX // TESTED IN GITHUB COPILOT CLI</div>
+                    <h2 class="feature-title"><span class="accent">接近前沿的得分</span>，约一半的每任务 API 成本</h2>
+                    <p class="feature-tagline">比较的是 Agent + 模型 + effort 的组合；不是单一模型排名，也不是所有档位的性能承诺。</p>
+                </div>
+            </div>
+
+            <div class="evaluation-layout reveal d2">
+                <div class="evaluation-panel">
+                    <table class="evaluation-table">
+                        <caption>Artificial Analysis · 同套任务下的比较</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">指标</th>
+                                <th scope="col" class="fusion-result">Copilot CLI<br>Fusion Max</th>
+                                <th scope="col">Claude Code<br>Opus 5.5 Max</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">Index 得分</th><td class="fusion-result index-score">60</td><td class="index-score">62</td></tr>
+                            <tr><th scope="row">API 成本 / task</th><td class="fusion-result">$5.59</td><td>$11.42</td></tr>
+                            <tr><th scope="row">Tokens / task</th><td class="fusion-result">7.2M</td><td>约为 Fusion 的 2 倍</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="evaluation-note">成本按底层模型的 token API 价格估算，不等于 Copilot 订阅价格或用户账单。</p>
+                </div>
+                <div class="evaluation-panel evaluation-readout">
+                    <div>
+                        <div class="feature-index-tag">AA · RESULT INTERPRETATION</div>
+                        <h3 class="cap-name">2 分差距，换取更低资源消耗</h3>
+                        <p class="cap-detail">整体接近前沿，但不同任务类型有强弱：不能把综合分数理解为每项 benchmark 都领先。</p>
+                    </div>
+                    <div>
+                        <div class="feature-index-tag">GITHUB CHANGELOG · 2026-10-28</div>
+                        <h3 class="cap-name">官方发布称：每任务耗时约少 40%</h3>
+                        <p class="cap-detail">同一发布同时称 API 成本约为一半、tokens 约为一半。耗时降幅为 GitHub 官方比较表述。</p>
+                    </div>
+                    <div>
+                        <div class="feature-index-tag">ENGINEERING TAKEAWAY</div>
+                        <h3 class="cap-name">选档位之后，仍需在自己的仓库验收</h3>
+                        <p class="cap-detail">这些数据只对应 Fusion Max in GitHub Copilot CLI；不外推到 Standard / High 或其他客户端。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="evaluation-boundary reveal d3"><strong>讲述重点：</strong>不是“所有任务都更强”，而是这一测试组合在质量、成本与效率之间取得了有竞争力的平衡。</div>
+            <footer class="evaluation-sources">
+                <span>来源</span>
+                <a href="https://artificialanalysis.ai/articles/github-copilot-fusion-orchestrates-anthropic-and-openai-models-to-balance-performance-and-cost" target="_blank" rel="noopener noreferrer">Artificial Analysis · Fusion 技术文章</a>
+                <a href="https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/" target="_blank" rel="noopener noreferrer">GitHub Changelog · 2026-10-28</a>
+            </footer>
+        </section>
+
+        <section class="slide" data-slide="6" id="fusion-methodology" data-edit-scope="fusion-methodology">
+            <header class="exec-topbar">
+                <div class="exec-breadcrumb">
+                    <span class="exec-dot"></span>
+                    <span>FEATURE 01 · BENCHMARKS &amp; METHODOLOGY</span>
+                </div>
+                <div class="exec-meta-right">
+                    <span class="maturity-pill cobalt">3 BENCHMARKS · EQUAL WEIGHT</span>
+                    <span class="page-num">06 / 17</span>
+                </div>
+            </header>
+            <div class="feature-hero reveal d1">
+                <div class="feature-title-group">
+                    <div class="feature-index-tag">AA CODING AGENT INDEX v2.0 // FUSION MAX IN COPILOT CLI</div>
+                    <h2 class="feature-title"><span class="accent">三项等权重</span>：终端执行、真实改动、仓库问答</h2>
+                    <p class="feature-tagline">290 tasks · 每 task 3 次尝试；先汇总各 benchmark 得分，再取三项均值，而非按任务数加权。</p>
+                </div>
+                <div class="hero-kpi">
+                    <div class="hero-kpi-label">INDEX · ROUNDED</div>
+                    <div class="hero-kpi-value">(71 + 51 + 57) / 3 ≈ 60</div>
+                </div>
+            </div>
+            <div class="arch-diagram-box benchmark-diagram reveal d1">
+                <svg viewBox="0 0 1680 190" role="img" aria-labelledby="fusion-benchmark-title fusion-benchmark-desc">
+                    <title id="fusion-benchmark-title">Fusion Max 的三项 benchmark 得分</title>
+                    <desc id="fusion-benchmark-desc">0 到 100 分的同一比例尺：Terminal-Bench 4.0 为 71，FrontierCode v1.1 为 51，SWE-Atlas-QnA-AA 为 57。</desc>
+                    <g font-family="Noto Sans SC, sans-serif">
+                        <text x="0" y="28" fill="#0F172A" font-size="22" font-weight="800">Terminal-Bench 4.0</text>
+                        <rect x="0" y="46" width="500" height="36" rx="8" fill="#F1F5F9"/>
+                        <rect x="0" y="46" width="355" height="36" rx="8" fill="#1D4ED8"/>
+                        <text x="0" y="126" fill="#1D4ED8" font-size="34" font-weight="800">71</text>
+                        <text x="74" y="124" fill="#334155" font-size="20">AA 文章：此项略领先</text>
+                        <text x="0" y="168" fill="#64748B" font-size="18">终端任务 · 66 tasks</text>
+                        <text x="580" y="28" fill="#0F172A" font-size="22" font-weight="800">FrontierCode v1.1</text>
+                        <rect x="580" y="46" width="500" height="36" rx="8" fill="#F1F5F9"/>
+                        <rect x="580" y="46" width="255" height="36" rx="8" fill="#047857"/>
+                        <text x="580" y="126" fill="#047857" font-size="34" font-weight="800">51</text>
+                        <text x="654" y="124" fill="#334155" font-size="20">文章图表中排第三</text>
+                        <text x="580" y="168" fill="#64748B" font-size="18">Claude 56 · Devin Fusion 54 在前</text>
+                        <text x="1160" y="28" fill="#0F172A" font-size="22" font-weight="800">SWE-Atlas-QnA-AA</text>
+                        <rect x="1160" y="46" width="500" height="36" rx="8" fill="#F1F5F9"/>
+                        <rect x="1160" y="46" width="285" height="36" rx="8" fill="#B45309"/>
+                        <text x="1160" y="126" fill="#B45309" font-size="34" font-weight="800">57</text>
+                        <text x="1234" y="124" fill="#334155" font-size="20">仓库理解与行为解释</text>
+                        <text x="1160" y="168" fill="#64748B" font-size="18">Repository Q&amp;A · 124 tasks</text>
+                    </g>
+                </svg>
+            </div>
+            <div class="capability-grid-3 methodology-cards reveal d2">
+                <div class="cap-card">
+                    <div>
+                        <div class="cap-card-head"><span class="cap-num">TERMINAL · 66 TASKS</span><span class="cap-chip">1/3 INDEX</span></div>
+                        <h3 class="cap-name">Terminal-Bench 4.0</h3>
+                        <div class="cap-highlight">Automated tests · pass@1</div>
+                        <p class="cap-detail">终端环境中的任务执行，以自动化测试通过 / 失败判定；汇总三次尝试的单次成功率，不是“三次有一次成功”。</p>
+                    </div>
+                </div>
+                <div class="cap-card emerald-top">
+                    <div>
+                        <div class="cap-card-head"><span class="cap-num">CODE · 100 TASKS</span><span class="cap-chip">1/3 INDEX</span></div>
+                        <h3 class="cap-name">FrontierCode v1.1</h3>
+                        <div class="cap-highlight">维护者是否愿意合并真实 repo 改动</div>
+                        <p class="cap-detail">任一 blocking check 失败则为 0；全部通过后，根据 non-blocking checks 得 70–100%。取平均得分，不是 pass@1。</p>
+                    </div>
+                </div>
+                <div class="cap-card amber-top">
+                    <div>
+                        <div class="cap-card-head"><span class="cap-num">Q&amp;A · 124 TASKS</span><span class="cap-chip">1/3 INDEX</span></div>
+                        <h3 class="cap-name">SWE-Atlas-QnA-AA</h3>
+                        <div class="cap-highlight">Task Resolve Rate · pass@1</div>
+                        <p class="cap-detail">追踪仓库代码并解释行为；按任务是否通过全部 rubric 项判定成功 / 失败，以单次任务解决率计分。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="evaluation-boundary reveal d3"><strong>效率口径：</strong>成本、token、耗时按任务尝试池化平均；成本依据模型 token API 价格估算。三次尝试用于估计平均表现，不把指标改成 pass@3。</div>
+            <footer class="evaluation-sources">
+                <span>来源</span>
+                <a href="https://artificialanalysis.ai/methodology/coding-agents-benchmarking" target="_blank" rel="noopener noreferrer">AA 官方方法论 · Coding Agent Index v2.0</a>
+                <a href="https://artificialanalysis.ai/articles/github-copilot-fusion-orchestrates-anthropic-and-openai-models-to-balance-performance-and-cost" target="_blank" rel="noopener noreferrer">AA 技术文章 · Fusion Max 分项结果</a>
+                <span>仅使用新版 Fusion 结果，不混用旧 HydraFusion 数据</span>
+            </footer>
+        </section>
+
         <!-- ===========================================
-             SLIDE 05: FEATURE 02 — LOCAL MODEL ROUTING
+             SLIDE 07: FEATURE 02 — LOCAL MODEL ROUTING
              =========================================== -->
-        <section class="slide" data-slide="5">
+        <section class="slide" data-slide="7">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1347,7 +1618,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">EXPERIMENTAL PREVIEW</span>
-                    <span class="page-num">05 / 15</span>
+                    <span class="page-num">07 / 17</span>
                 </div>
             </header>
 
@@ -1448,9 +1719,9 @@ body:not(.speaker-mode) .cap-detail {
         </section>
 
         <!-- ===========================================
-             SLIDE 06: FEATURE 03 — VS CODE AGENT HOST & AHP
+             SLIDE 08: FEATURE 03 — VS CODE AGENT HOST & AHP
              =========================================== -->
-        <section class="slide" data-slide="6">
+        <section class="slide" data-slide="8">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1458,7 +1729,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">HOST GA · COMPARE PREVIEW</span>
-                    <span class="page-num">06 / 15</span>
+                    <span class="page-num">08 / 17</span>
                 </div>
             </header>
 
@@ -1571,9 +1842,9 @@ body:not(.speaker-mode) .cap-detail {
         </section>
 
         <!-- ===========================================
-             SLIDE 07: FEATURE 04 — COPILOT PROJECTS
+             SLIDE 09: FEATURE 04 — COPILOT PROJECTS
              =========================================== -->
-        <section class="slide" data-slide="7">
+        <section class="slide" data-slide="9">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1581,7 +1852,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">07 / 15</span>
+                    <span class="page-num">09 / 17</span>
                 </div>
             </header>
 
@@ -1689,9 +1960,9 @@ body:not(.speaker-mode) .cap-detail {
         </section>
 
         <!-- ===========================================
-             SLIDE 08: FEATURE 05 — UNIFIED CLOUD & SANDBOXES
+             SLIDE 10: FEATURE 05 — UNIFIED CLOUD & SANDBOXES
              =========================================== -->
-        <section class="slide" data-slide="8">
+        <section class="slide" data-slide="10">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1699,7 +1970,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">GENERALLY AVAILABLE</span>
-                    <span class="page-num">08 / 15</span>
+                    <span class="page-num">10 / 17</span>
                 </div>
             </header>
 
@@ -1818,9 +2089,9 @@ body:not(.speaker-mode) .cap-detail {
         </section>
 
         <!-- ===========================================
-             SLIDE 09: FEATURE 06 — GITHUB INTELLIGENCE
+             SLIDE 11: FEATURE 06 — GITHUB INTELLIGENCE
              =========================================== -->
-        <section class="slide" data-slide="9">
+        <section class="slide" data-slide="11">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1828,7 +2099,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">MEMORY GA · DREAMING PREVIEW</span>
-                    <span class="page-num">09 / 15</span>
+                    <span class="page-num">11 / 17</span>
                 </div>
             </header>
 
@@ -1930,9 +2201,9 @@ body:not(.speaker-mode) .cap-detail {
         </section>
 
         <!-- ===========================================
-             SLIDE 10: FEATURE 06 DEEP DIVE — GITHUB INTELLIGENCE INTERNALS
+             SLIDE 12: FEATURE 06 DEEP DIVE — GITHUB INTELLIGENCE INTERNALS
              =========================================== -->
-        <section class="slide" data-slide="10">
+        <section class="slide" data-slide="12">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1940,7 +2211,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ARCHITECTURE INTERNALS</span>
-                    <span class="page-num">10 / 15</span>
+                    <span class="page-num">12 / 17</span>
                 </div>
             </header>
 
@@ -2047,9 +2318,9 @@ body:not(.speaker-mode) .cap-detail {
         </section>
 
         <!-- ===========================================
-             SLIDE 11: FEATURE 06 DEEP DIVE II — CROSS-REPO SYNTAX TREE & BLACKBIRD
+             SLIDE 13: FEATURE 06 DEEP DIVE II — CROSS-REPO SYNTAX TREE & BLACKBIRD
              =========================================== -->
-        <section class="slide" data-slide="11">
+        <section class="slide" data-slide="13">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2057,7 +2328,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ZERO-BUILD AST ENGINE</span>
-                    <span class="page-num">11 / 15</span>
+                    <span class="page-num">13 / 17</span>
                 </div>
             </header>
 
@@ -2169,9 +2440,9 @@ body:not(.speaker-mode) .cap-detail {
         </section>
 
         <!-- ===========================================
-             SLIDE 12: FEATURE 07 — COPILOT CONNECTORS
+             SLIDE 14: FEATURE 07 — COPILOT CONNECTORS
              =========================================== -->
-        <section class="slide" data-slide="12">
+        <section class="slide" data-slide="14">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2179,7 +2450,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">12 / 15</span>
+                    <span class="page-num">14 / 17</span>
                 </div>
             </header>
 
@@ -2279,9 +2550,9 @@ body:not(.speaker-mode) .cap-detail {
         </section>
 
         <!-- ===========================================
-             SLIDE 13: FEATURE 08 — COMPUTER USE
+             SLIDE 15: FEATURE 08 — COMPUTER USE
              =========================================== -->
-        <section class="slide" data-slide="13">
+        <section class="slide" data-slide="15">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2289,7 +2560,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">APP PREVIEW · VSCODE EXP</span>
-                    <span class="page-num">13 / 15</span>
+                    <span class="page-num">15 / 17</span>
                 </div>
             </header>
 
@@ -2389,9 +2660,9 @@ body:not(.speaker-mode) .cap-detail {
         </section>
 
         <!-- ===========================================
-             SLIDE 14: FEATURE 09 — IMAGE GENERATION & EDITING
+             SLIDE 16: FEATURE 09 — IMAGE GENERATION & EDITING
              =========================================== -->
-        <section class="slide" data-slide="14">
+        <section class="slide" data-slide="16">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2399,7 +2670,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">14 / 15</span>
+                    <span class="page-num">16 / 17</span>
                 </div>
             </header>
 
@@ -2498,9 +2769,9 @@ body:not(.speaker-mode) .cap-detail {
         </section>
 
         <!-- ===========================================
-             SLIDE 15: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
+             SLIDE 17: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
              =========================================== -->
-        <section class="slide" data-slide="15">
+        <section class="slide" data-slide="17">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2508,7 +2779,7 @@ body:not(.speaker-mode) .cap-detail {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ACTION PLAYBOOK</span>
-                    <span class="page-num">15 / 15</span>
+                    <span class="page-num">17 / 17</span>
                 </div>
             </header>
 
@@ -2609,7 +2880,7 @@ body:not(.speaker-mode) .cap-detail {
 <nav class="deck-controls" aria-label="Slide Navigation">
     <button class="nav-btn" id="prevBtn" title="上一页 (←)">上一页</button>
     <div class="nav-dots" id="navDots"></div>
-    <span id="slideCounter">01 / 15</span>
+    <span id="slideCounter">01 / 17</span>
     <button class="nav-btn speaker-toggle" id="speakerToggle" aria-pressed="true" title="切换演讲精简视图 / 完整讲义视图 (P)">演讲视图 [P]</button>
     <button class="nav-btn fullscreen-toggle" id="fullscreenToggle" aria-pressed="false" title="切换全屏演示 (快捷键 F 或双击背景)">全屏 [F]</button>
     <button class="nav-btn" id="nextBtn" title="下一页 (→)">下一页</button>
@@ -2632,7 +2903,12 @@ class SlidePresentation {
         this.setupKeyboardNav();
         this.setupTouchNav();
         this.setupWheelNav();
-        this.showSlide(0);
+        const linkedSlide = this.slides.findIndex(slide => `#${slide.id}` === window.location.hash);
+        this.showSlide(linkedSlide < 0 ? 0 : linkedSlide);
+        window.addEventListener('hashchange', () => {
+            const index = this.slides.findIndex(slide => `#${slide.id}` === window.location.hash);
+            if (index >= 0) this.showSlide(index);
+        });
     }
 
     setupStageScale() {
@@ -2757,6 +3033,16 @@ class InlineDeckEditor {
     constructor() {
         this.isActive = false;
         this.editables = document.querySelectorAll('.cover-title, .cover-subtitle, .feature-title, .feature-tagline, .cap-name, .cap-highlight, .cap-detail, .matrix-name, .matrix-value, .flow-step, .hero-kpi-value');
+        // Keep legacy numeric cache keys stable when inserting evaluation slides.
+        let legacyIndex = 0;
+        const scopedIndices = {};
+        this.editKeys = Array.from(this.editables, el => {
+            const scope = el.closest('.slide').dataset.editScope;
+            if (!scope) return String(legacyIndex++);
+            const index = scopedIndices[scope] || 0;
+            scopedIndices[scope] = index + 1;
+            return `${scope}:${index}`;
+        });
         this.storageKey = 'gh-universe-26-executive-briefing-v1';
         this.loadSaved();
         this.bindEvents();
@@ -2770,7 +3056,7 @@ class InlineDeckEditor {
         this.editables.forEach((el, idx) => {
             if (this.isActive) {
                 el.setAttribute('contenteditable', 'true');
-                el.dataset.editId = String(idx);
+                el.dataset.editId = this.editKeys[idx];
             } else {
                 el.removeAttribute('contenteditable');
             }
@@ -2781,7 +3067,7 @@ class InlineDeckEditor {
     saveToLocal() {
         const data = {};
         this.editables.forEach((el, idx) => {
-            data[idx] = el.innerHTML;
+            data[this.editKeys[idx]] = el.innerHTML;
         });
         try {
             localStorage.setItem(this.storageKey, JSON.stringify(data));
@@ -2794,7 +3080,8 @@ class InlineDeckEditor {
             if (!raw) return;
             const data = JSON.parse(raw);
             this.editables.forEach((el, idx) => {
-                if (data[idx] !== undefined) el.innerHTML = data[idx];
+                const key = this.editKeys[idx];
+                if (data[key] !== undefined) el.innerHTML = data[key];
             });
         } catch (_) {}
     }
