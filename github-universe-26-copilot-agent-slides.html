@@ -145,7 +145,10 @@ svg {
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
-        transition-duration: 0.2s !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
     }
 }
 
@@ -883,15 +886,56 @@ body:not(.speaker-mode) .cap-detail {
     gap: 24px;
 }
 
-/* === STAGGERED ENTRANCE ANIMATIONS === */
+/* === SPEAKER-PACED ENTRANCES (NO HIDDEN CONTENT WITHOUT JS) === */
 .reveal {
     opacity: 1;
     transform: none;
 }
 
-.d1 { transition-delay: 0.04s; }
-.d2 { transition-delay: 0.10s; }
-.d3 { transition-delay: 0.16s; }
+.motion-ready .slide.active {
+    animation: deck-fade 180ms ease-out both;
+}
+
+.motion-ready .slide.active .motion-item {
+    animation: deck-rise 420ms var(--ease-out) var(--motion-delay, 0ms) both;
+}
+
+.motion-ready .slide.active .motion-diagram {
+    animation: deck-fade 360ms ease-out var(--motion-delay, 180ms) both;
+}
+
+@keyframes deck-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes deck-rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Editing and print/export should never capture a partially revealed slide. */
+body.editing-mode .motion-ready .slide,
+body.editing-mode .motion-ready .motion-item,
+body.editing-mode .motion-ready .motion-diagram {
+    animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .motion-ready .slide,
+    .motion-ready .motion-item,
+    .motion-ready .motion-diagram {
+        animation: none !important;
+    }
+}
+
+@media print {
+    .motion-ready .slide,
+    .motion-ready .motion-item,
+    .motion-ready .motion-diagram {
+        animation: none !important;
+    }
+}
 
 /* === PRESENTATION NAVIGATION CHROME === */
 .deck-controls {
@@ -2899,6 +2943,7 @@ class SlidePresentation {
         this.dotsContainer = document.getElementById('navDots');
 
         this.setupStageScale();
+        this.setupMotion();
         this.buildDots();
         this.setupKeyboardNav();
         this.setupTouchNav();
@@ -2932,6 +2977,42 @@ class SlidePresentation {
         });
         document.getElementById('prevBtn').addEventListener('click', () => this.showSlide(this.currentSlide - 1));
         document.getElementById('nextBtn').addEventListener('click', () => this.showSlide(this.currentSlide + 1));
+    }
+
+    setupMotion() {
+        const sequences = [
+            ['.cover-kicker, .feature-title-group', 0, 0],
+            ['.cover-title', 60, 0],
+            ['.cover-subtitle, .hero-kpi', 120, 0],
+            ['.cover-stat', 210, 80],
+            ['.layer-box', 150, 100],
+            ['.matrix-cell', 100, 45],
+            ['.cap-card', 300, 80],
+            ['.evaluation-table tbody tr', 150, 110],
+            ['.evaluation-readout > div', 220, 100],
+            ['.scenario-ribbon, .evaluation-boundary', 500, 0]
+        ];
+        this.slides.forEach(slide => {
+            sequences.forEach(([selector, delay, step]) => {
+                slide.querySelectorAll(selector).forEach((element, index) => {
+                    element.classList.add('motion-item');
+                    element.style.setProperty('--motion-delay', `${delay + index * step}ms`);
+                });
+            });
+            // Reveal SVG nodes and links by horizontal third; preserve transforms,
+            // dashed connectors, marker definitions, and the benchmark bar lengths.
+            slide.querySelectorAll('.arch-diagram-box svg').forEach(svg => {
+                const { x, width } = svg.viewBox.baseVal;
+                svg.querySelectorAll('rect, text, line, path, circle, ellipse, polyline, polygon').forEach(element => {
+                    if (element.closest('defs')) return;
+                    const box = element.getBBox();
+                    const column = Math.max(0, Math.min(2, Math.floor((box.x - x) / width * 3)));
+                    element.classList.add('motion-diagram');
+                    element.style.setProperty('--motion-delay', `${180 + column * 120}ms`);
+                });
+            });
+        });
+        this.stage.classList.add('motion-ready');
     }
 
     setupKeyboardNav() {
@@ -3050,6 +3131,7 @@ class InlineDeckEditor {
 
     toggleEditMode() {
         this.isActive = !this.isActive;
+        document.body.classList.toggle('editing-mode', this.isActive);
         const btn = document.getElementById('editToggle');
         btn.classList.toggle('active', this.isActive);
         btn.textContent = this.isActive ? '保存并退出 [Ctrl+S]' : '编辑文案 [E]';
@@ -3089,6 +3171,7 @@ class InlineDeckEditor {
     exportHTML() {
         this.saveToLocal();
         const clone = document.documentElement.cloneNode(true);
+        clone.querySelector('body').classList.remove('editing-mode');
         clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
         const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html' });
         const a = document.createElement('a');
