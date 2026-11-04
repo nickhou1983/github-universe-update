@@ -1074,7 +1074,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">9 CORE CAPABILITIES</span>
-                    <span class="page-num">01 / 17</span>
+                    <span class="page-num">01 / 18</span>
                 </div>
             </header>
 
@@ -1146,7 +1146,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">4 GA · 4 PREVIEW · 1 EXP</span>
-                    <span class="page-num">02 / 17</span>
+                    <span class="page-num">02 / 18</span>
                 </div>
             </header>
 
@@ -1247,7 +1247,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">GENERALLY AVAILABLE</span>
-                    <span class="page-num">03 / 17</span>
+                    <span class="page-num">03 / 18</span>
                 </div>
             </header>
 
@@ -1380,74 +1380,69 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 04: FEATURE 01+ — COPILOT FUSION INTERNALS
+             SLIDE 04: FEATURE 01 — HYDRA ONLINE ROUTING
              =========================================== -->
-        <section class="slide" data-slide="4">
+        <section class="slide" data-slide="4" data-edit-scope="fusion-online" data-edit-reserve="15">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
-                    <span>FEATURE 01 DEEP DIVE · COPILOT FUSION 底层实现原理</span>
+                    <span>FEATURE 01 DEEP DIVE I · HYDRA ONLINE ROUTING</span>
                 </div>
                 <div class="exec-meta-right">
-                    <span class="maturity-pill cobalt">ARCHITECTURE INTERNALS</span>
-                    <span class="page-num">04 / 17</span>
+                    <span class="maturity-pill cobalt">ARXIV:2605.17106v2</span>
+                    <span class="page-num">04 / 18</span>
                 </div>
             </header>
 
             <div class="feature-hero reveal d1">
                 <div class="feature-title-group">
-                    <div class="feature-index-tag">UNDER THE HOOD // ROUTING PIPELINE &amp; KV CACHE AFFINITY</div>
-                    <h2 class="feature-title"><span class="accent">Fusion 实现原理</span>：四维信号、缓存粘性与工程边界</h2>
-                    <p class="feature-tagline">在不打爆 Prompt Cache 输入成本的前提下，实现逐轮动态编排与 PR 自动审查分级。</p>
+                    <div class="feature-index-tag">HYBRID DYNAMIC ROUTING // MODERNBERT · SHORTFALL MATCHING · CACHE BOUNDARIES</div>
+                    <h2 class="feature-title"><span class="accent">HyDRA 在线路由</span>：四维需求评分与模型短板匹配</h2>
+                    <p class="feature-tagline">把每轮需求与模型能力拆开建模；候选模型变化改配置即可，无需重训路由器。未公开的部署细节均标作工程说明。</p>
                 </div>
                 <div class="hero-kpi">
-                    <div class="hero-kpi-label">KV CACHE STRATEGY</div>
-                    <div class="hero-kpi-value">主模型粘性 + 切片审查</div>
+                    <div class="hero-kpi-label">ROUTER · K=4</div>
+                    <div class="hero-kpi-value">86 ms CPU 中位延迟</div>
                 </div>
             </div>
 
-            <!-- SVG ARCHITECTURE DIAGRAM: 4D SIGNAL & KV CACHE STICKINESS -->
+            <!-- SVG ARCHITECTURE DIAGRAM: HYDRA ONLINE ROUTING -->
             <div class="arch-diagram-box reveal d2">
                 <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Box 1: Policy & Health Gate -->
-                    <rect x="12" y="18" width="330" height="136" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
-                    <text x="177" y="48" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">1. POLICY &amp; HEALTH GATE</text>
-                    <text x="177" y="82" text-anchor="middle" fill="#0F172A" font-size="19" font-weight="800">企业策略与健康度准入</text>
-                    <text x="177" y="112" text-anchor="middle" fill="#334155" font-size="14" font-weight="600">剔除禁用模型 · 实时测速切换拥塞节点</text>
-                    <text x="177" y="136" text-anchor="middle" fill="#64748B" font-family="Fira Code, monospace" font-size="12">UI 取候选池最小 Context Window</text>
+                    <defs><marker id="hydra-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 1L9 5L0 9Z" fill="#1D4ED8"/></marker></defs>
+                    <rect x="8" y="16" width="278" height="140" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+                    <text x="147" y="43" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">1 · REQUEST FEATURES</text>
+                    <text x="147" y="76" text-anchor="middle" fill="#0F172A" font-size="18" font-weight="800">7-Flag 前缀 + 当前提问</text>
+                    <text x="147" y="105" text-anchor="middle" fill="#334155" font-size="14">TC · ERR · FILE · URL</text>
+                    <text x="147" y="130" text-anchor="middle" fill="#64748B" font-size="14">CMD · CODE · SHORT · ≤512 tokens</text>
+                    <line x1="292" y1="86" x2="330" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#hydra-arrow)"/>
 
-                    <line x1="348" y1="86" x2="404" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#arr-blue)"/>
+                    <rect x="340" y="16" width="300" height="140" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+                    <text x="490" y="43" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">2 · ONLINE SCORER</text>
+                    <text x="490" y="78" text-anchor="middle" fill="#0F172A" font-size="19" font-weight="800">CAPI 前置 · ModernBERT</text>
+                    <text x="490" y="107" text-anchor="middle" fill="#334155" font-size="14">base · 149M · ONNX INT8</text>
+                    <text x="490" y="132" text-anchor="middle" fill="#64748B" font-size="13">[CLS] → K=4 独立 Sigmoid 头</text>
+                    <line x1="646" y1="86" x2="684" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#hydra-arrow)"/>
 
-                    <!-- Box 2: 4D Task Classifier -->
-                    <rect x="412" y="18" width="380" height="136" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-                    <text x="602" y="46" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">2. 4D TASK SIGNAL CLASSIFIER</text>
-                    <rect x="434" y="60" width="160" height="34" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
-                    <text x="514" y="82" text-anchor="middle" fill="#1D4ED8" font-size="14" font-weight="700">深度推理 Reasoning</text>
-                    <rect x="608" y="60" width="160" height="34" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
-                    <text x="688" y="82" text-anchor="middle" fill="#1D4ED8" font-size="14" font-weight="700">代码生成 CodeGen</text>
-                    <rect x="434" y="104" width="160" height="34" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
-                    <text x="514" y="126" text-anchor="middle" fill="#1D4ED8" font-size="14" font-weight="700">故障排查 Debugging</text>
-                    <rect x="608" y="104" width="160" height="34" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
-                    <text x="688" y="126" text-anchor="middle" fill="#1D4ED8" font-size="14" font-weight="700">工具调用 Tool Use</text>
+                    <rect x="694" y="16" width="300" height="140" rx="14" fill="#ECFDF5" stroke="#047857" stroke-width="2"/>
+                    <text x="844" y="43" text-anchor="middle" fill="#047857" font-family="Fira Code, monospace" font-size="13" font-weight="700">3 · REQUIREMENTS r̂k</text>
+                    <text x="844" y="78" text-anchor="middle" fill="#0F172A" font-size="17" font-weight="800">Reasoning · CodeGen</text>
+                    <text x="844" y="106" text-anchor="middle" fill="#334155" font-size="16">Debugging · Tool Use</text>
+                    <text x="844" y="132" text-anchor="middle" fill="#64748B" font-size="13">每维 [0,1] · 跨语言 · 16 种阈值组合</text>
+                    <line x1="1000" y1="86" x2="1038" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#hydra-arrow)"/>
 
-                    <line x1="798" y1="86" x2="854" y2="86" stroke="#047857" stroke-width="3" marker-end="url(#arr-green)"/>
+                    <rect x="1048" y="16" width="300" height="140" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
+                    <text x="1198" y="43" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="13" font-weight="700">4 · SHORTFALL MATCH</text>
+                    <text x="1198" y="78" text-anchor="middle" fill="#0F172A" font-size="17" font-weight="800">YAML 能力表 cₘ,ₖ</text>
+                    <text x="1198" y="106" text-anchor="middle" fill="#334155" font-size="15">短板阈值 τ · Health Veto</text>
+                    <text x="1198" y="132" text-anchor="middle" fill="#64748B" font-size="13">合格候选中选最低成本模型</text>
+                    <line x1="1354" y1="86" x2="1392" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#hydra-arrow)"/>
 
-                    <!-- Box 3: KV Cache Affinity & Scoped Context -->
-                    <rect x="862" y="18" width="440" height="136" rx="14" fill="#ECFDF5" stroke="#047857" stroke-width="2"/>
-                    <text x="1082" y="46" text-anchor="middle" fill="#047857" font-family="Fira Code, monospace" font-size="13" font-weight="700">3. KV CACHE AFFINITY ENGINE</text>
-                    <rect x="884" y="58" width="396" height="38" rx="8" fill="#047857"/>
-                    <text x="1082" y="82" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="700">主模型长上下文粘性：持续复用 KV Prompt Cache</text>
-                    <rect x="884" y="104" width="396" height="36" rx="8" fill="#FFFFFF" stroke="#6EE7B7"/>
-                    <text x="1082" y="127" text-anchor="middle" fill="#047857" font-size="14" font-weight="700">Judge / Critic 仅接收「当前步最小切片」省 Token</text>
-
-                    <line x1="1308" y1="86" x2="1364" y2="86" stroke="#B45309" stroke-width="3" marker-end="url(#arr-amber)"/>
-
-                    <!-- Box 4: Workspace Side-Effect Guardrail -->
-                    <rect x="1372" y="18" width="296" height="136" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
-                    <text x="1520" y="48" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="13" font-weight="700">4. WORKSPACE GUARDRAIL</text>
-                    <text x="1520" y="82" text-anchor="middle" fill="#0F172A" font-size="18" font-weight="800">废弃草稿不自动回滚磁盘</text>
-                    <text x="1520" y="112" text-anchor="middle" fill="#B45309" font-size="14" font-weight="700">提交前务必执行 git diff 核验</text>
-                    <text x="1520" y="136" text-anchor="middle" fill="#64748B" font-family="Fira Code, monospace" font-size="12">独立于 /subagents 子智能体调度</text>
+                    <rect x="1402" y="16" width="270" height="140" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+                    <text x="1537" y="43" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">5 · CACHE STICKINESS</text>
+                    <text x="1537" y="78" text-anchor="middle" fill="#0F172A" font-size="17" font-weight="800">自然边界才重路由</text>
+                    <text x="1537" y="106" text-anchor="middle" fill="#334155" font-size="14">首轮 · /compact · 自动摘要</text>
+                    <text x="1537" y="132" text-anchor="middle" fill="#64748B" font-size="13">其他轮次固定主模型</text>
                 </svg>
             </div>
 
@@ -1455,55 +1450,137 @@ body.editing-mode .motion-ready .motion-diagram {
                 <div class="cap-card">
                     <div>
                         <div class="cap-card-head">
-                            <span class="cap-num">STAGE 01 · SIGNAL GATE</span>
-                            <span class="cap-chip">逐轮毫秒级路由</span>
+                            <span class="cap-num">MODEL · ONLINE INFERENCE</span>
+                            <span class="cap-chip">ModernBERT-base</span>
                         </div>
-                        <h3 class="cap-name">策略过滤 + 四维能力信号</h3>
-                        <div class="cap-highlight">推理 · 代码生成 · 排障 · 工具调用</div>
-                        <p class="cap-detail">先剔除套餐/企业策略禁用模型并检测实时端点健康度，再按当前 Prompt 的四维信号动态选择执行状态机。</p>
+                        <h3 class="cap-name">CAPI 前置打分，四个需求独立预测</h3>
+                        <div class="cap-highlight">149M · ONNX 动态 INT8 · K=4 Sigmoid</div>
+                        <p class="cap-detail">论文报告生产 CPU 推理中位数 86ms。另有部署记录给出 55ms P50 / 120ms P99；两者是不同测量口径，勿混为同一论文指标。</p>
                     </div>
                 </div>
 
                 <div class="cap-card emerald-top">
                     <div>
                         <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">STAGE 02 · KV AFFINITY</span>
-                            <span class="cap-chip">核心 Token 成本优化</span>
+                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">CAPABILITY · SHORTFALL</span>
+                            <span class="cap-chip">能力表与路由边界</span>
                         </div>
-                        <h3 class="cap-name">主会话粘性 + 辅助模型切片</h3>
-                        <div class="cap-highlight">仅在自然缓存边界或复杂度跃迁时切主模型</div>
-                        <p class="cap-detail">主对话尽量固定在同一模型以持续命中 KV Cache；Judge 与 Critic 绝不拉取完整历史，只接收当前步最小上下文切片。</p>
+                        <h3 class="cap-name">逐维短板不由其他维度优势抵消</h3>
+                        <div class="cap-highlight">sₘ = Σ w̃ₖ max(0, r̂ₖ − cₘ,ₖ) ≤ τ</div>
+                        <p class="cap-detail">模型能力锚定公开基准后静态写入 YAML；新增或下线模型只改配置。CAPI 健康度一票否决后，在达标模型中选成本最低者。</p>
                     </div>
                 </div>
 
                 <div class="cap-card amber-top">
                     <div>
                         <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">STAGE 03 · GUARDRAILS</span>
-                            <span class="cap-chip">研发必知边界</span>
+                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">SESSION · CACHE AFFINITY</span>
+                            <span class="cap-chip">减少缓存失效</span>
                         </div>
-                        <h3 class="cap-name">废弃草稿不自动回滚本地文件</h3>
-                        <div class="cap-highlight">提交前必查 git diff · 悬停可看调用模型栈</div>
-                        <p class="cap-detail">若 Cascade/Critique 初稿已写文件后被判废弃，磁盘改动不会自动撤销；UI 显示候选池最小保守窗口。</p>
+                        <h3 class="cap-name">三类自然缓存边界触发重路由</h3>
+                        <div class="cap-highlight">首轮 · 用户 /compact · 后台自动摘要</div>
+                        <p class="cap-detail">其余轮次保持主模型，避免不必要的 Prompt Cache 失效。90% 折扣为所给部署说明中的口径；官方文档仅确认按自然缓存边界与系统健康度路由。</p>
                     </div>
                 </div>
             </div>
 
-            <footer class="scenario-ribbon reveal d3">
-                <span class="ribbon-badge">Code Review 复用</span>
-                <div class="ribbon-flow">
-                    <span class="flow-step">Lite 档 → Single (~$0.25/次)</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step primary">Balanced 默认档 → Cascade/Critique (~$1.50/次)</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">Max 档 → 多模型 Critique (~$10/次)</span>
+            <footer class="evaluation-sources">
+                <span>来源口径</span>
+                <a href="https://arxiv.org/abs/2605.17106v2" target="_blank" rel="noopener noreferrer">HyDRA · arXiv:2605.17106v2</a>
+                <a href="https://docs.github.com/copilot/concepts/models/copilot-fusion" target="_blank" rel="noopener noreferrer">Copilot Fusion · 官方文档</a>
+                <span>部署测量、7-Flag 与精确缓存边界为补充说明</span>
+            </footer>
+        </section>
+
+        <!-- ===========================================
+             SLIDE 05: FEATURE 01 — ROUTER TRAINING & JUDGES
+             =========================================== -->
+        <section class="slide" data-slide="5" id="fusion-training" data-edit-scope="fusion-training">
+            <header class="exec-topbar">
+                <div class="exec-breadcrumb">
+                    <span class="exec-dot"></span>
+                    <span>FEATURE 01 DEEP DIVE II · ROUTER TRAINING &amp; JUDGES</span>
                 </div>
-                <div class="ribbon-boundary">计费限时优惠：<strong>2026-11-30 前享 7 折</strong></div>
+                <div class="exec-meta-right">
+                    <span class="maturity-pill cobalt">OFFLINE DATA · REPLAY · POLICY SEARCH</span>
+                    <span class="page-num">05 / 18</span>
+                </div>
+            </header>
+
+            <div class="feature-hero reveal d1">
+                <div class="feature-title-group">
+                    <div class="feature-index-tag">FROM HUMAN-LIKE TASKS TO A VALIDATED ROUTING POLICY</div>
+                    <h2 class="feature-title"><span class="accent">路由策略如何训练？</span>离线打标、束搜索与三类 Judge</h2>
+                    <p class="feature-tagline">把真实工作负载转成可比较标签，再在可重放基线上寻优；未公开的样本数、Judge 型号与训练时间按补充说明标注。</p>
+                </div>
+            </div>
+
+            <div class="arch-diagram-box benchmark-diagram reveal d1">
+                <svg viewBox="0 0 1680 190" role="img" aria-labelledby="fusion-training-title fusion-training-desc">
+                    <title id="fusion-training-title">Copilot Fusion 路由策略训练流程</title>
+                    <desc id="fusion-training-desc">脱敏任务由不同模型并行解决并经双盲评审形成标签，在不可变提交的多轮会话基准中回放，再通过束搜索选择路由策略。</desc>
+                    <defs><marker id="training-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 1L9 5L0 9Z" fill="#1D4ED8"/></marker></defs>
+                    <rect x="8" y="14" width="500" height="160" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+                    <text x="34" y="44" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="15" font-weight="700">STAGE 01 · LABEL THE MARGINAL VALUE</text>
+                    <text x="34" y="82" fill="#0F172A" font-size="22" font-weight="800">双模型作答 → 交换顺序双评</text>
+                    <text x="34" y="115" fill="#334155" font-size="18">50,159 脱敏问题 · cheap vs. strong</text>
+                    <text x="34" y="146" fill="#64748B" font-size="17">Judge 评分差 → 四维增益标签 rₖ</text>
+
+                    <line x1="518" y1="94" x2="568" y2="94" stroke="#1D4ED8" stroke-width="3" marker-end="url(#training-arrow)"/>
+
+                    <rect x="580" y="14" width="500" height="160" rx="14" fill="#ECFDF5" stroke="#047857" stroke-width="2"/>
+                    <text x="606" y="44" fill="#047857" font-family="Fira Code, monospace" font-size="15" font-weight="700">STAGE 02 · REPLAY &amp; POLICY SEARCH</text>
+                    <text x="606" y="82" fill="#0F172A" font-size="22" font-weight="800">不可变 Commit · 可重复飞行模拟</text>
+                    <text x="606" y="115" fill="#334155" font-size="18">CheckpointBench · TerminalBench · DeepSWE</text>
+                    <text x="606" y="146" fill="#64748B" font-size="17">Beam Search → 冻结基线上比质量 / 成本 / 故障</text>
+
+                    <line x1="1090" y1="94" x2="1140" y2="94" stroke="#1D4ED8" stroke-width="3" marker-end="url(#training-arrow)"/>
+
+                    <rect x="1152" y="14" width="520" height="160" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
+                    <text x="1178" y="44" fill="#B45309" font-family="Fira Code, monospace" font-size="15" font-weight="700">STAGE 03 · THREE DISTINCT JUDGE ROLES</text>
+                    <text x="1178" y="82" fill="#0F172A" font-size="21" font-weight="800">离线标注 · 在线运行时 · 第三方评测</text>
+                    <text x="1178" y="115" fill="#334155" font-size="18">标签监督 ≠ Cascade/Critique Judge ≠ AA 审阅</text>
+                    <text x="1178" y="146" fill="#64748B" font-size="17">Judge 按任务 / 评测流程独立指定</text>
+                </svg>
+            </div>
+
+            <div class="capability-grid-3 methodology-cards reveal d2">
+                <div class="cap-card">
+                    <div>
+                        <div class="cap-card-head"><span class="cap-num">STAGE 01 · SUPERVISION</span><span class="cap-chip">训练路由器</span></div>
+                        <h3 class="cap-name">标注“强模型多带来什么”</h3>
+                        <div class="cap-highlight">rₖ = max(0, s̄strongₖ − s̄cheapₖ) / 5</div>
+                        <p class="cap-detail">工程说明：50,159 条脱敏提问由 gpt-5.4-mini 与 gpt-5.3-codex 并行作答；gpt-5.2-chat 以 JSON-mode 交换 A/B 顺序评 2 次、各 1–5 分，取四维增益训练 ModernBERT。报告的单张 A100 微调时间为 42 分钟。</p>
+                    </div>
+                </div>
+                <div class="cap-card emerald-top">
+                    <div>
+                        <div class="cap-card-head"><span class="cap-num">STAGE 02 · CHECKPOINTBENCH</span><span class="cap-chip">离线策略寻优</span></div>
+                        <h3 class="cap-name">重放真实会话，束搜索候选路由</h3>
+                        <div class="cap-highlight">质量 −0.1 个百分点 · 估算成本 −65% vs Opus 5</div>
+                        <p class="cap-detail">会话锚定公开仓库不可变 Git Commit，固定任务输入与评测条件以便重复验证。联合 TerminalBench 2.1、DeepSWE 与 CheckpointBench；Beam Search 每轮保留 Top-K 策略，在冻结基线比较验证质量、全链路成本及失败模式。CheckpointBench 对照值来自 GitHub 工程博客。</p>
+                    </div>
+                </div>
+                <div class="cap-card amber-top">
+                    <div>
+                        <div class="cap-card-head"><span class="cap-num">STAGE 03 · JUDGE TAXONOMY</span><span class="cap-chip">三类不同职责</span></div>
+                        <h3 class="cap-name">不要把 Judge 当成一个固定模型</h3>
+                        <div class="cap-highlight">训练监督 · 在线裁判 / 评论员 · 独立评测</div>
+                        <p class="cap-detail">① 离线标注：gpt-5.2-chat 对双模型回答做成对评审。② 在线 Cascade/Critique：从启用模型池动态指定；工程说明列举 Opus 5.5 / Sonnet 5.5、GPT-6 Astra / GPT-6.1 Sol / GPT-6 Luna，初稿 medium、评审 high，Critique 跨家族。③ AA v2.0：说明列举 GPT-6 Luna (xhigh) 多数审阅 SWE-Atlas 1,306 条细则、Claude Sonnet 5 审计 TerminalBench Harbor 防作弊。</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="evaluation-sources">
+                <span>来源与证据边界</span>
+                <a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/" target="_blank" rel="noopener noreferrer">GitHub · Project HydraFusion</a>
+                <a href="https://arxiv.org/abs/2605.17106v2" target="_blank" rel="noopener noreferrer">HyDRA · arXiv v2</a>
+                <span>精确样本数 / Judge 型号 / A100 时长来自补充工程与评测说明，未见于公开论文或博客</span>
             </footer>
         </section>
 
         <!-- Fusion Max results: AA v2.0, not an all-effort guarantee. -->
-        <section class="slide" data-slide="5" id="fusion-results" data-edit-scope="fusion-results">
+        <section class="slide" data-slide="6" id="fusion-results" data-edit-scope="fusion-results">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1511,7 +1588,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">AA CODING AGENT INDEX v2.0</span>
-                    <span class="page-num">05 / 17</span>
+                    <span class="page-num">06 / 18</span>
                 </div>
             </header>
 
@@ -1568,7 +1645,7 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <section class="slide" data-slide="6" id="fusion-methodology" data-edit-scope="fusion-methodology">
+        <section class="slide" data-slide="7" id="fusion-methodology" data-edit-scope="fusion-methodology">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1576,7 +1653,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">3 BENCHMARKS · EQUAL WEIGHT</span>
-                    <span class="page-num">06 / 17</span>
+                    <span class="page-num">07 / 18</span>
                 </div>
             </header>
             <div class="feature-hero reveal d1">
@@ -1652,9 +1729,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 07: FEATURE 02 — LOCAL MODEL ROUTING
+             SLIDE 08: FEATURE 02 — LOCAL MODEL ROUTING
              =========================================== -->
-        <section class="slide" data-slide="7">
+        <section class="slide" data-slide="8">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1662,7 +1739,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">EXPERIMENTAL PREVIEW</span>
-                    <span class="page-num">07 / 17</span>
+                    <span class="page-num">08 / 18</span>
                 </div>
             </header>
 
@@ -1763,9 +1840,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 08: FEATURE 03 — VS CODE AGENT HOST & AHP
+             SLIDE 09: FEATURE 03 — VS CODE AGENT HOST & AHP
              =========================================== -->
-        <section class="slide" data-slide="8">
+        <section class="slide" data-slide="9">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1773,7 +1850,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">HOST GA · COMPARE PREVIEW</span>
-                    <span class="page-num">08 / 17</span>
+                    <span class="page-num">09 / 18</span>
                 </div>
             </header>
 
@@ -1886,9 +1963,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 09: FEATURE 04 — COPILOT PROJECTS
+             SLIDE 10: FEATURE 04 — COPILOT PROJECTS
              =========================================== -->
-        <section class="slide" data-slide="9">
+        <section class="slide" data-slide="10">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1896,7 +1973,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">09 / 17</span>
+                    <span class="page-num">10 / 18</span>
                 </div>
             </header>
 
@@ -2004,9 +2081,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 10: FEATURE 05 — UNIFIED CLOUD & SANDBOXES
+             SLIDE 11: FEATURE 05 — UNIFIED CLOUD & SANDBOXES
              =========================================== -->
-        <section class="slide" data-slide="10">
+        <section class="slide" data-slide="11">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2014,7 +2091,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">GENERALLY AVAILABLE</span>
-                    <span class="page-num">10 / 17</span>
+                    <span class="page-num">11 / 18</span>
                 </div>
             </header>
 
@@ -2133,9 +2210,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 11: FEATURE 06 — GITHUB INTELLIGENCE
+             SLIDE 12: FEATURE 06 — GITHUB INTELLIGENCE
              =========================================== -->
-        <section class="slide" data-slide="11">
+        <section class="slide" data-slide="12">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2143,7 +2220,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">MEMORY GA · DREAMING PREVIEW</span>
-                    <span class="page-num">11 / 17</span>
+                    <span class="page-num">12 / 18</span>
                 </div>
             </header>
 
@@ -2245,9 +2322,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 12: FEATURE 06 DEEP DIVE — GITHUB INTELLIGENCE INTERNALS
+             SLIDE 13: FEATURE 06 DEEP DIVE — GITHUB INTELLIGENCE INTERNALS
              =========================================== -->
-        <section class="slide" data-slide="12">
+        <section class="slide" data-slide="13">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2255,7 +2332,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ARCHITECTURE INTERNALS</span>
-                    <span class="page-num">12 / 17</span>
+                    <span class="page-num">13 / 18</span>
                 </div>
             </header>
 
@@ -2362,9 +2439,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 13: FEATURE 06 DEEP DIVE II — CROSS-REPO SYNTAX TREE & BLACKBIRD
+             SLIDE 14: FEATURE 06 DEEP DIVE II — CROSS-REPO SYNTAX TREE & BLACKBIRD
              =========================================== -->
-        <section class="slide" data-slide="13">
+        <section class="slide" data-slide="14">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2372,7 +2449,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ZERO-BUILD AST ENGINE</span>
-                    <span class="page-num">13 / 17</span>
+                    <span class="page-num">14 / 18</span>
                 </div>
             </header>
 
@@ -2484,9 +2561,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 14: FEATURE 07 — COPILOT CONNECTORS
+             SLIDE 15: FEATURE 07 — COPILOT CONNECTORS
              =========================================== -->
-        <section class="slide" data-slide="14">
+        <section class="slide" data-slide="15">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2494,7 +2571,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">14 / 17</span>
+                    <span class="page-num">15 / 18</span>
                 </div>
             </header>
 
@@ -2594,9 +2671,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 15: FEATURE 08 — COMPUTER USE
+             SLIDE 16: FEATURE 08 — COMPUTER USE
              =========================================== -->
-        <section class="slide" data-slide="15">
+        <section class="slide" data-slide="16">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2604,7 +2681,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">APP PREVIEW · VSCODE EXP</span>
-                    <span class="page-num">15 / 17</span>
+                    <span class="page-num">16 / 18</span>
                 </div>
             </header>
 
@@ -2704,9 +2781,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 16: FEATURE 09 — IMAGE GENERATION & EDITING
+             SLIDE 17: FEATURE 09 — IMAGE GENERATION & EDITING
              =========================================== -->
-        <section class="slide" data-slide="16">
+        <section class="slide" data-slide="17">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2714,7 +2791,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">16 / 17</span>
+                    <span class="page-num">17 / 18</span>
                 </div>
             </header>
 
@@ -2813,9 +2890,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 17: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
+             SLIDE 18: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
              =========================================== -->
-        <section class="slide" data-slide="17">
+        <section class="slide" data-slide="18">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2823,7 +2900,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ACTION PLAYBOOK</span>
-                    <span class="page-num">17 / 17</span>
+                    <span class="page-num">18 / 18</span>
                 </div>
             </header>
 
@@ -2924,7 +3001,7 @@ body.editing-mode .motion-ready .motion-diagram {
 <nav class="deck-controls" aria-label="Slide Navigation">
     <button class="nav-btn" id="prevBtn" title="上一页 (←)">上一页</button>
     <div class="nav-dots" id="navDots"></div>
-    <span id="slideCounter">01 / 17</span>
+    <span id="slideCounter">01 / 18</span>
     <button class="nav-btn speaker-toggle" id="speakerToggle" aria-pressed="true" title="切换演讲精简视图 / 完整讲义视图 (P)">演讲视图 [P]</button>
     <button class="nav-btn fullscreen-toggle" id="fullscreenToggle" aria-pressed="false" title="切换全屏演示 (快捷键 F 或双击背景)">全屏 [F]</button>
     <button class="nav-btn" id="nextBtn" title="下一页 (→)">下一页</button>
@@ -3114,7 +3191,7 @@ class InlineDeckEditor {
     constructor() {
         this.isActive = false;
         this.editables = document.querySelectorAll('.cover-title, .cover-subtitle, .feature-title, .feature-tagline, .cap-name, .cap-highlight, .cap-detail, .matrix-name, .matrix-value, .flow-step, .hero-kpi-value');
-        // Keep legacy numeric cache keys stable when inserting evaluation slides.
+        // Scoped slides can reserve legacy numeric slots when their content is redesigned.
         let legacyIndex = 0;
         const scopedIndices = {};
         this.editKeys = Array.from(this.editables, el => {
@@ -3122,6 +3199,8 @@ class InlineDeckEditor {
             if (!scope) return String(legacyIndex++);
             const index = scopedIndices[scope] || 0;
             scopedIndices[scope] = index + 1;
+            // Preserve downstream numeric keys even though this slide now has scoped keys.
+            if (index === 0) legacyIndex += Number(el.closest('.slide').dataset.editReserve || 0);
             return `${scope}:${index}`;
         });
         this.storageKey = 'gh-universe-26-executive-briefing-v1';
@@ -3147,7 +3226,14 @@ class InlineDeckEditor {
     }
 
     saveToLocal() {
-        const data = {};
+        const data = Object.create(null);
+        try {
+            const raw = localStorage.getItem(this.storageKey);
+            const saved = raw ? JSON.parse(raw) : null;
+            if (saved && typeof saved === 'object' && !Array.isArray(saved)) {
+                Object.assign(data, saved);
+            }
+        } catch (_) {}
         this.editables.forEach((el, idx) => {
             data[this.editKeys[idx]] = el.innerHTML;
         });
