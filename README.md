@@ -5,7 +5,7 @@
 - **在线预览地址**：[https://nickhou1983.github.io/github-universe-update/](https://nickhou1983.github.io/github-universe-update/)
 - **直达单文件版本**：[github-universe-26-copilot-agent-slides.html](https://nickhou1983.github.io/github-universe-update/github-universe-26-copilot-agent-slides.html)
 
-## 内容概览（共 18 页）
+## 内容概览（共 19 页）
 
 1. **封面**：GitHub Universe '26 — Copilot 与 Agent 开发九大新功能深度解析
 2. **全景总览**：三大演进支柱（模型调度与端云协同、智能体运行底座、记忆演化与工具连接）与 9 项核心能力矩阵
@@ -17,14 +17,24 @@
 8. **Feature 02 · 本地模型智能路由**：Fusion Standard 下自动分流本机 GPU/NPU（MAI Code 1.1 Flash / Qwen3.8）与云端模型
 9. **Feature 03 · VS Code 1.144 Agent Host & AHP**：独立后台守护进程、多模型并行跑分融合与开放协议 SDK
 10. **Feature 04 · Copilot Projects**：面向长期目标的顶层协调 Agent、多仓库独立 Worktree 子会话、Library 与定时巡检
-11. **Feature 05 · Cloud Sandboxes**：六大入口实时同步同一云端会话、空闲磁盘快照恢复与共享美元算力池
-12. **Feature 06 · GitHub Intelligence**：跨端双层记忆（Memory GA）、后台反思自演进（Dreaming）与跨仓语义/符号检索
-13. **Feature 06 Deep Dive I · Intelligence 底层实现原理**：源码行号 Citation 校验、90 天滑动 TTL 投票与三路离线反思管线
-14. **Feature 06 Deep Dive II · 跨仓语法树定位底层架构**：Tree-sitter 免编译解析、Stack Graphs 动态符号栈匹配与 Blackbird 稀疏 N-grams 引擎
-15. **Feature 07 · Copilot Connectors**：一次 OAuth 授权全端复用 26 项官方托管 MCP 服务
-16. **Feature 08 · Computer Use**：后台优先的本机桌面 GUI 控件树读取与受控交互验收
-17. **Feature 09 · 对话内图像生成与编辑**：调用 GPT Image 2.5 Flare 在编码心流中直接生成、微调并写入代码仓
-18. **落地路线图**：研发团队三阶段（第 1 周 → 第 1 月 → 季度）落地行动指南
+11. **Feature 05 · Cloud Sandboxes**：七大入口实时同步同一云端会话、空闲磁盘快照恢复与共享美元算力池
+12. **Feature 05 Deep Dive · [三大执行环境横向对比](https://nickhou1983.github.io/github-universe-update/#sandbox-comparison)**：Cloud Sandboxes、GitHub Actions 云端 Runner 与 Local Sandboxing 的隔离机制、接续范围、持久化、安全定制及计费
+13. **Feature 06 · GitHub Intelligence**：跨端双层记忆（Memory GA）、后台反思自演进（Dreaming）与跨仓语义/符号检索
+14. **Feature 06 Deep Dive I · Intelligence 底层实现原理**：源码行号 Citation 校验、90 天滑动 TTL 投票与三路离线反思管线
+15. **Feature 06 Deep Dive II · 跨仓语法树定位底层架构**：Tree-sitter 免编译解析、Stack Graphs 动态符号栈匹配与 Blackbird 稀疏 N-grams 引擎
+16. **Feature 07 · Copilot Connectors**：一次 OAuth 授权全端复用 26 项官方托管 MCP 服务
+17. **Feature 08 · Computer Use**：后台优先的本机桌面 GUI 控件树读取与受控交互验收
+18. **Feature 09 · 对话内图像生成与编辑**：调用 GPT Image 2.5 Flare 在编码心流中直接生成、微调并写入代码仓
+19. **落地路线图**：研发团队三阶段（第 1 周 → 第 1 月 → 季度）落地行动指南
+
+## 执行环境对比来源
+
+第 12 页按运行位置、入口与仓库范围、生命周期、安全定制和计费对比三类执行环境。Cloud Sandboxes 与本地沙箱能力以 GitHub 官方说明为准；共享额度与费率见官方计费文档。Actions 环境使用 Actions Job／Runner 生命周期，不套用 Cloud Sandbox 的快照恢复特性。
+
+- [About Cloud Sandboxes](https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes)
+- [About Cloud and Local Sandboxes](https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/about-cloud-and-local-sandboxes)
+- [Billing for cloud and local sandboxes](https://docs.github.com/en/billing/concepts/product-billing/cloud-and-local-sandboxes)
+- [Work from anywhere with a new, connected Copilot cloud experience · GitHub Changelog（2026-10-28）](https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/)
 
 ## Fusion 评测来源与适用范围
 

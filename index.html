@@ -554,6 +554,7 @@ svg {
     letter-spacing: -0.03em;
     color: var(--ink-primary);
     margin-bottom: 24px;
+    padding-bottom: 2px;
 }
 
 .cover-title .cobalt {
@@ -886,6 +887,141 @@ body:not(.speaker-mode) .cap-detail {
     gap: 24px;
 }
 
+/* === CLOUD, ACTIONS, AND LOCAL SANDBOX COMPARISON === */
+.sandbox-matrix-wrap {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: stretch;
+    margin: 8px 0 12px;
+}
+
+.sandbox-matrix {
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--surface-card);
+    border: 1.5px solid var(--border-strong);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.sandbox-matrix th,
+.sandbox-matrix td {
+    border-right: 1px solid var(--border-hairline);
+    border-bottom: 1px solid var(--border-hairline);
+    vertical-align: middle;
+}
+
+.sandbox-matrix tr:last-child th,
+.sandbox-matrix tr:last-child td {
+    border-bottom: 0;
+}
+
+.sandbox-matrix th:last-child,
+.sandbox-matrix td:last-child {
+    border-right: 0;
+}
+
+.sandbox-matrix thead th {
+    height: 52px;
+    padding: 8px 16px;
+    background: var(--surface-dark);
+    color: #FFFFFF;
+    text-align: left;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.sandbox-matrix thead th:first-child {
+    width: 245px;
+    background: #E2E8F0;
+    color: var(--ink-secondary);
+    font-size: 15px;
+    letter-spacing: 0.06em;
+}
+
+.sandbox-matrix thead th:nth-child(2) {
+    color: #93C5FD;
+}
+
+.sandbox-matrix thead th:nth-child(3) {
+    color: #FCD34D;
+}
+
+.sandbox-matrix thead th:nth-child(4) {
+    color: #6EE7B7;
+}
+
+.sandbox-matrix tbody th {
+    width: 245px;
+    padding: 9px 14px;
+    background: var(--surface-subtle);
+    color: var(--ink-primary);
+    text-align: left;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.28;
+}
+
+.sandbox-matrix tbody td {
+    padding: 8px 14px;
+    color: var(--ink-secondary);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.32;
+}
+
+.sandbox-matrix tbody td strong {
+    color: var(--ink-primary);
+    font-weight: 800;
+}
+
+.sandbox-matrix tbody td:nth-child(2) strong {
+    color: var(--cobalt);
+}
+
+.sandbox-matrix tbody td:nth-child(3) strong {
+    color: var(--amber);
+}
+
+.sandbox-matrix tbody td:nth-child(4) strong {
+    color: var(--emerald);
+}
+
+.sandbox-choice {
+    flex-shrink: 0;
+    margin-bottom: 64px;
+    padding: 13px 20px;
+    border: 1.5px solid var(--cobalt-border);
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: var(--ink-secondary);
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.sandbox-choice strong {
+    color: var(--ink-primary);
+}
+
+.sandbox-sources {
+    display: flex;
+    gap: 20px;
+    margin-top: 8px;
+    color: var(--ink-muted);
+    font-size: 13px;
+}
+
+.sandbox-sources a {
+    color: var(--cobalt);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 /* === SPEAKER-PACED ENTRANCES (NO HIDDEN CONTENT WITHOUT JS) === */
 .reveal {
     opacity: 1;
@@ -1074,7 +1210,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">9 CORE CAPABILITIES</span>
-                    <span class="page-num">01 / 18</span>
+                    <span class="page-num">01 / 19</span>
                 </div>
             </header>
 
@@ -1146,7 +1282,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">4 GA · 4 PREVIEW · 1 EXP</span>
-                    <span class="page-num">02 / 18</span>
+                    <span class="page-num">02 / 19</span>
                 </div>
             </header>
 
@@ -1247,7 +1383,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">GENERALLY AVAILABLE</span>
-                    <span class="page-num">03 / 18</span>
+                    <span class="page-num">03 / 19</span>
                 </div>
             </header>
 
@@ -1390,7 +1526,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ARXIV:2605.17106v2</span>
-                    <span class="page-num">04 / 18</span>
+                    <span class="page-num">04 / 19</span>
                 </div>
             </header>
 
@@ -1503,7 +1639,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">OFFLINE DATA · REPLAY · POLICY SEARCH</span>
-                    <span class="page-num">05 / 18</span>
+                    <span class="page-num">05 / 19</span>
                 </div>
             </header>
 
@@ -1588,7 +1724,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">AA CODING AGENT INDEX v2.0</span>
-                    <span class="page-num">06 / 18</span>
+                    <span class="page-num">06 / 19</span>
                 </div>
             </header>
 
@@ -1653,7 +1789,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">3 BENCHMARKS · EQUAL WEIGHT</span>
-                    <span class="page-num">07 / 18</span>
+                    <span class="page-num">07 / 19</span>
                 </div>
             </header>
             <div class="feature-hero reveal d1">
@@ -1739,7 +1875,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">EXPERIMENTAL PREVIEW</span>
-                    <span class="page-num">08 / 18</span>
+                    <span class="page-num">08 / 19</span>
                 </div>
             </header>
 
@@ -1850,7 +1986,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">HOST GA · COMPARE PREVIEW</span>
-                    <span class="page-num">09 / 18</span>
+                    <span class="page-num">09 / 19</span>
                 </div>
             </header>
 
@@ -1973,7 +2109,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">10 / 18</span>
+                    <span class="page-num">10 / 19</span>
                 </div>
             </header>
 
@@ -2091,15 +2227,15 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">GENERALLY AVAILABLE</span>
-                    <span class="page-num">11 / 18</span>
+                    <span class="page-num">11 / 19</span>
                 </div>
             </header>
 
             <div class="feature-hero reveal d1">
                 <div class="feature-title-group">
                     <div class="feature-index-tag">CAPABILITY 05 // OMNICHANNEL SESSION &amp; SNAPSHOT SANDBOX</div>
-                    <h2 class="feature-title"><span class="accent">Cloud Sandboxes</span>：六端无缝接力与快照恢复沙箱</h2>
-                    <p class="feature-tagline">同一云端会话横跨 6 大客户端实时同步，告别 1 小时超时限制，并与 Actions 共享美元算力池。</p>
+                    <h2 class="feature-title"><span class="accent">Cloud Sandboxes</span>：七大入口无缝接力与快照恢复沙箱</h2>
+                    <p class="feature-tagline">同一云端会话横跨 7 大入口实时同步，告别 1 小时超时限制，并与 Actions 共享美元算力池。</p>
                 </div>
                 <div class="hero-kpi">
                     <div class="hero-kpi-label">RUNTIME LIFECYCLE</div>
@@ -2107,12 +2243,12 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
             </div>
 
-            <!-- SVG ARCHITECTURE DIAGRAM: 6 SURFACES + SNAPSHOT SANDBOX -->
+            <!-- SVG ARCHITECTURE DIAGRAM: 7 ENTRY POINTS + SNAPSHOT SANDBOX -->
             <div class="arch-diagram-box reveal d2">
                 <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
                     <!-- Left: 6 Surfaces Grid -->
                     <rect x="14" y="14" width="450" height="144" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-                    <text x="239" y="42" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">6 OMNICHANNEL SURFACES (实时双向同步)</text>
+                    <text x="239" y="42" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">7 ENTRY POINTS · SLACK / TEAMS 分列入口</text>
                     <rect x="30" y="54" width="132" height="40" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
                     <text x="96" y="79" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">GitHub Web</text>
                     <rect x="173" y="54" width="132" height="40" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
@@ -2162,11 +2298,11 @@ body.editing-mode .motion-ready .motion-diagram {
                 <div class="cap-card">
                     <div>
                         <div class="cap-card-head">
-                            <span class="cap-num">FEATURE 01 · 6 SURFACES</span>
+                            <span class="cap-num">FEATURE 01 · 7 ENTRY POINTS</span>
                             <span class="cap-chip">全端共享同一状态</span>
                         </div>
-                        <h3 class="cap-name">六大入口实时接力同一会话</h3>
-                        <div class="cap-highlight">Web · Mobile · App · CLI · VS Code · Slack</div>
+                        <h3 class="cap-name">七大入口实时接力同一会话</h3>
+                        <div class="cap-highlight">Web · Mobile · App · CLI · VS Code · Slack · Teams</div>
                         <p class="cap-detail">在手机端用语音+截图发起排查，回到工位直接在 VS Code 或 CLI 无缝打开同一会话审阅 Diff 并继续精修。</p>
                     </div>
                 </div>
@@ -2210,9 +2346,98 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 12: FEATURE 06 — GITHUB INTELLIGENCE
+             SLIDE 12: FEATURE 05 DEEP DIVE — EXECUTION ENVIRONMENT MATRIX
              =========================================== -->
-        <section class="slide" data-slide="12">
+        <section class="slide" data-slide="12" id="sandbox-comparison" data-edit-scope="sandbox-comparison">
+            <header class="exec-topbar">
+                <div class="exec-breadcrumb">
+                    <span class="exec-dot"></span>
+                    <span>FEATURE 05 DEEP DIVE · CLOUD SANDBOX vs. ACTIONS vs. LOCAL SANDBOX</span>
+                </div>
+                <div class="exec-meta-right">
+                    <span class="maturity-pill cobalt">ENVIRONMENT MATRIX &amp; METERING</span>
+                    <span class="page-num">12 / 19</span>
+                </div>
+            </header>
+
+            <div class="feature-hero reveal d1">
+                <div class="feature-title-group">
+                    <div class="feature-index-tag">CAPABILITY 05+ // EXECUTION ENVIRONMENT MATRIX &amp; METERING</div>
+                    <h2 class="feature-title"><span class="accent">三大执行环境横向对比</span>：Cloud Sandbox · Actions · Local Sandbox</h2>
+                    <p class="feature-tagline">客户端、会话与执行环境三层解耦；按跨端接力、多仓范围、内网 Runner 依赖与本机隔离需求精准选型（会话启动后环境锁定）。</p>
+                </div>
+                <div class="hero-kpi">
+                    <div class="hero-kpi-label">SESSION LIFECYCLE</div>
+                    <div class="hero-kpi-value">启动选择 · 会话锁定</div>
+                </div>
+            </div>
+
+            <div class="sandbox-matrix-wrap reveal d2">
+                <table class="sandbox-matrix" aria-label="Cloud Sandboxes、GitHub Actions 与 Local Sandboxing 对比">
+                    <thead>
+                        <tr>
+                            <th scope="col">六大选型维度</th>
+                            <th scope="col">CLOUD SANDBOXES · GitHub 托管</th>
+                            <th scope="col">GITHUB ACTIONS · 云端 Runner</th>
+                            <th scope="col">LOCAL SANDBOXING · 本机执行</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">运行位置与隔离机制</th>
+                            <td><strong>GitHub 托管隔离 Linux</strong>，与本机物理隔离，不占本机资源。</td>
+                            <td><strong>GitHub Actions Runner</strong>：托管标准／大型 Runner，或企业自托管 Runner。</td>
+                            <td><strong>本机系统级进程沙箱</strong>（Microsoft MXC）：macOS Seatbelt、Linux bubblewrap、Windows 11。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">启动方式与客户端入口</th>
+                            <td>Web／Mobile／App／VS Code 默认可用；CLI 用 <strong>copilot --cloud</strong>、Ctrl+E 切换或 <strong>/delegate（&amp;）</strong>委派。</td>
+                            <td>启动云端会话前，在环境选择器中<strong>手动切换为 Actions</strong>。</td>
+                            <td>CLI 执行 <strong>/sandbox enable</strong> 或 --sandbox；也可在 Copilot App 项目设置中启用。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">跨端接续与仓库范围</th>
+                            <td><strong>七大入口共享会话</strong>并可跨端接续；支持同一 Owner 下跨仓协同读写。</td>
+                            <td>运行于启动时指定仓库的 <strong>Actions Job／Runner</strong>；不具备 Cloud Sandbox 的跨端磁盘快照接续。</td>
+                            <td>运行于本机工作目录；通过 <strong>/environments</strong> 注册受管 AHP Host 后可供远程连入。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">运行时长与状态持久化</th>
+                            <td><strong>无一小时硬超时</strong>；空闲时冻结完整磁盘为 Snapshot，任意端发消息即可原地恢复；聊天长期保留。</td>
+                            <td>按 <strong>GitHub Actions Job／Runner</strong> 生命周期运行；不提供 Cloud Sandbox 的空闲磁盘快照与原地恢复。</td>
+                            <td><strong>无时长限制</strong>；直接使用本机受控工作区与 Git 分支。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">环境定制与安全治理</th>
+                            <td>支持个人 <strong>dotfiles</strong>；根目录 <strong>.copilot</strong> 可注入指令、Skills、Agents；支持 Connectors／MCP，并受防火墙白名单与 SSO 管控。</td>
+                            <td>支持 <strong>copilot-setup-steps.yml</strong>、云厂商 OIDC 登录、私有内网自托管 Runner、大型 Runner 与 Windows 编译环境。</td>
+                            <td>精细限制本机 Shell 读写目录与外网代理，并支持 Keychain 控制及环境变量掩码。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">计费模型与额度池<br><span style="font-size:13px;font-weight:600;color:var(--ink-muted)">2026 年 11 月起</span></th>
+                            <td><strong>Actions 共享美元计算池</strong>；运行按 vCPU 秒与 GiB 秒分别计量，费率分别为 $0.000024 与 $0.000003；停机仅收快照存储费 $0.005／GiB·月。</td>
+                            <td>消耗 <strong>Actions Runner 额度</strong>或美元制 Actions 共享计算池。</td>
+                            <td><strong>本机算力免费</strong>（包含在基础席位中）；仅消耗模型推理 AI Credits。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <footer class="sandbox-choice">
+                <strong>选型速记：</strong>跨端开发、多仓修改与并行验证首选 Cloud Sandbox；依赖 copilot-setup-steps.yml、内网自托管 Runner 或 Windows 环境选 Actions；本机执行需防越权选 Local Sandbox；自管宿主机且需跨端接力可用 <strong>copilot --environment-host（/environments）</strong> 注册自定义远程环境。
+                <div class="sandbox-sources">
+                    <a href="https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes" target="_blank" rel="noreferrer">About Cloud Sandboxes</a>
+                    <a href="https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/about-cloud-and-local-sandboxes" target="_blank" rel="noreferrer">About Cloud &amp; Local Sandboxes</a>
+                    <a href="https://docs.github.com/en/billing/concepts/product-billing/cloud-and-local-sandboxes" target="_blank" rel="noreferrer">Cloud &amp; Local Sandboxes Billing</a>
+                    <a href="https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/" target="_blank" rel="noreferrer">Universe '26 Cloud Experience Changelog · 2026-10-28</a>
+                </div>
+            </footer>
+        </section>
+
+        <!-- ===========================================
+             SLIDE 13: FEATURE 06 — GITHUB INTELLIGENCE
+             =========================================== -->
+        <section class="slide" data-slide="13">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2220,7 +2445,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">MEMORY GA · DREAMING PREVIEW</span>
-                    <span class="page-num">12 / 18</span>
+                    <span class="page-num">13 / 19</span>
                 </div>
             </header>
 
@@ -2322,9 +2547,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 13: FEATURE 06 DEEP DIVE — GITHUB INTELLIGENCE INTERNALS
+             SLIDE 14: FEATURE 06 DEEP DIVE — GITHUB INTELLIGENCE INTERNALS
              =========================================== -->
-        <section class="slide" data-slide="13">
+        <section class="slide" data-slide="14">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2332,7 +2557,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ARCHITECTURE INTERNALS</span>
-                    <span class="page-num">13 / 18</span>
+                    <span class="page-num">14 / 19</span>
                 </div>
             </header>
 
@@ -2439,9 +2664,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 14: FEATURE 06 DEEP DIVE II — CROSS-REPO SYNTAX TREE & BLACKBIRD
+             SLIDE 15: FEATURE 06 DEEP DIVE II — CROSS-REPO SYNTAX TREE & BLACKBIRD
              =========================================== -->
-        <section class="slide" data-slide="14">
+        <section class="slide" data-slide="15">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2449,7 +2674,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ZERO-BUILD AST ENGINE</span>
-                    <span class="page-num">14 / 18</span>
+                    <span class="page-num">15 / 19</span>
                 </div>
             </header>
 
@@ -2561,9 +2786,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 15: FEATURE 07 — COPILOT CONNECTORS
+             SLIDE 16: FEATURE 07 — COPILOT CONNECTORS
              =========================================== -->
-        <section class="slide" data-slide="15">
+        <section class="slide" data-slide="16">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2571,7 +2796,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">15 / 18</span>
+                    <span class="page-num">16 / 19</span>
                 </div>
             </header>
 
@@ -2671,9 +2896,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 16: FEATURE 08 — COMPUTER USE
+             SLIDE 17: FEATURE 08 — COMPUTER USE
              =========================================== -->
-        <section class="slide" data-slide="16">
+        <section class="slide" data-slide="17">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2681,7 +2906,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">APP PREVIEW · VSCODE EXP</span>
-                    <span class="page-num">16 / 18</span>
+                    <span class="page-num">17 / 19</span>
                 </div>
             </header>
 
@@ -2781,9 +3006,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 17: FEATURE 09 — IMAGE GENERATION & EDITING
+             SLIDE 18: FEATURE 09 — IMAGE GENERATION & EDITING
              =========================================== -->
-        <section class="slide" data-slide="17">
+        <section class="slide" data-slide="18">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2791,7 +3016,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">17 / 18</span>
+                    <span class="page-num">18 / 19</span>
                 </div>
             </header>
 
@@ -2890,9 +3115,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
         <!-- ===========================================
-             SLIDE 18: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
+             SLIDE 19: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
              =========================================== -->
-        <section class="slide" data-slide="18">
+        <section class="slide" data-slide="19">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2900,7 +3125,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ACTION PLAYBOOK</span>
-                    <span class="page-num">18 / 18</span>
+                    <span class="page-num">19 / 19</span>
                 </div>
             </header>
 
@@ -3001,7 +3226,7 @@ body.editing-mode .motion-ready .motion-diagram {
 <nav class="deck-controls" aria-label="Slide Navigation">
     <button class="nav-btn" id="prevBtn" title="上一页 (←)">上一页</button>
     <div class="nav-dots" id="navDots"></div>
-    <span id="slideCounter">01 / 18</span>
+    <span id="slideCounter">01 / 19</span>
     <button class="nav-btn speaker-toggle" id="speakerToggle" aria-pressed="true" title="切换演讲精简视图 / 完整讲义视图 (P)">演讲视图 [P]</button>
     <button class="nav-btn fullscreen-toggle" id="fullscreenToggle" aria-pressed="false" title="切换全屏演示 (快捷键 F 或双击背景)">全屏 [F]</button>
     <button class="nav-btn" id="nextBtn" title="下一页 (→)">下一页</button>
