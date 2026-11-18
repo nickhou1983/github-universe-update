@@ -469,6 +469,21 @@ svg {
     gap: 28px;
 }
 
+.scenario-ribbon.appendix-ast-ribbon {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 12px;
+}
+
+.appendix-ast-ribbon .ribbon-flow {
+    min-width: 0;
+    gap: 8px;
+}
+
+.appendix-ast-ribbon .flow-step {
+    padding: 8px 10px;
+    font-size: 15px;
+}
+
 .ribbon-badge {
     background: var(--cobalt);
     color: #FFFFFF;
@@ -656,9 +671,34 @@ svg {
 .matrix-grid-9 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, minmax(0, 1fr));
     gap: 20px;
     flex: 1;
+    min-height: 0;
+}
+
+.matrix-appendix-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: 42px;
+    margin-top: 8px;
+    border: 1px solid var(--border-strong);
+    border-radius: 10px;
+    background: var(--surface-subtle);
+    color: var(--ink-muted);
+    font: 700 14px 'Fira Code', monospace;
+    letter-spacing: 0.04em;
+}
+
+.matrix-appendix-links a {
+    color: var(--cobalt);
+    text-decoration: none;
+}
+
+.matrix-appendix-links a:hover {
+    text-decoration: underline;
 }
 
 .matrix-cell {
@@ -1322,7 +1362,7 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
+<!-- ===========================================
              SLIDE 02: 9 CAPABILITIES MASTER MATRIX
              =========================================== -->
         <section class="slide" data-slide="2">
@@ -1359,7 +1399,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 02 · P09</span>
+                        <span class="matrix-id">FEATURE 02 · P08</span>
                         <span class="matrix-badge preview">EXPERIMENTAL</span>
                     </div>
                     <div class="matrix-name">本地模型智能路由</div>
@@ -1367,7 +1407,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 03 · P10</span>
+                        <span class="matrix-id">FEATURE 03 · P09</span>
                         <span class="matrix-badge">GA + PREVIEW</span>
                     </div>
                     <div class="matrix-name">VS Code Agent Host</div>
@@ -1375,7 +1415,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 04 · P11</span>
+                        <span class="matrix-id">FEATURE 04 · P10</span>
                         <span class="matrix-badge preview">PUBLIC PREVIEW</span>
                     </div>
                     <div class="matrix-name">Copilot Projects</div>
@@ -1383,7 +1423,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 05 · P12</span>
+                        <span class="matrix-id">FEATURE 05 · P11</span>
                         <span class="matrix-badge">GA</span>
                     </div>
                     <div class="matrix-name">Cloud Sandboxes</div>
@@ -1391,15 +1431,16 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 06 · P14</span>
+                        <span class="matrix-id">FEATURE 06 · P13</span>
                         <span class="matrix-badge">MEMORY GA</span>
                     </div>
                     <div class="matrix-name">GitHub Intelligence</div>
                     <div class="matrix-value">跨端双层记忆 Memory + 后台反思提 PR 的 Dreaming + 跨仓检索</div>
+                    <a class="fusion-architecture-link" href="#appendix-intelligence-internals">底层实现 · 附录 B / 19 →</a>
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 07 · P17</span>
+                        <span class="matrix-id">FEATURE 07 · P14</span>
                         <span class="matrix-badge preview">PUBLIC PREVIEW</span>
                     </div>
                     <div class="matrix-name">Copilot Connectors</div>
@@ -1407,7 +1448,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 08 · P18</span>
+                        <span class="matrix-id">FEATURE 08 · P15</span>
                         <span class="matrix-badge preview">PREVIEW / EXP</span>
                     </div>
                     <div class="matrix-name">Computer Use</div>
@@ -1415,16 +1456,22 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 09 · P19</span>
+                        <span class="matrix-id">FEATURE 09 · P16</span>
                         <span class="matrix-badge preview">PUBLIC PREVIEW</span>
                     </div>
                     <div class="matrix-name">对话内图像生成与编辑</div>
                     <div class="matrix-value">调用 GPT Image 2.5 Flare 在编码流中直接生图、微调并写入目录</div>
                 </div>
             </div>
+            <footer class="matrix-appendix-links">
+                <span>APPENDIX</span>
+                <a href="#fusion-training">A · Fusion 路由训练 · 18</a>
+                <a href="#appendix-intelligence-internals">B · Intelligence 实现 · 19</a>
+                <a href="#appendix-ast-engine">C · AST 引擎 · 20</a>
+            </footer>
         </section>
 
-        <!-- ===========================================
+<!-- ===========================================
              SLIDE 03: FEATURE 01 — COPILOT FUSION (CORE CAPABILITIES)
              =========================================== -->
         <section class="slide" data-slide="3">
@@ -1567,7 +1614,7 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
+<!-- ===========================================
              FEATURE 01 — COPILOT FUSION ARCHITECTURE OVERVIEW
              =========================================== -->
         <section class="slide" data-slide="4" id="fusion-architecture" data-edit-scope="fusion-architecture">
@@ -1612,7 +1659,7 @@ body.editing-mode .motion-ready .motion-diagram {
             </div>
         </section>
 
-        <!-- ===========================================
+<!-- ===========================================
              SLIDE 05: FEATURE 01 — HYDRA ONLINE ROUTING
              =========================================== -->
         <section class="slide" data-slide="5" data-edit-scope="fusion-online" data-edit-reserve="15">
@@ -1725,95 +1772,8 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
-             SLIDE 06: FEATURE 01 — ROUTER TRAINING & JUDGES
-             =========================================== -->
-        <section class="slide" data-slide="6" id="fusion-training" data-edit-scope="fusion-training">
-            <header class="exec-topbar">
-                <div class="exec-breadcrumb">
-                    <span class="exec-dot"></span>
-                    <span>FEATURE 01 DEEP DIVE II · ROUTER TRAINING &amp; JUDGES</span>
-                </div>
-                <div class="exec-meta-right">
-                    <span class="maturity-pill cobalt">OFFLINE DATA · REPLAY · POLICY SEARCH</span>
-                    <span class="page-num">06 / 20</span>
-                </div>
-            </header>
-
-            <div class="feature-hero reveal d1">
-                <div class="feature-title-group">
-                    <div class="feature-index-tag">FROM HUMAN-LIKE TASKS TO A VALIDATED ROUTING POLICY</div>
-                    <h2 class="feature-title"><span class="accent">路由策略如何训练？</span>离线打标、束搜索与三类 Judge</h2>
-                    <p class="feature-tagline">把真实工作负载转成可比较标签，再在可重放基线上寻优；未公开的样本数、Judge 型号与训练时间按补充说明标注。</p>
-                </div>
-            </div>
-
-            <div class="arch-diagram-box benchmark-diagram reveal d1">
-                <svg viewBox="0 0 1680 190" role="img" aria-labelledby="fusion-training-title fusion-training-desc">
-                    <title id="fusion-training-title">Copilot Fusion 路由策略训练流程</title>
-                    <desc id="fusion-training-desc">脱敏任务由不同模型并行解决并经双盲评审形成标签，在不可变提交的多轮会话基准中回放，再通过束搜索选择路由策略。</desc>
-                    <defs><marker id="training-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 1L9 5L0 9Z" fill="#1D4ED8"/></marker></defs>
-                    <rect x="8" y="14" width="500" height="160" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-                    <text x="34" y="44" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="15" font-weight="700">STAGE 01 · LABEL THE MARGINAL VALUE</text>
-                    <text x="34" y="82" fill="#0F172A" font-size="22" font-weight="800">双模型作答 → 交换顺序双评</text>
-                    <text x="34" y="115" fill="#334155" font-size="18">50,159 脱敏问题 · cheap vs. strong</text>
-                    <text x="34" y="146" fill="#64748B" font-size="17">Judge 评分差 → 四维能力增益标签</text>
-
-                    <line x1="518" y1="94" x2="568" y2="94" stroke="#1D4ED8" stroke-width="3" marker-end="url(#training-arrow)"/>
-
-                    <rect x="580" y="14" width="500" height="160" rx="14" fill="#ECFDF5" stroke="#047857" stroke-width="2"/>
-                    <text x="606" y="44" fill="#047857" font-family="Fira Code, monospace" font-size="15" font-weight="700">STAGE 02 · REPLAY &amp; POLICY SEARCH</text>
-                    <text x="606" y="82" fill="#0F172A" font-size="22" font-weight="800">不可变 Commit · 可重复飞行模拟</text>
-                    <text x="606" y="115" fill="#334155" font-size="18">CheckpointBench · TerminalBench · DeepSWE</text>
-                    <text x="606" y="146" fill="#64748B" font-size="17">Beam Search → 冻结基线上比质量 / 成本 / 故障</text>
-
-                    <line x1="1090" y1="94" x2="1140" y2="94" stroke="#1D4ED8" stroke-width="3" marker-end="url(#training-arrow)"/>
-
-                    <rect x="1152" y="14" width="520" height="160" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
-                    <text x="1178" y="44" fill="#B45309" font-family="Fira Code, monospace" font-size="15" font-weight="700">STAGE 03 · THREE DISTINCT JUDGE ROLES</text>
-                    <text x="1178" y="82" fill="#0F172A" font-size="21" font-weight="800">离线标注 · 在线运行时 · 第三方评测</text>
-                    <text x="1178" y="115" fill="#334155" font-size="18">离线打标、在线质检与第三方评测相互独立</text>
-                    <text x="1178" y="146" fill="#64748B" font-size="17">Judge 按任务 / 评测流程独立指定</text>
-                </svg>
-            </div>
-
-            <div class="capability-grid-3 methodology-cards reveal d2">
-                <div class="cap-card">
-                    <div>
-                        <div class="cap-card-head"><span class="cap-num">STAGE 01 · SUPERVISION</span><span class="cap-chip">训练路由器</span></div>
-                        <h3 class="cap-name">标注“强模型多带来什么”</h3>
-                        <div class="cap-highlight">以强模型相对轻量模型的得分提升作为监督标签</div>
-                        <p class="cap-detail">工程说明：50,159 条脱敏提问由 gpt-5.4-mini 与 gpt-5.3-codex 并行作答；gpt-5.2-chat 以 JSON-mode 交换 A/B 顺序评 2 次、各 1–5 分，取四维增益训练 ModernBERT。报告的单张 A100 微调时间为 42 分钟。</p>
-                    </div>
-                </div>
-                <div class="cap-card emerald-top">
-                    <div>
-                        <div class="cap-card-head"><span class="cap-num">STAGE 02 · CHECKPOINTBENCH</span><span class="cap-chip">离线策略寻优</span></div>
-                        <h3 class="cap-name">重放真实会话，束搜索候选路由</h3>
-                        <div class="cap-highlight">质量 −0.1 个百分点 · 估算成本 −65% vs Opus 5</div>
-                        <p class="cap-detail">会话锚定公开仓库不可变 Git Commit，固定任务输入与评测条件以便重复验证。联合 TerminalBench 2.1、DeepSWE 与 CheckpointBench；Beam Search 每轮保留 Top-K 策略，在冻结基线比较验证质量、全链路成本及失败模式。CheckpointBench 对照值来自 GitHub 工程博客。</p>
-                    </div>
-                </div>
-                <div class="cap-card amber-top">
-                    <div>
-                        <div class="cap-card-head"><span class="cap-num">STAGE 03 · JUDGE TAXONOMY</span><span class="cap-chip">三类不同职责</span></div>
-                        <h3 class="cap-name">不要把 Judge 当成一个固定模型</h3>
-                        <div class="cap-highlight">训练监督 · 在线裁判 / 评论员 · 独立评测</div>
-                        <p class="cap-detail">① 离线标注：gpt-5.2-chat 对双模型回答做成对评审。② 在线 Cascade/Critique：从启用模型池动态指定；工程说明列举 Opus 5.5 / Sonnet 5.5、GPT-6 Astra / GPT-6.1 Sol / GPT-6 Luna，初稿 medium、评审 high，Critique 跨家族。③ AA v2.0：说明列举 GPT-6 Luna (xhigh) 多数审阅 SWE-Atlas 1,306 条细则、Claude Sonnet 5 审计 TerminalBench Harbor 防作弊。</p>
-                    </div>
-                </div>
-            </div>
-
-            <footer class="evaluation-sources">
-                <span>来源与证据边界</span>
-                <a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/" target="_blank" rel="noopener noreferrer">GitHub · Project HydraFusion</a>
-                <a href="https://arxiv.org/abs/2605.17106v2" target="_blank" rel="noopener noreferrer">HyDRA · arXiv v2</a>
-                <span>精确样本数 / Judge 型号 / A100 时长来自补充工程与评测说明，未见于公开论文或博客</span>
-            </footer>
-        </section>
-
-        <!-- Fusion Max results: AA v2.0, not an all-effort guarantee. -->
-        <section class="slide" data-slide="7" id="fusion-results" data-edit-scope="fusion-results">
+<!-- Fusion Max results: AA v2.0, not an all-effort guarantee. -->
+        <section class="slide" data-slide="6" id="fusion-results" data-edit-scope="fusion-results">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1821,7 +1781,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">AA CODING AGENT INDEX v2.0</span>
-                    <span class="page-num">07 / 20</span>
+                    <span class="page-num">06 / 20</span>
                 </div>
             </header>
 
@@ -1878,7 +1838,7 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <section class="slide" data-slide="8" id="fusion-methodology" data-edit-scope="fusion-methodology">
+<section class="slide" data-slide="7" id="fusion-methodology" data-edit-scope="fusion-methodology">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1886,7 +1846,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">3 BENCHMARKS · EQUAL WEIGHT</span>
-                    <span class="page-num">08 / 20</span>
+                    <span class="page-num">07 / 20</span>
                 </div>
             </header>
             <div class="feature-hero reveal d1">
@@ -1961,10 +1921,10 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
-             SLIDE 09: FEATURE 02 — LOCAL MODEL ROUTING
+<!-- ===========================================
+             SLIDE 08: FEATURE 02 — LOCAL MODEL ROUTING
              =========================================== -->
-        <section class="slide" data-slide="9">
+        <section class="slide" data-slide="8">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1972,7 +1932,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">EXPERIMENTAL PREVIEW</span>
-                    <span class="page-num">09 / 20</span>
+                    <span class="page-num">08 / 20</span>
                 </div>
             </header>
 
@@ -2072,10 +2032,10 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
-             SLIDE 10: FEATURE 03 — VS CODE AGENT HOST & AHP
+<!-- ===========================================
+             SLIDE 09: FEATURE 03 — VS CODE AGENT HOST & AHP
              =========================================== -->
-        <section class="slide" data-slide="10">
+        <section class="slide" data-slide="9">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2083,7 +2043,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">HOST GA · COMPARE PREVIEW</span>
-                    <span class="page-num">10 / 20</span>
+                    <span class="page-num">09 / 20</span>
                 </div>
             </header>
 
@@ -2195,10 +2155,10 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
-             SLIDE 11: FEATURE 04 — COPILOT PROJECTS
+<!-- ===========================================
+             SLIDE 10: FEATURE 04 — COPILOT PROJECTS
              =========================================== -->
-        <section class="slide" data-slide="11">
+        <section class="slide" data-slide="10">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2206,7 +2166,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">11 / 20</span>
+                    <span class="page-num">10 / 20</span>
                 </div>
             </header>
 
@@ -2313,10 +2273,10 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
-             SLIDE 12: FEATURE 05 — UNIFIED CLOUD & SANDBOXES
+<!-- ===========================================
+             SLIDE 11: FEATURE 05 — UNIFIED CLOUD & SANDBOXES
              =========================================== -->
-        <section class="slide" data-slide="12">
+        <section class="slide" data-slide="11">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2324,7 +2284,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">GENERALLY AVAILABLE</span>
-                    <span class="page-num">12 / 20</span>
+                    <span class="page-num">11 / 20</span>
                 </div>
             </header>
 
@@ -2442,10 +2402,10 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
-             SLIDE 13: FEATURE 05 DEEP DIVE — EXECUTION ENVIRONMENT MATRIX
+<!-- ===========================================
+             SLIDE 12: FEATURE 05 DEEP DIVE — EXECUTION ENVIRONMENT MATRIX
              =========================================== -->
-        <section class="slide" data-slide="13" id="sandbox-comparison" data-edit-scope="sandbox-comparison">
+        <section class="slide" data-slide="12" id="sandbox-comparison" data-edit-scope="sandbox-comparison">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2453,7 +2413,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ENVIRONMENT MATRIX &amp; METERING</span>
-                    <span class="page-num">13 / 20</span>
+                    <span class="page-num">12 / 20</span>
                 </div>
             </header>
 
@@ -2531,10 +2491,10 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
-             SLIDE 14: FEATURE 06 — GITHUB INTELLIGENCE
+<!-- ===========================================
+             SLIDE 13: FEATURE 06 — GITHUB INTELLIGENCE
              =========================================== -->
-        <section class="slide" data-slide="14">
+        <section class="slide" data-slide="13" data-edit-reserve-after="30">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2542,7 +2502,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">MEMORY GA · DREAMING PREVIEW</span>
-                    <span class="page-num">14 / 20</span>
+                    <span class="page-num">13 / 20</span>
                 </div>
             </header>
 
@@ -2643,249 +2603,10 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
-             SLIDE 15: FEATURE 06 DEEP DIVE — GITHUB INTELLIGENCE INTERNALS
+<!-- ===========================================
+             SLIDE 14: FEATURE 07 — COPILOT CONNECTORS
              =========================================== -->
-        <section class="slide" data-slide="15">
-            <header class="exec-topbar">
-                <div class="exec-breadcrumb">
-                    <span class="exec-dot"></span>
-                    <span>FEATURE 06 DEEP DIVE I · GITHUB INTELLIGENCE 底层实现原理</span>
-                </div>
-                <div class="exec-meta-right">
-                    <span class="maturity-pill cobalt">ARCHITECTURE INTERNALS</span>
-                    <span class="page-num">15 / 20</span>
-                </div>
-            </header>
-
-            <div class="feature-hero reveal d1">
-                <div class="feature-title-group">
-                    <div class="feature-index-tag">UNDER THE HOOD // CITATION VOTING, DREAMING PIPELINES &amp; HYBRID INDEX</div>
-                    <h2 class="feature-title"><span class="accent">Intelligence 实现原理</span>：证据校验投票与三路离线反思</h2>
-                    <p class="feature-tagline">通过强制源码行号 Citation 校验与 Upvote/Downvote 滑动淘汰防幻觉，并利用 GPT-6.1 Sol 在后台异步提炼团队规范。</p>
-                </div>
-                <div class="hero-kpi">
-                    <div class="hero-kpi-label">RETENTION &amp; ENGINE</div>
-                    <div class="hero-kpi-value">90d 滑动 TTL · GPT-6.1 Sol</div>
-                </div>
-            </div>
-
-            <!-- SVG ARCHITECTURE DIAGRAM: CITATION VOTING + 3 DREAM PIPELINES + HYBRID SEARCH -->
-            <div class="arch-diagram-box reveal d2">
-                <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
-                    <!-- 1. Memory Citation & Voting Engine -->
-                    <rect x="14" y="14" width="530" height="144" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-                    <text x="279" y="40" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">1. CITATION VERIFICATION &amp; VOTING (防过期幻觉)</text>
-                    <rect x="32" y="52" width="236" height="42" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
-                    <text x="150" y="78" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">store_memory 强制绑定行号</text>
-                    <rect x="288" y="52" width="238" height="42" rx="8" fill="#1D4ED8"/>
-                    <text x="407" y="78" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="800">召回时核对当前分支源码</text>
-                    <rect x="32" y="102" width="236" height="42" rx="8" fill="#ECFDF5" stroke="#6EE7B7"/>
-                    <text x="150" y="128" text-anchor="middle" fill="#047857" font-size="14" font-weight="800">有效 → Upvote 重置 90d TTL</text>
-                    <rect x="288" y="102" width="238" height="42" rx="8" fill="#FFFBEB" stroke="#FCD34D"/>
-                    <text x="407" y="128" text-anchor="middle" fill="#B45309" font-size="14" font-weight="800">失效 → Downvote 降权淘汰</text>
-
-                    <line x1="550" y1="86" x2="598" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#arr-blue)"/>
-
-                    <!-- 2. Dreaming 3 Offline Pipelines -->
-                    <rect x="606" y="14" width="560" height="144" rx="14" fill="#0F172A"/>
-                    <text x="886" y="40" text-anchor="middle" fill="#34D399" font-family="Fira Code, monospace" font-size="13" font-weight="700">2. DREAMING 3-PIPELINE ENGINE (离线 GPT-6.1 Sol)</text>
-                    <rect x="626" y="52" width="520" height="28" rx="6" fill="#1E293B" stroke="#3B82F6"/>
-                    <text x="886" y="71" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">Personal Curation：扫描云端同步会话 → 自动合并去重个人偏好</text>
-                    <rect x="626" y="86" width="520" height="28" rx="6" fill="#1E293B" stroke="#10B981"/>
-                    <text x="886" y="105" text-anchor="middle" fill="#6EE7B7" font-size="13" font-weight="700">Repo Customization：提 PR 更新 copilot-instructions / AGENTS.md / Skills</text>
-                    <rect x="626" y="120" width="520" height="28" rx="6" fill="#1E293B" stroke="#F59E0B"/>
-                    <text x="886" y="139" text-anchor="middle" fill="#FDE68A" font-size="13" font-weight="700">Code Review Customization：提炼已合入 PR 采纳意见 → 更新自动审查规则</text>
-
-                    <line x1="1172" y1="86" x2="1220" y2="86" stroke="#047857" stroke-width="3" marker-end="url(#arr-green)"/>
-
-                    <!-- 3. Hybrid Search & Enterprise Isolation -->
-                    <rect x="1228" y="14" width="438" height="144" rx="14" fill="#ECFDF5" stroke="#047857" stroke-width="2"/>
-                    <text x="1447" y="40" text-anchor="middle" fill="#047857" font-family="Fira Code, monospace" font-size="13" font-weight="700">3. HYBRID INDEX &amp; ISOLATION</text>
-                    <rect x="1248" y="52" width="398" height="42" rx="8" fill="#FFFFFF" stroke="#6EE7B7"/>
-                    <text x="1447" y="78" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">符号正则 AST + 语义向量 (60s 建库/秒级增量)</text>
-                    <rect x="1248" y="102" width="398" height="42" rx="8" fill="#FFFFFF" stroke="#6EE7B7"/>
-                    <text x="1447" y="128" text-anchor="middle" fill="#047857" font-size="14" font-weight="800">Billing Entity 隔离 · 检索前过滤排除路径</text>
-                </svg>
-            </div>
-
-            <div class="capability-grid-3 reveal d2">
-                <div class="cap-card">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num">MECHANISM 01 · CITATION &amp; TTL</span>
-                            <span class="cap-chip">防过时记忆污染</span>
-                        </div>
-                        <h3 class="cap-name">强制引用校验与 90 天滑动续期</h3>
-                        <div class="cap-highlight">核对 path:line 源码 · Upvote 重置 TTL</div>
-                        <p class="cap-detail">仓库记忆必须绑定代码行号；每次召回先核对当前分支源码，仍成立则 Upvote 续期 90 天（可配 7–180 天），失效则 Downvote 淘汰。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card emerald-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">MECHANISM 02 · 3 DREAM PIPELINES</span>
-                            <span class="cap-chip">GPT-6.1 SOL 驱动</span>
-                        </div>
-                        <h3 class="cap-name">三路离线反思与受控 PR 演进</h3>
-                        <div class="cap-highlight">记忆静默去重 · 仓库指令变更必走 PR</div>
-                        <p class="cap-detail">后台分析已同步会话与已 Merge PR 的采纳评论；个人与仓库记忆自动刷新，而 `.github` 指令、AGENTS.md 与 Skill 修改强制提 PR 审核。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card amber-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">MECHANISM 03 · INDEX &amp; RBAC</span>
-                            <span class="cap-chip">安全与写权限边界</span>
-                        </div>
-                        <h3 class="cap-name">双引擎检索与多级企业权限隔离</h3>
-                        <div class="cap-highlight">Root Agent 独占写权限 · 计费主体隔离</div>
-                        <p class="cap-detail">语义与符号索引绝不用于模型训练，检索前强制过滤 Content Exclusion；仅主 Agent 可写记忆（子 Agent 只读），且 Code Review 不受个人偏好干扰。</p>
-                    </div>
-                </div>
-            </div>
-
-            <footer class="scenario-ribbon reveal d3">
-                <span class="ribbon-badge">安全与启用前提</span>
-                <div class="ribbon-flow">
-                    <span class="flow-step">写入拦截密钥与注入符</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step primary">开启 Session Syncing 同步云端会话</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step primary">策略放行 GPT-6.1 Sol 激活 Dreaming</span>
-                </div>
-                <div class="ribbon-boundary">成本提示：<strong>Dreaming 后台运行消耗 AI Credits（含无变更巡检）</strong></div>
-            </footer>
-        </section>
-
-        <!-- ===========================================
-             SLIDE 16: FEATURE 06 DEEP DIVE II — CROSS-REPO SYNTAX TREE & BLACKBIRD
-             =========================================== -->
-        <section class="slide" data-slide="16">
-            <header class="exec-topbar">
-                <div class="exec-breadcrumb">
-                    <span class="exec-dot"></span>
-                    <span>FEATURE 06 DEEP DIVE II · 跨仓语法树定位底层架构 (TREE-SITTER + STACK GRAPHS + BLACKBIRD)</span>
-                </div>
-                <div class="exec-meta-right">
-                    <span class="maturity-pill cobalt">ZERO-BUILD AST ENGINE</span>
-                    <span class="page-num">16 / 20</span>
-                </div>
-            </header>
-
-            <div class="feature-hero reveal d1">
-                <div class="feature-title-group">
-                    <div class="feature-index-tag">UNDER THE HOOD // TREE-SITTER CST · STACK GRAPHS · BLACKBIRD SPARSE N-GRAMS</div>
-                    <h2 class="feature-title"><span class="accent">跨仓语法树定位</span>：免编译符号栈图与百毫秒检索</h2>
-                    <p class="feature-tagline">无需本地 Clone 或拉起 CI 编译器，通过单文件语法树提取、Stack Graphs 动态出栈匹配与 Blob SHA 去重索引实现跨仓追踪。</p>
-                </div>
-                <div class="hero-kpi">
-                    <div class="hero-kpi-label">QUERY LATENCY &amp; DEDUP</div>
-                    <div class="hero-kpi-value">~100ms p99 · 75% 去重</div>
-                </div>
-            </div>
-
-            <!-- SVG ARCHITECTURE DIAGRAM: TREE-SITTER -> STACK GRAPHS -> BLACKBIRD -> HYBRID /RESEARCH -->
-            <div class="arch-diagram-box reveal d2">
-                <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Step 1: Git Blob Dedup & Tree-sitter CST -->
-                    <rect x="14" y="14" width="380" height="144" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
-                    <text x="204" y="40" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">1. BLOB DEDUP &amp; TREE-SITTER CST</text>
-                    <rect x="30" y="52" width="348" height="42" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
-                    <text x="204" y="78" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">按 Git Blob SHA 全局分片 (削减 75% 重复解析)</text>
-                    <rect x="30" y="102" width="348" height="42" rx="8" fill="#EFF6FF" stroke="#93C5FD"/>
-                    <text x="204" y="128" text-anchor="middle" fill="#1D4ED8" font-size="14" font-weight="800">Tree-sitter 免编译提取 @def / @ref 与函数块</text>
-
-                    <line x1="400" y1="86" x2="444" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#arr-blue)"/>
-
-                    <!-- Step 2: Stack Graphs Push/Pop Symbol Resolution -->
-                    <rect x="452" y="14" width="440" height="144" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-                    <text x="672" y="40" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">2. STACK GRAPHS (单文件建图 · 查询期动态拼接)</text>
-                    <rect x="470" y="52" width="192" height="42" rx="8" fill="#1D4ED8"/>
-                    <text x="566" y="78" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">调用方 Push: ⟨sdk, retry⟩</text>
-                    <rect x="680" y="52" width="194" height="42" rx="8" fill="#047857"/>
-                    <text x="777" y="78" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">定义方 Pop: ⟨sdk, retry⟩</text>
-                    <rect x="470" y="102" width="404" height="42" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
-                    <text x="672" y="128" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">查询时合并子图寻路：符号栈完全清空即精准命中定义</text>
-
-                    <line x1="898" y1="86" x2="942" y2="86" stroke="#047857" stroke-width="3" marker-end="url(#arr-green)"/>
-
-                    <!-- Step 3: Blackbird Sparse N-Grams & AST Vector Chunking -->
-                    <rect x="950" y="14" width="380" height="144" rx="14" fill="#0F172A"/>
-                    <text x="1140" y="40" text-anchor="middle" fill="#34D399" font-family="Fira Code, monospace" font-size="13" font-weight="700">3. BLACKBIRD + AST VECTOR INDEX</text>
-                    <rect x="968" y="52" width="344" height="42" rx="8" fill="#1E293B" stroke="#3B82F6"/>
-                    <text x="1140" y="78" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="700">Sparse N-grams 稀疏符号倒排链 (symbols_iter)</text>
-                    <rect x="968" y="102" width="344" height="42" rx="8" fill="#1E293B" stroke="#10B981"/>
-                    <text x="1140" y="128" text-anchor="middle" fill="#6EE7B7" font-size="14" font-weight="700">按 AST 函数/类边界完整切片生成语义向量</text>
-
-                    <line x1="1336" y1="86" x2="1380" y2="86" stroke="#B45309" stroke-width="3" marker-end="url(#arr-amber)"/>
-
-                    <!-- Step 4: /research Hybrid Call Chain -->
-                    <rect x="1388" y="14" width="278" height="144" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
-                    <text x="1527" y="40" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="13" font-weight="700">4. /RESEARCH 跨仓串联</text>
-                    <text x="1527" y="78" text-anchor="middle" fill="#0F172A" font-size="17" font-weight="800">语义先定位入口函数</text>
-                    <text x="1527" y="106" text-anchor="middle" fill="#B45309" font-size="14" font-weight="700">→ 提取 AST 外调符号</text>
-                    <text x="1527" y="134" text-anchor="middle" fill="#047857" font-size="14" font-weight="800">→ 跨仓追踪上下游实现</text>
-                </svg>
-            </div>
-
-            <div class="capability-grid-3 reveal d2">
-                <div class="cap-card">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num">LAYER 01 · TREE-SITTER &amp; STACK GRAPHS</span>
-                            <span class="cap-chip">O(1) 单文件增量分析</span>
-                        </div>
-                        <h3 class="cap-name">免编译语法树与符号栈动态拼图</h3>
-                        <div class="cap-highlight">Push(引用) / Pop(定义) 跨文件栈匹配</div>
-                        <p class="cap-detail">索引期单文件独立通过 Tree-sitter 生成局部符号图；查询期动态拼接并利用 Symbol Stack 出入栈匹配，免跑 CI 编译即可精准还原跨模块调用与变量遮蔽。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card emerald-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">LAYER 02 · BLACKBIRD ENGINE</span>
-                            <span class="cap-chip">RUST 100MS P99</span>
-                        </div>
-                        <h3 class="cap-name">Blob SHA 全局分片与稀疏词元索引</h3>
-                        <div class="cap-highlight">Delta Tree 去重 75% · Sparse N-grams</div>
-                        <p class="cap-detail">按 Git 文件内容哈希分片避免全网重复解析；采用基于权重的变长 Sparse N-grams 建立独立 `symbols` 倒排链，在百毫秒内完成全组织跨仓交集检索。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card amber-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">LAYER 03 · AST SEMANTIC CHUNKING</span>
-                            <span class="cap-chip">语义+符号接力</span>
-                        </div>
-                        <h3 class="cap-name">按 AST 函数边界分块与双路交叉定位</h3>
-                        <div class="cap-highlight">向量找未知入口 → 语法树顺藤摸瓜追调用链</div>
-                        <p class="cap-detail">按语法树函数/类边界完整切块构建向量；`/research` 先用语义召回入口函数，再从其 AST 提取外部调用符号，交由 Blackbird 跨仓定位上下游微服务。</p>
-                    </div>
-                </div>
-            </div>
-
-            <footer class="scenario-ribbon reveal d3">
-                <span class="ribbon-badge">跨仓追踪闭环</span>
-                <div class="ribbon-flow">
-                    <span class="flow-step">查询 AST 注入 RBAC 与排除规则</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step primary">语义向量召回 `payment-service` 入口</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step primary">Stack Graphs + Symbol 追踪 `billing-sdk` 与 `worker`</span>
-                </div>
-                <div class="ribbon-boundary">索引边界：<strong>默认分支 · 单文件 &lt;350KiB · 自动过滤生成与 Vendor 代码</strong></div>
-            </footer>
-        </section>
-
-        <!-- ===========================================
-             SLIDE 17: FEATURE 07 — COPILOT CONNECTORS
-             =========================================== -->
-        <section class="slide" data-slide="17">
+        <section class="slide" data-slide="14">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2893,7 +2614,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">17 / 20</span>
+                    <span class="page-num">14 / 20</span>
                 </div>
             </header>
 
@@ -2992,10 +2713,10 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
-             SLIDE 18: FEATURE 08 — COMPUTER USE
+<!-- ===========================================
+             SLIDE 15: FEATURE 08 — COMPUTER USE
              =========================================== -->
-        <section class="slide" data-slide="18">
+        <section class="slide" data-slide="15">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -3003,7 +2724,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">APP PREVIEW · VSCODE EXP</span>
-                    <span class="page-num">18 / 20</span>
+                    <span class="page-num">15 / 20</span>
                 </div>
             </header>
 
@@ -3102,10 +2823,10 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
-             SLIDE 19: FEATURE 09 — IMAGE GENERATION & EDITING
+<!-- ===========================================
+             SLIDE 16: FEATURE 09 — IMAGE GENERATION & EDITING
              =========================================== -->
-        <section class="slide" data-slide="19">
+        <section class="slide" data-slide="16">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -3113,7 +2834,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">19 / 20</span>
+                    <span class="page-num">16 / 20</span>
                 </div>
             </header>
 
@@ -3211,10 +2932,10 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-        <!-- ===========================================
-             SLIDE 20: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
+<!-- ===========================================
+             SLIDE 17: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
              =========================================== -->
-        <section class="slide" data-slide="20">
+        <section class="slide" data-slide="17">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -3222,7 +2943,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ACTION PLAYBOOK</span>
-                    <span class="page-num">20 / 20</span>
+                    <span class="page-num">17 / 20</span>
                 </div>
             </header>
 
@@ -3313,6 +3034,332 @@ body.editing-mode .motion-ready .motion-diagram {
                     <span class="flow-step primary">上下文层：记忆自演进与全工具打通</span>
                 </div>
                 <div class="ribbon-boundary">感谢聆听 · <strong>Q&amp;A 与现场演示</strong></div>
+            </footer>
+        </section>
+
+<!-- ===========================================
+             APPENDIX A: FUSION ROUTER TRAINING & JUDGES
+             =========================================== -->
+        <section class="slide" data-slide="18" id="fusion-training" data-edit-scope="fusion-training">
+            <header class="exec-topbar">
+                <div class="exec-breadcrumb">
+                    <span class="exec-dot"></span>
+                    <span>APPENDIX A · FUSION ROUTER TRAINING &amp; JUDGES · 附录 A</span>
+                </div>
+                <div class="exec-meta-right">
+                    <span class="maturity-pill cobalt">APPENDIX A · 附录 A</span>
+                    <span class="page-num">18 / 20</span>
+                </div>
+            </header>
+
+            <div class="feature-hero reveal d1">
+                <div class="feature-title-group">
+                    <div class="feature-index-tag">APPENDIX A // OFFLINE DATA · REPLAY · POLICY SEARCH</div>
+                    <h2 class="feature-title"><span class="accent">路由策略如何训练？</span>离线打标、束搜索与三类 Judge</h2>
+                    <p class="feature-tagline">把真实工作负载转成可比较标签，再在可重放基线上寻优；未公开的样本数、Judge 型号与训练时间按补充说明标注。</p>
+                </div>
+            </div>
+
+            <div class="arch-diagram-box benchmark-diagram reveal d1">
+                <svg viewBox="0 0 1680 190" role="img" aria-labelledby="fusion-training-title fusion-training-desc">
+                    <title id="fusion-training-title">Copilot Fusion 路由策略训练流程</title>
+                    <desc id="fusion-training-desc">脱敏任务由不同模型并行解决并经双盲评审形成标签，在不可变提交的多轮会话基准中回放，再通过束搜索选择路由策略。</desc>
+                    <defs><marker id="training-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 1L9 5L0 9Z" fill="#1D4ED8"/></marker></defs>
+                    <rect x="8" y="14" width="500" height="160" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+                    <text x="34" y="44" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="15" font-weight="700">STAGE 01 · LABEL THE MARGINAL VALUE</text>
+                    <text x="34" y="82" fill="#0F172A" font-size="22" font-weight="800">双模型作答 → 交换顺序双评</text>
+                    <text x="34" y="115" fill="#334155" font-size="18">50,159 脱敏问题 · cheap vs. strong</text>
+                    <text x="34" y="146" fill="#64748B" font-size="17">Judge 评分差 → 四维能力增益标签</text>
+
+                    <line x1="518" y1="94" x2="568" y2="94" stroke="#1D4ED8" stroke-width="3" marker-end="url(#training-arrow)"/>
+
+                    <rect x="580" y="14" width="500" height="160" rx="14" fill="#ECFDF5" stroke="#047857" stroke-width="2"/>
+                    <text x="606" y="44" fill="#047857" font-family="Fira Code, monospace" font-size="15" font-weight="700">STAGE 02 · REPLAY &amp; POLICY SEARCH</text>
+                    <text x="606" y="82" fill="#0F172A" font-size="22" font-weight="800">不可变 Commit · 可重复飞行模拟</text>
+                    <text x="606" y="115" fill="#334155" font-size="18">CheckpointBench · TerminalBench · DeepSWE</text>
+                    <text x="606" y="146" fill="#64748B" font-size="17">Beam Search → 冻结基线上比质量 / 成本 / 故障</text>
+
+                    <line x1="1090" y1="94" x2="1140" y2="94" stroke="#1D4ED8" stroke-width="3" marker-end="url(#training-arrow)"/>
+
+                    <rect x="1152" y="14" width="520" height="160" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
+                    <text x="1178" y="44" fill="#B45309" font-family="Fira Code, monospace" font-size="15" font-weight="700">STAGE 03 · THREE DISTINCT JUDGE ROLES</text>
+                    <text x="1178" y="82" fill="#0F172A" font-size="21" font-weight="800">离线标注 · 在线运行时 · 第三方评测</text>
+                    <text x="1178" y="115" fill="#334155" font-size="18">离线打标、在线质检与第三方评测相互独立</text>
+                    <text x="1178" y="146" fill="#64748B" font-size="17">Judge 按任务 / 评测流程独立指定</text>
+                </svg>
+            </div>
+
+            <div class="capability-grid-3 methodology-cards reveal d2">
+                <div class="cap-card">
+                    <div>
+                        <div class="cap-card-head"><span class="cap-num">STAGE 01 · SUPERVISION</span><span class="cap-chip">训练路由器</span></div>
+                        <h3 class="cap-name">标注“强模型多带来什么”</h3>
+                        <div class="cap-highlight">以强模型相对轻量模型的得分提升作为监督标签</div>
+                        <p class="cap-detail">工程说明：50,159 条脱敏提问由 gpt-5.4-mini 与 gpt-5.3-codex 并行作答；gpt-5.2-chat 以 JSON-mode 交换 A/B 顺序评 2 次、各 1–5 分，取四维增益训练 ModernBERT。报告的单张 A100 微调时间为 42 分钟。</p>
+                    </div>
+                </div>
+                <div class="cap-card emerald-top">
+                    <div>
+                        <div class="cap-card-head"><span class="cap-num">STAGE 02 · CHECKPOINTBENCH</span><span class="cap-chip">离线策略寻优</span></div>
+                        <h3 class="cap-name">重放真实会话，束搜索候选路由</h3>
+                        <div class="cap-highlight">质量 −0.1 个百分点 · 估算成本 −65% vs Opus 5</div>
+                        <p class="cap-detail">会话锚定公开仓库不可变 Git Commit，固定任务输入与评测条件以便重复验证。联合 TerminalBench 2.1、DeepSWE 与 CheckpointBench；Beam Search 每轮保留 Top-K 策略，在冻结基线比较验证质量、全链路成本及失败模式。CheckpointBench 对照值来自 GitHub 工程博客。</p>
+                    </div>
+                </div>
+                <div class="cap-card amber-top">
+                    <div>
+                        <div class="cap-card-head"><span class="cap-num">STAGE 03 · JUDGE TAXONOMY</span><span class="cap-chip">三类不同职责</span></div>
+                        <h3 class="cap-name">不要把 Judge 当成一个固定模型</h3>
+                        <div class="cap-highlight">训练监督 · 在线裁判 / 评论员 · 独立评测</div>
+                        <p class="cap-detail">① 离线标注：gpt-5.2-chat 对双模型回答做成对评审。② 在线 Cascade/Critique：从启用模型池动态指定；工程说明列举 Opus 5.5 / Sonnet 5.5、GPT-6 Astra / GPT-6.1 Sol / GPT-6 Luna，初稿 medium、评审 high，Critique 跨家族。③ AA v2.0：说明列举 GPT-6 Luna (xhigh) 多数审阅 SWE-Atlas 1,306 条细则、Claude Sonnet 5 审计 TerminalBench Harbor 防作弊。</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="evaluation-sources">
+                <span>来源与证据边界</span>
+                <a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/" target="_blank" rel="noopener noreferrer">GitHub · Project HydraFusion</a>
+                <a href="https://arxiv.org/abs/2605.17106v2" target="_blank" rel="noopener noreferrer">HyDRA · arXiv v2</a>
+                <span>精确样本数 / Judge 型号 / A100 时长来自补充工程与评测说明，未见于公开论文或博客</span>
+            </footer>
+        </section>
+
+<!-- ===========================================
+             APPENDIX B: GITHUB INTELLIGENCE INTERNALS
+             =========================================== -->
+        <section class="slide" data-slide="19" id="appendix-intelligence-internals">
+            <header class="exec-topbar">
+                <div class="exec-breadcrumb">
+                    <span class="exec-dot"></span>
+                    <span>APPENDIX B · GITHUB INTELLIGENCE INTERNALS · 附录 B</span>
+                </div>
+                <div class="exec-meta-right">
+                    <span class="maturity-pill cobalt">APPENDIX B · 附录 B</span>
+                    <span class="page-num">19 / 20</span>
+                </div>
+            </header>
+
+            <div class="feature-hero reveal d1">
+                <div class="feature-title-group">
+                    <div class="feature-index-tag">APPENDIX B // CITATION VOTING · DREAMING · HYBRID INDEX</div>
+                    <h2 class="feature-title" data-edit-key="131"><span class="accent">Intelligence 实现原理</span>：证据校验投票与三路离线反思</h2>
+                    <p class="feature-tagline" data-edit-key="132">通过强制源码行号 Citation 校验与 Upvote/Downvote 滑动淘汰防幻觉，并利用 GPT-6.1 Sol 在后台异步提炼团队规范。</p>
+                </div>
+                <div class="hero-kpi">
+                    <div class="hero-kpi-label">RETENTION &amp; ENGINE</div>
+                    <div class="hero-kpi-value" data-edit-key="133">90d 滑动 TTL · GPT-6.1 Sol</div>
+                </div>
+            </div>
+
+            <!-- SVG ARCHITECTURE DIAGRAM: CITATION VOTING + 3 DREAM PIPELINES + HYBRID SEARCH -->
+            <div class="arch-diagram-box reveal d2">
+                <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 1. Memory Citation & Voting Engine -->
+                    <rect x="14" y="14" width="530" height="144" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+                    <text x="279" y="40" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">1. CITATION VERIFICATION &amp; VOTING (防过期幻觉)</text>
+                    <rect x="32" y="52" width="236" height="42" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
+                    <text x="150" y="78" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">store_memory 强制绑定行号</text>
+                    <rect x="288" y="52" width="238" height="42" rx="8" fill="#1D4ED8"/>
+                    <text x="407" y="78" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="800">召回时核对当前分支源码</text>
+                    <rect x="32" y="102" width="236" height="42" rx="8" fill="#ECFDF5" stroke="#6EE7B7"/>
+                    <text x="150" y="128" text-anchor="middle" fill="#047857" font-size="14" font-weight="800">有效 → Upvote 重置 90d TTL</text>
+                    <rect x="288" y="102" width="238" height="42" rx="8" fill="#FFFBEB" stroke="#FCD34D"/>
+                    <text x="407" y="128" text-anchor="middle" fill="#B45309" font-size="14" font-weight="800">失效 → Downvote 降权淘汰</text>
+
+                    <line x1="550" y1="86" x2="598" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#arr-blue)"/>
+
+                    <!-- 2. Dreaming 3 Offline Pipelines -->
+                    <rect x="606" y="14" width="560" height="144" rx="14" fill="#0F172A"/>
+                    <text x="886" y="40" text-anchor="middle" fill="#34D399" font-family="Fira Code, monospace" font-size="13" font-weight="700">2. DREAMING 3-PIPELINE ENGINE (离线 GPT-6.1 Sol)</text>
+                    <rect x="626" y="52" width="520" height="28" rx="6" fill="#1E293B" stroke="#3B82F6"/>
+                    <text x="886" y="71" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">Personal Curation：扫描云端同步会话 → 自动合并去重个人偏好</text>
+                    <rect x="626" y="86" width="520" height="28" rx="6" fill="#1E293B" stroke="#10B981"/>
+                    <text x="886" y="105" text-anchor="middle" fill="#6EE7B7" font-size="13" font-weight="700">Repo Customization：提 PR 更新 copilot-instructions / AGENTS.md / Skills</text>
+                    <rect x="626" y="120" width="520" height="28" rx="6" fill="#1E293B" stroke="#F59E0B"/>
+                    <text x="886" y="139" text-anchor="middle" fill="#FDE68A" font-size="13" font-weight="700">Code Review Customization：提炼已合入 PR 采纳意见 → 更新自动审查规则</text>
+
+                    <line x1="1172" y1="86" x2="1220" y2="86" stroke="#047857" stroke-width="3" marker-end="url(#arr-green)"/>
+
+                    <!-- 3. Hybrid Search & Enterprise Isolation -->
+                    <rect x="1228" y="14" width="438" height="144" rx="14" fill="#ECFDF5" stroke="#047857" stroke-width="2"/>
+                    <text x="1447" y="40" text-anchor="middle" fill="#047857" font-family="Fira Code, monospace" font-size="13" font-weight="700">3. HYBRID INDEX &amp; ISOLATION</text>
+                    <rect x="1248" y="52" width="398" height="42" rx="8" fill="#FFFFFF" stroke="#6EE7B7"/>
+                    <text x="1447" y="78" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">符号正则 AST + 语义向量 (60s 建库/秒级增量)</text>
+                    <rect x="1248" y="102" width="398" height="42" rx="8" fill="#FFFFFF" stroke="#6EE7B7"/>
+                    <text x="1447" y="128" text-anchor="middle" fill="#047857" font-size="14" font-weight="800">Billing Entity 隔离 · 检索前过滤排除路径</text>
+                </svg>
+            </div>
+
+            <div class="capability-grid-3 reveal d2">
+                <div class="cap-card">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num">MECHANISM 01 · CITATION &amp; TTL</span>
+                            <span class="cap-chip">防过时记忆污染</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="134">强制引用校验与 90 天滑动续期</h3>
+                        <div class="cap-highlight" data-edit-key="135">核对 path:line 源码 · Upvote 重置 TTL</div>
+                        <p class="cap-detail" data-edit-key="136">仓库记忆必须绑定代码行号；每次召回先核对当前分支源码，仍成立则 Upvote 续期 90 天（可配 7–180 天），失效则 Downvote 淘汰。</p>
+                    </div>
+                </div>
+
+                <div class="cap-card emerald-top">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">MECHANISM 02 · 3 DREAM PIPELINES</span>
+                            <span class="cap-chip">GPT-6.1 SOL 驱动</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="137">三路离线反思与受控 PR 演进</h3>
+                        <div class="cap-highlight" data-edit-key="138">记忆静默去重 · 仓库指令变更必走 PR</div>
+                        <p class="cap-detail" data-edit-key="139">后台分析已同步会话与已 Merge PR 的采纳评论；个人与仓库记忆自动刷新，而 `.github` 指令、AGENTS.md 与 Skill 修改强制提 PR 审核。</p>
+                    </div>
+                </div>
+
+                <div class="cap-card amber-top">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">MECHANISM 03 · INDEX &amp; RBAC</span>
+                            <span class="cap-chip">安全与写权限边界</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="140">双引擎检索与多级企业权限隔离</h3>
+                        <div class="cap-highlight" data-edit-key="141">Root Agent 独占写权限 · 计费主体隔离</div>
+                        <p class="cap-detail" data-edit-key="142">语义与符号索引绝不用于模型训练，检索前强制过滤 Content Exclusion；仅主 Agent 可写记忆（子 Agent 只读），且 Code Review 不受个人偏好干扰。</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="scenario-ribbon reveal d3">
+                <span class="ribbon-badge">安全与启用前提</span>
+                <div class="ribbon-flow">
+                    <span class="flow-step" data-edit-key="143">写入拦截密钥与注入符</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-step primary" data-edit-key="144">开启 Session Syncing 同步云端会话</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-step primary" data-edit-key="145">策略放行 GPT-6.1 Sol 激活 Dreaming</span>
+                </div>
+                <div class="ribbon-boundary">成本提示：<strong>Dreaming 后台运行消耗 AI Credits（含无变更巡检）</strong></div>
+            </footer>
+        </section>
+
+<!-- ===========================================
+             APPENDIX C: ZERO-BUILD AST ENGINE
+             =========================================== -->
+        <section class="slide" data-slide="20" id="appendix-ast-engine">
+            <header class="exec-topbar">
+                <div class="exec-breadcrumb">
+                    <span class="exec-dot"></span>
+                    <span>APPENDIX C · ZERO-BUILD AST ENGINE (TREE-SITTER + STACK GRAPHS + BLACKBIRD) · 附录 C</span>
+                </div>
+                <div class="exec-meta-right">
+                    <span class="maturity-pill cobalt">APPENDIX C · 附录 C</span>
+                    <span class="page-num">20 / 20</span>
+                </div>
+            </header>
+
+            <div class="feature-hero reveal d1">
+                <div class="feature-title-group">
+                    <div class="feature-index-tag">APPENDIX C // TREE-SITTER CST · STACK GRAPHS · BLACKBIRD SPARSE N-GRAMS</div>
+                    <h2 class="feature-title" data-edit-key="146"><span class="accent">跨仓语法树定位</span>：免编译符号栈图与百毫秒检索</h2>
+                    <p class="feature-tagline" data-edit-key="147">无需本地 Clone 或拉起 CI 编译器，通过单文件语法树提取、Stack Graphs 动态出栈匹配与 Blob SHA 去重索引实现跨仓追踪。</p>
+                </div>
+                <div class="hero-kpi">
+                    <div class="hero-kpi-label">QUERY LATENCY &amp; DEDUP</div>
+                    <div class="hero-kpi-value" data-edit-key="148">~100ms p99 · 75% 去重</div>
+                </div>
+            </div>
+
+            <!-- SVG ARCHITECTURE DIAGRAM: TREE-SITTER -> STACK GRAPHS -> BLACKBIRD -> HYBRID /RESEARCH -->
+            <div class="arch-diagram-box reveal d2">
+                <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Step 1: Git Blob Dedup & Tree-sitter CST -->
+                    <rect x="14" y="14" width="380" height="144" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+                    <text x="204" y="40" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">1. BLOB DEDUP &amp; TREE-SITTER CST</text>
+                    <rect x="30" y="52" width="348" height="42" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+                    <text x="204" y="78" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">按 Git Blob SHA 全局分片 (削减 75% 重复解析)</text>
+                    <rect x="30" y="102" width="348" height="42" rx="8" fill="#EFF6FF" stroke="#93C5FD"/>
+                    <text x="204" y="128" text-anchor="middle" fill="#1D4ED8" font-size="14" font-weight="800">Tree-sitter 免编译提取 @def / @ref 与函数块</text>
+
+                    <line x1="400" y1="86" x2="444" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#arr-blue)"/>
+
+                    <!-- Step 2: Stack Graphs Push/Pop Symbol Resolution -->
+                    <rect x="452" y="14" width="440" height="144" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+                    <text x="672" y="40" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">2. STACK GRAPHS (单文件建图 · 查询期动态拼接)</text>
+                    <rect x="470" y="52" width="192" height="42" rx="8" fill="#1D4ED8"/>
+                    <text x="566" y="78" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">调用方 Push: ⟨sdk, retry⟩</text>
+                    <rect x="680" y="52" width="194" height="42" rx="8" fill="#047857"/>
+                    <text x="777" y="78" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">定义方 Pop: ⟨sdk, retry⟩</text>
+                    <rect x="470" y="102" width="404" height="42" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
+                    <text x="672" y="128" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">查询时合并子图寻路：符号栈完全清空即精准命中定义</text>
+
+                    <line x1="898" y1="86" x2="942" y2="86" stroke="#047857" stroke-width="3" marker-end="url(#arr-green)"/>
+
+                    <!-- Step 3: Blackbird Sparse N-Grams & AST Vector Chunking -->
+                    <rect x="950" y="14" width="380" height="144" rx="14" fill="#0F172A"/>
+                    <text x="1140" y="40" text-anchor="middle" fill="#34D399" font-family="Fira Code, monospace" font-size="13" font-weight="700">3. BLACKBIRD + AST VECTOR INDEX</text>
+                    <rect x="968" y="52" width="344" height="42" rx="8" fill="#1E293B" stroke="#3B82F6"/>
+                    <text x="1140" y="78" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="700">Sparse N-grams 稀疏符号倒排链 (symbols_iter)</text>
+                    <rect x="968" y="102" width="344" height="42" rx="8" fill="#1E293B" stroke="#10B981"/>
+                    <text x="1140" y="128" text-anchor="middle" fill="#6EE7B7" font-size="14" font-weight="700">按 AST 函数/类边界完整切片生成语义向量</text>
+
+                    <line x1="1336" y1="86" x2="1380" y2="86" stroke="#B45309" stroke-width="3" marker-end="url(#arr-amber)"/>
+
+                    <!-- Step 4: /research Hybrid Call Chain -->
+                    <rect x="1388" y="14" width="278" height="144" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
+                    <text x="1527" y="40" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="13" font-weight="700">4. /RESEARCH 跨仓串联</text>
+                    <text x="1527" y="78" text-anchor="middle" fill="#0F172A" font-size="17" font-weight="800">语义先定位入口函数</text>
+                    <text x="1527" y="106" text-anchor="middle" fill="#B45309" font-size="14" font-weight="700">→ 提取 AST 外调符号</text>
+                    <text x="1527" y="134" text-anchor="middle" fill="#047857" font-size="14" font-weight="800">→ 跨仓追踪上下游实现</text>
+                </svg>
+            </div>
+
+            <div class="capability-grid-3 reveal d2">
+                <div class="cap-card">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num">LAYER 01 · TREE-SITTER &amp; STACK GRAPHS</span>
+                            <span class="cap-chip">O(1) 单文件增量分析</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="149">免编译语法树与符号栈动态拼图</h3>
+                        <div class="cap-highlight" data-edit-key="150">Push(引用) / Pop(定义) 跨文件栈匹配</div>
+                        <p class="cap-detail" data-edit-key="151">索引期单文件独立通过 Tree-sitter 生成局部符号图；查询期动态拼接并利用 Symbol Stack 出入栈匹配，免跑 CI 编译即可精准还原跨模块调用与变量遮蔽。</p>
+                    </div>
+                </div>
+
+                <div class="cap-card emerald-top">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">LAYER 02 · BLACKBIRD ENGINE</span>
+                            <span class="cap-chip">RUST 100MS P99</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="152">Blob SHA 全局分片与稀疏词元索引</h3>
+                        <div class="cap-highlight" data-edit-key="153">Delta Tree 去重 75% · Sparse N-grams</div>
+                        <p class="cap-detail" data-edit-key="154">按 Git 文件内容哈希分片避免全网重复解析；采用基于权重的变长 Sparse N-grams 建立独立 `symbols` 倒排链，在百毫秒内完成全组织跨仓交集检索。</p>
+                    </div>
+                </div>
+
+                <div class="cap-card amber-top">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">LAYER 03 · AST SEMANTIC CHUNKING</span>
+                            <span class="cap-chip">语义+符号接力</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="155">按 AST 函数边界分块与双路交叉定位</h3>
+                        <div class="cap-highlight" data-edit-key="156">向量找未知入口 → 语法树顺藤摸瓜追调用链</div>
+                        <p class="cap-detail" data-edit-key="157">按语法树函数/类边界完整切块构建向量；`/research` 先用语义召回入口函数，再从其 AST 提取外部调用符号，交由 Blackbird 跨仓定位上下游微服务。</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="scenario-ribbon appendix-ast-ribbon reveal d3">
+                <span class="ribbon-badge">跨仓追踪闭环</span>
+                <div class="ribbon-flow">
+                    <span class="flow-step" data-edit-key="158">查询 AST 注入 RBAC 与排除规则</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-step primary" data-edit-key="159">语义向量召回 `payment-service` 入口</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-step primary" data-edit-key="160">Stack Graphs + Symbol 追踪 `billing-sdk` 与 `worker`</span>
+                </div>
+                <div class="ribbon-boundary">索引边界：<strong>默认分支 · 单文件 &lt;350KiB · 自动过滤生成与 Vendor 代码</strong></div>
             </footer>
         </section>
 
@@ -3520,14 +3567,21 @@ class InlineDeckEditor {
         this.editables = document.querySelectorAll('.cover-title, .cover-subtitle, .feature-title, .feature-tagline, .cap-name, .cap-highlight, .cap-detail, .matrix-name, .matrix-value, .flow-step, .hero-kpi-value');
         // Scoped slides can reserve legacy numeric slots when their content is redesigned.
         let legacyIndex = 0;
+        let previousSlide = null;
         const scopedIndices = {};
         this.editKeys = Array.from(this.editables, el => {
-            const scope = el.closest('.slide').dataset.editScope;
+            const slide = el.closest('.slide');
+            if (previousSlide && slide !== previousSlide) {
+                legacyIndex += Number(previousSlide.dataset.editReserveAfter || 0);
+            }
+            previousSlide = slide;
+            if (el.dataset.editKey) return el.dataset.editKey;
+            const scope = slide.dataset.editScope;
             if (!scope) return String(legacyIndex++);
             const index = scopedIndices[scope] || 0;
             scopedIndices[scope] = index + 1;
             // Preserve downstream numeric keys even though this slide now has scoped keys.
-            if (index === 0) legacyIndex += Number(el.closest('.slide').dataset.editReserve || 0);
+            if (index === 0) legacyIndex += Number(slide.dataset.editReserve || 0);
             return `${scope}:${index}`;
         });
         this.storageKey = 'gh-universe-26-executive-briefing-v1';
