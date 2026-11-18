@@ -5,7 +5,7 @@
 - **在线预览地址**：[https://nickhou1983.github.io/github-universe-update/](https://nickhou1983.github.io/github-universe-update/)
 - **直达单文件版本**：[github-universe-26-copilot-agent-slides.html](https://nickhou1983.github.io/github-universe-update/github-universe-26-copilot-agent-slides.html)
 
-## 内容概览（共 20 页）
+## 内容概览（共 21 页）
 
 1. **封面**：GitHub Universe '26 — Copilot 与 Agent 开发九大新功能深度解析
 2. **全景总览**：三大演进支柱（模型调度与端云协同、智能体运行底座、记忆演化与工具连接）与 9 项核心能力矩阵
@@ -13,23 +13,34 @@
 4. **Feature 01 · [Copilot Fusion 智能编排架构图](https://nickhou1983.github.io/github-universe-update/#fusion-architecture)**：从投入档位、任务路由和模型评审到最终结果，架构图内嵌，可离线查看
 5. **Feature 01 Deep Dive I · HyDRA 在线路由**：ModernBERT 的四维需求分、逐维 shortfall matching、健康度过滤与缓存边界粘性
 6. **Feature 01 · [Fusion 评测结果与解读](https://nickhou1983.github.io/github-universe-update/#fusion-results)**：Copilot Fusion Max in GitHub Copilot CLI 的 Index 得分 60 vs Claude Code Opus 5.5 Max 62，API 成本 $5.59/task vs $11.42/task；区分 AA 实测与 GitHub 官方耗时比较
-7. **Feature 01 · [AA Coding Agent Index v2.0 方法论](https://nickhou1983.github.io/github-universe-update/#fusion-methodology)**：三项等权重 benchmark、290 tasks、每 task 3 次尝试，以及计分与效率指标口径
-8. **Feature 02 · 本地模型智能路由**：Fusion Standard 下自动分流本机 GPU/NPU（MAI Code 1.1 Flash / Qwen3.8）与云端模型
-9. **Feature 03 · VS Code 1.144 Agent Host & AHP**：独立后台守护进程、多模型并行跑分融合与开放协议 SDK
-10. **Feature 04 · Copilot Projects**：面向长期目标的顶层协调 Agent、多仓库独立 Worktree 子会话、Library 与定时巡检
-11. **Feature 05 · Cloud Sandboxes**：七大入口实时同步同一云端会话、空闲磁盘快照恢复与共享美元算力池
-12. **Feature 05 Deep Dive · [三大执行环境横向对比](https://nickhou1983.github.io/github-universe-update/#sandbox-comparison)**：Cloud Sandboxes、GitHub Actions 云端 Runner 与 Local Sandboxing 的隔离机制、接续范围、持久化、安全定制及计费
-13. **Feature 06 · GitHub Intelligence**：跨端双层记忆（Memory GA）、后台反思自演进（Dreaming）与跨仓语义/符号检索
-14. **Feature 07 · Copilot Connectors**：一次 OAuth 授权全端复用 26 项官方托管 MCP 服务
-15. **Feature 08 · Computer Use**：后台优先的本机桌面 GUI 控件树读取与受控交互验收
-16. **Feature 09 · 对话内图像生成与编辑**：调用 GPT Image 2.5 Flare 在编码心流中直接生成、微调并写入代码仓
-17. **落地路线图**：研发团队三阶段（第 1 周 → 第 1 月 → 季度）落地行动指南
+7. **Feature 01 Deep Dive · [Fusion 评测原图与基准对照](https://nickhou1983.github.io/github-universe-update/#fusion-benchmark-charts)**：GitHub Terminal-Bench 4.1 公共榜单，以及 Artificial Analysis Coding Agent Index v2.0 综合图与子项图
+8. **Feature 01 · [AA Coding Agent Index v2.0 方法论](https://nickhou1983.github.io/github-universe-update/#fusion-methodology)**：三项等权重 benchmark、290 tasks、每 task 3 次尝试，以及计分与效率指标口径
+9. **Feature 02 · 本地模型智能路由**：Fusion Standard 下自动分流本机 GPU/NPU（MAI Code 1.1 Flash / Qwen3.8）与云端模型
+10. **Feature 03 · VS Code 1.144 Agent Host & AHP**：独立后台守护进程、多模型并行跑分融合与开放协议 SDK
+11. **Feature 04 · Copilot Projects**：面向长期目标的顶层协调 Agent、多仓库独立 Worktree 子会话、Library 与定时巡检
+12. **Feature 05 · Cloud Sandboxes**：七大入口实时同步同一云端会话、空闲磁盘快照恢复与共享美元算力池
+13. **Feature 05 Deep Dive · [三大执行环境横向对比](https://nickhou1983.github.io/github-universe-update/#sandbox-comparison)**：Cloud Sandboxes、GitHub Actions 云端 Runner 与 Local Sandboxing 的隔离机制、接续范围、持久化、安全定制及计费
+14. **Feature 06 · GitHub Intelligence**：跨端双层记忆（Memory GA）、后台反思自演进（Dreaming）与跨仓语义/符号检索
+15. **Feature 07 · Copilot Connectors**：一次 OAuth 授权全端复用 26 项官方托管 MCP 服务
+16. **Feature 08 · Computer Use**：后台优先的本机桌面 GUI 控件树读取与受控交互验收
+17. **Feature 09 · 对话内图像生成与编辑**：调用 GPT Image 2.5 Flare 在编码心流中直接生成、微调并写入代码仓
+18. **落地路线图**：研发团队三阶段（第 1 周 → 第 1 月 → 季度）落地行动指南
 
 ### Appendix · 深度实现
 
-18. **Appendix A · [Fusion 路由训练与三类 Judge](https://nickhou1983.github.io/github-universe-update/#fusion-training)**：离线差分打标、不可变 commit 重放、Beam Search 与三类评审器
-19. **Appendix B · [GitHub Intelligence 底层实现原理](https://nickhou1983.github.io/github-universe-update/#appendix-intelligence-internals)**：源码行号 Citation 校验、90 天滑动 TTL 投票与三路离线反思管线
-20. **Appendix C · [跨仓 AST 定位引擎](https://nickhou1983.github.io/github-universe-update/#appendix-ast-engine)**：Tree-sitter、Stack Graphs 与 Blackbird 稀疏 N-grams
+19. **Appendix A · [Fusion 路由训练与三类 Judge](https://nickhou1983.github.io/github-universe-update/#fusion-training)**：离线差分打标、不可变 commit 重放、Beam Search 与三类评审器
+20. **Appendix B · [GitHub Intelligence 底层实现原理](https://nickhou1983.github.io/github-universe-update/#appendix-intelligence-internals)**：源码行号 Citation 校验、90 天滑动 TTL 投票与三路离线反思管线
+21. **Appendix C · [跨仓 AST 定位引擎](https://nickhou1983.github.io/github-universe-update/#appendix-ast-engine)**：Tree-sitter、Stack Graphs 与 Blackbird 稀疏 N-grams
+
+## Fusion 原始评测图表来源与口径
+
+第 7 页展示三张发布方原图，不裁切或重绘。为避免在未确认转载许可时将第三方图片复制进仓库，HTML 直接从原发布站点加载图片并链接回原图；查看该页图像需要联网。GitHub 公布的 Terminal-Bench **4.1** 公共榜单与 Artificial Analysis 于 2026-10-28 发布的 Coding Agent Index v2.0（包含 Terminal-Bench **4.0**、FrontierCode v1.1、SWE-Atlas-QnA-AA）是不同评测，不应混为同一排行榜。
+
+- [GitHub Changelog · Copilot Fusion updates（2026-11-17）](https://github.blog/changelog/2026-11-17-github-copilot-fusion-updates-more-availability-benchmarks-and-models/)
+- [GitHub Terminal-Bench 4.1 榜单原图](https://github.com/user-attachments/assets/92e558b2-c2de-4f9e-b8c0-abca0f8a1887)
+- [Artificial Analysis · Fusion 技术文章（2026-10-28）](https://artificialanalysis.ai/articles/github-copilot-fusion-orchestrates-anthropic-and-openai-models-to-balance-performance-and-cost)
+- [AA 综合得分与成本对照原图](https://cdn.sanity.io/images/6vfeftx9/articles/8280462c97c9b7ff22f4bcb528f4efd89934b50c-2152x2039.png)
+- [AA 三项基准成绩原图](https://cdn.sanity.io/images/6vfeftx9/articles/8fd2507f2c0ddab8b5d0e25d81ec75ccf4271c86-2152x1140.png)
 
 ## 执行环境对比来源
 
@@ -52,7 +63,7 @@
 
 ### Fusion 路由实现与证据边界
 
-第 5 页按 HyDRA 论文呈现 ModernBERT、K=4 独立 Sigmoid 需求轴及 shortfall matching；论文报告生产 CPU 中位推理延迟 86 ms。附录 A（第 18 页）补充 Beam Search、CheckpointBench 不可变提交回放，以及训练/在线/第三方评测三种 Judge 职责。GitHub 官方 HydraFusion 博客确认 CheckpointBench 对 Opus 5 的质量差约 0.1 个百分点、估算成本低 65%。
+第 5 页按 HyDRA 论文呈现 ModernBERT、K=4 独立 Sigmoid 需求轴及 shortfall matching；论文报告生产 CPU 中位推理延迟 86 ms。附录 A（第 19 页）补充 Beam Search、CheckpointBench 不可变提交回放，以及训练/在线/第三方评测三种 Judge 职责。GitHub 官方 HydraFusion 博客确认 CheckpointBench 对 Opus 5 的质量差约 0.1 个百分点、估算成本低 65%。
 
 7-Flag 前缀、CAPI 部署位置、55 ms P50 / 120 ms P99、50,159 条样本、具体 Judge 模型和单张 A100 42 分钟等细节来自补充工程/评测说明，并非公开论文或博客中可独立核实的指标；演示页已把这类信息标注为补充说明，且不与论文 86 ms 中位数混为一谈。
 
@@ -64,7 +75,7 @@
 
 保留 Executive Architectural Briefing 风格与固定 1920×1080 舞台，使用零依赖的内联 CSS 动效：翻页短暂淡入，标题、关键数字与卡片依次轻微上移显现；架构图的节点和连线按从左到右的三段顺序渐显。评测结果页按指标行和解读段落展开，方法论图保留原始柱长与分数，不做数字滚动或循环背景动画。单页入场在约一秒内完成，返回该页时重播，重复选择当前页不重播。
 
-系统开启 `prefers-reduced-motion: reduce` 时停用入场动画并清除延迟；进入文案编辑或打印时立即展示完整内容。动画只改变透明度和局部位移，不改变舞台缩放、内容布局、评测锚点或编辑缓存键。断网打开单文件仍可演示与播放动效；在线字体不可用时使用本机后备字体。
+系统开启 `prefers-reduced-motion: reduce` 时停用入场动画并清除延迟；进入文案编辑或打印时立即展示完整内容。动画只改变透明度和局部位移，不改变舞台缩放、内容布局、评测锚点或编辑缓存键。断网仍可演示其余单文件内容，但第 7 页原始评测图需联网从发布方加载；在线字体不可用时使用本机后备字体。
 
 ## 快捷键说明
 

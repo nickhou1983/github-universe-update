@@ -858,6 +858,102 @@ svg {
     text-underline-offset: 4px;
 }
 
+/* === ORIGINAL FUSION BENCHMARK CHARTS === */
+.benchmark-chart-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 16px 20px;
+    flex: 1;
+    min-height: 0;
+    margin-top: 4px;
+}
+
+.benchmark-chart-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    gap: 6px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 14px;
+    background: var(--surface-card);
+    box-shadow: var(--shadow-card);
+}
+
+.benchmark-chart-card-primary {
+    grid-row: 1 / span 2;
+}
+
+.benchmark-chart-kicker {
+    color: var(--cobalt);
+    font: 600 12px 'Fira Code', monospace;
+    letter-spacing: 0.04em;
+}
+
+.benchmark-chart-heading {
+    color: var(--ink-primary);
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.benchmark-chart-media {
+    display: block;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.benchmark-chart-media a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.benchmark-chart-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.benchmark-chart-source {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--ink-muted);
+    font-size: 12px;
+    line-height: 1.25;
+}
+
+.benchmark-chart-source a,
+.benchmark-scope-note a {
+    color: var(--cobalt);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.benchmark-scope-note {
+    margin-top: 10px;
+    padding: 9px 14px;
+    border: 1px solid var(--amber-border);
+    border-radius: 10px;
+    background: var(--amber-bg);
+    color: var(--ink-secondary);
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.benchmark-scope-note strong {
+    color: var(--ink-primary);
+}
+
 .benchmark-diagram {
     height: 216px;
 }
@@ -1301,7 +1397,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">9 CORE CAPABILITIES</span>
-                    <span class="page-num">01 / 20</span>
+                    <span class="page-num">01 / 21</span>
                 </div>
             </header>
 
@@ -1373,7 +1469,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">4 GA · 4 PREVIEW · 1 EXP</span>
-                    <span class="page-num">02 / 20</span>
+                    <span class="page-num">02 / 21</span>
                 </div>
             </header>
 
@@ -1399,7 +1495,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 02 · P08</span>
+                        <span class="matrix-id">FEATURE 02 · P09</span>
                         <span class="matrix-badge preview">EXPERIMENTAL</span>
                     </div>
                     <div class="matrix-name">本地模型智能路由</div>
@@ -1407,7 +1503,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 03 · P09</span>
+                        <span class="matrix-id">FEATURE 03 · P10</span>
                         <span class="matrix-badge">GA + PREVIEW</span>
                     </div>
                     <div class="matrix-name">VS Code Agent Host</div>
@@ -1415,7 +1511,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 04 · P10</span>
+                        <span class="matrix-id">FEATURE 04 · P11</span>
                         <span class="matrix-badge preview">PUBLIC PREVIEW</span>
                     </div>
                     <div class="matrix-name">Copilot Projects</div>
@@ -1423,7 +1519,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 05 · P11</span>
+                        <span class="matrix-id">FEATURE 05 · P12</span>
                         <span class="matrix-badge">GA</span>
                     </div>
                     <div class="matrix-name">Cloud Sandboxes</div>
@@ -1431,7 +1527,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 06 · P13</span>
+                        <span class="matrix-id">FEATURE 06 · P14</span>
                         <span class="matrix-badge">MEMORY GA</span>
                     </div>
                     <div class="matrix-name">GitHub Intelligence</div>
@@ -1440,7 +1536,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 07 · P14</span>
+                        <span class="matrix-id">FEATURE 07 · P15</span>
                         <span class="matrix-badge preview">PUBLIC PREVIEW</span>
                     </div>
                     <div class="matrix-name">Copilot Connectors</div>
@@ -1448,7 +1544,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 08 · P15</span>
+                        <span class="matrix-id">FEATURE 08 · P16</span>
                         <span class="matrix-badge preview">PREVIEW / EXP</span>
                     </div>
                     <div class="matrix-name">Computer Use</div>
@@ -1456,7 +1552,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 09 · P16</span>
+                        <span class="matrix-id">FEATURE 09 · P17</span>
                         <span class="matrix-badge preview">PUBLIC PREVIEW</span>
                     </div>
                     <div class="matrix-name">对话内图像生成与编辑</div>
@@ -1464,10 +1560,11 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
             </div>
             <footer class="matrix-appendix-links">
-                <span>APPENDIX</span>
-                <a href="#fusion-training">A · Fusion 路由训练 · 18</a>
-                <a href="#appendix-intelligence-internals">B · Intelligence 实现 · 19</a>
-                <a href="#appendix-ast-engine">C · AST 引擎 · 20</a>
+                <span>BENCHMARKS + APPENDIX</span>
+                <a href="#fusion-benchmark-charts">原始评测图表 · 07</a>
+                <a href="#fusion-training">A · Fusion 路由训练 · 19</a>
+                <a href="#appendix-intelligence-internals">B · Intelligence 实现 · 20</a>
+                <a href="#appendix-ast-engine">C · AST 引擎 · 21</a>
             </footer>
         </section>
 
@@ -1482,7 +1579,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">GENERALLY AVAILABLE</span>
-                    <span class="page-num">03 / 20</span>
+                    <span class="page-num">03 / 21</span>
                 </div>
             </header>
 
@@ -1625,7 +1722,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">END-TO-END BLUEPRINT</span>
-                    <span class="page-num">04 / 20</span>
+                    <span class="page-num">04 / 21</span>
                 </div>
             </header>
 
@@ -1670,7 +1767,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ARXIV:2605.17106v2</span>
-                    <span class="page-num">05 / 20</span>
+                    <span class="page-num">05 / 21</span>
                 </div>
             </header>
 
@@ -1781,7 +1878,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">AA CODING AGENT INDEX v2.0</span>
-                    <span class="page-num">06 / 20</span>
+                    <span class="page-num">06 / 21</span>
                 </div>
             </header>
 
@@ -1838,7 +1935,78 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
-<section class="slide" data-slide="7" id="fusion-methodology" data-edit-scope="fusion-methodology">
+<!-- Original chart sources: GitHub public leaderboard and Artificial Analysis v2.0. -->
+        <section class="slide" data-slide="7" id="fusion-benchmark-charts" data-edit-scope="fusion-benchmark-charts">
+            <header class="exec-topbar">
+                <div class="exec-breadcrumb">
+                    <span class="exec-dot"></span>
+                    <span>FEATURE 01 DEEP DIVE · ORIGINAL BENCHMARK CHARTS</span>
+                </div>
+                <div class="exec-meta-right">
+                    <span class="maturity-pill cobalt">PUBLIC LEADERBOARD + INDEPENDENT INDEX</span>
+                    <span class="page-num">07 / 21</span>
+                </div>
+            </header>
+
+            <div class="feature-hero reveal d1">
+                <div class="feature-title-group">
+                    <div class="feature-index-tag">FUSION MAX // ORIGINAL EVALUATION CHARTS</div>
+                    <h2 class="feature-title"><span class="accent">官方榜单</span>与第三方综合评测原图</h2>
+                    <p class="feature-tagline">左侧为 Artificial Analysis 综合指数与成本对照；右侧分别为 GitHub 公布的 Terminal-Bench 4.1 榜单和 AA 子项成绩。</p>
+                </div>
+            </div>
+
+            <div class="benchmark-chart-layout">
+                <article class="benchmark-chart-card benchmark-chart-card-primary">
+                    <div class="benchmark-chart-kicker">ARTIFICIAL ANALYSIS · 2026.10.28 · CODING AGENT INDEX V2.0</div>
+                    <h3 class="cap-name benchmark-chart-heading">综合得分与每任务 API 成本</h3>
+                    <div class="benchmark-chart-media">
+                        <a href="https://cdn.sanity.io/images/6vfeftx9/articles/8280462c97c9b7ff22f4bcb528f4efd89934b50c-2152x2039.png" target="_blank" rel="noopener noreferrer" aria-label="打开 Artificial Analysis 综合指数与成本原图">
+                            <img src="https://cdn.sanity.io/images/6vfeftx9/articles/8280462c97c9b7ff22f4bcb528f4efd89934b50c-2152x2039.png" alt="Artificial Analysis Coding Agent Index v2.0 综合得分与每任务 API 成本对比原图" loading="eager" decoding="async" referrerpolicy="no-referrer">
+                        </a>
+                    </div>
+                    <div class="benchmark-chart-source">
+                        <a href="https://artificialanalysis.ai/articles/github-copilot-fusion-orchestrates-anthropic-and-openai-models-to-balance-performance-and-cost" target="_blank" rel="noopener noreferrer">来源文章 · Artificial Analysis</a>
+                        <a href="https://cdn.sanity.io/images/6vfeftx9/articles/8280462c97c9b7ff22f4bcb528f4efd89934b50c-2152x2039.png" target="_blank" rel="noopener noreferrer">打开原图 ↗</a>
+                    </div>
+                </article>
+
+                <article class="benchmark-chart-card">
+                    <div class="benchmark-chart-kicker">GITHUB CHANGELOG · 2026.11.17 · TERMINAL-BENCH 4.1</div>
+                    <h3 class="cap-name benchmark-chart-heading">GitHub 公布的公开榜单</h3>
+                    <div class="benchmark-chart-media">
+                        <a href="https://github.com/user-attachments/assets/92e558b2-c2de-4f9e-b8c0-abca0f8a1887" target="_blank" rel="noopener noreferrer" aria-label="打开 GitHub Terminal-Bench 4.1 原始榜单图">
+                            <img src="https://github.com/user-attachments/assets/92e558b2-c2de-4f9e-b8c0-abca0f8a1887" alt="GitHub 2026 年 11 月 17 日公布的 Terminal-Bench 4.1 公开榜单，展示 Copilot Fusion Max" loading="eager" decoding="async" referrerpolicy="no-referrer">
+                        </a>
+                    </div>
+                    <div class="benchmark-chart-source">
+                        <a href="https://github.blog/changelog/2026-11-17-github-copilot-fusion-updates-more-availability-benchmarks-and-models/" target="_blank" rel="noopener noreferrer">来源文章 · GitHub Changelog</a>
+                        <a href="https://github.com/user-attachments/assets/92e558b2-c2de-4f9e-b8c0-abca0f8a1887" target="_blank" rel="noopener noreferrer">打开原图 ↗</a>
+                    </div>
+                </article>
+
+                <article class="benchmark-chart-card">
+                    <div class="benchmark-chart-kicker">ARTIFICIAL ANALYSIS · 2026.10.28 · COMPONENT BENCHMARKS</div>
+                    <h3 class="cap-name benchmark-chart-heading">Terminal-Bench 4.0、FrontierCode 与 SWE-Atlas</h3>
+                    <div class="benchmark-chart-media">
+                        <a href="https://cdn.sanity.io/images/6vfeftx9/articles/8fd2507f2c0ddab8b5d0e25d81ec75ccf4271c86-2152x1140.png" target="_blank" rel="noopener noreferrer" aria-label="打开 Artificial Analysis 三项基准对比原图">
+                            <img src="https://cdn.sanity.io/images/6vfeftx9/articles/8fd2507f2c0ddab8b5d0e25d81ec75ccf4271c86-2152x1140.png" alt="Artificial Analysis Coding Agent Index v2.0 三项组成基准成绩对比原图" loading="eager" decoding="async" referrerpolicy="no-referrer">
+                        </a>
+                    </div>
+                    <div class="benchmark-chart-source">
+                        <a href="https://artificialanalysis.ai/articles/github-copilot-fusion-orchestrates-anthropic-and-openai-models-to-balance-performance-and-cost" target="_blank" rel="noopener noreferrer">来源文章 · Artificial Analysis</a>
+                        <a href="https://cdn.sanity.io/images/6vfeftx9/articles/8fd2507f2c0ddab8b5d0e25d81ec75ccf4271c86-2152x1140.png" target="_blank" rel="noopener noreferrer">打开原图 ↗</a>
+                    </div>
+                </article>
+            </div>
+
+            <footer class="benchmark-scope-note">
+                <strong>口径不可混用：</strong>GitHub 公布的是 Terminal-Bench 4.1 公开榜单；Artificial Analysis 的 2026-10-28 Coding Agent Index v2.0 使用 Terminal-Bench 4.0、FrontierCode v1.1 与 SWE-Atlas-QnA-AA。
+                <a href="#fusion-methodology">查看 AA 方法论 · 第 08 页 →</a>
+            </footer>
+        </section>
+
+<section class="slide" data-slide="8" id="fusion-methodology" data-edit-scope="fusion-methodology">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1846,7 +2014,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">3 BENCHMARKS · EQUAL WEIGHT</span>
-                    <span class="page-num">07 / 20</span>
+                    <span class="page-num">08 / 21</span>
                 </div>
             </header>
             <div class="feature-hero reveal d1">
@@ -1922,9 +2090,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 08: FEATURE 02 — LOCAL MODEL ROUTING
+             SLIDE 09: FEATURE 02 — LOCAL MODEL ROUTING
              =========================================== -->
-        <section class="slide" data-slide="8">
+        <section class="slide" data-slide="9">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -1932,7 +2100,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">EXPERIMENTAL PREVIEW</span>
-                    <span class="page-num">08 / 20</span>
+                    <span class="page-num">09 / 21</span>
                 </div>
             </header>
 
@@ -2033,9 +2201,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 09: FEATURE 03 — VS CODE AGENT HOST & AHP
+             SLIDE 10: FEATURE 03 — VS CODE AGENT HOST & AHP
              =========================================== -->
-        <section class="slide" data-slide="9">
+        <section class="slide" data-slide="10">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2043,7 +2211,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">HOST GA · COMPARE PREVIEW</span>
-                    <span class="page-num">09 / 20</span>
+                    <span class="page-num">10 / 21</span>
                 </div>
             </header>
 
@@ -2156,9 +2324,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 10: FEATURE 04 — COPILOT PROJECTS
+             SLIDE 11: FEATURE 04 — COPILOT PROJECTS
              =========================================== -->
-        <section class="slide" data-slide="10">
+        <section class="slide" data-slide="11">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2166,7 +2334,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">10 / 20</span>
+                    <span class="page-num">11 / 21</span>
                 </div>
             </header>
 
@@ -2274,9 +2442,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 11: FEATURE 05 — UNIFIED CLOUD & SANDBOXES
+             SLIDE 12: FEATURE 05 — UNIFIED CLOUD & SANDBOXES
              =========================================== -->
-        <section class="slide" data-slide="11">
+        <section class="slide" data-slide="12">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2284,7 +2452,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">GENERALLY AVAILABLE</span>
-                    <span class="page-num">11 / 20</span>
+                    <span class="page-num">12 / 21</span>
                 </div>
             </header>
 
@@ -2403,9 +2571,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 12: FEATURE 05 DEEP DIVE — EXECUTION ENVIRONMENT MATRIX
+             SLIDE 13: FEATURE 05 DEEP DIVE — EXECUTION ENVIRONMENT MATRIX
              =========================================== -->
-        <section class="slide" data-slide="12" id="sandbox-comparison" data-edit-scope="sandbox-comparison">
+        <section class="slide" data-slide="13" id="sandbox-comparison" data-edit-scope="sandbox-comparison">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2413,7 +2581,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ENVIRONMENT MATRIX &amp; METERING</span>
-                    <span class="page-num">12 / 20</span>
+                    <span class="page-num">13 / 21</span>
                 </div>
             </header>
 
@@ -2492,9 +2660,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 13: FEATURE 06 — GITHUB INTELLIGENCE
+             SLIDE 14: FEATURE 06 — GITHUB INTELLIGENCE
              =========================================== -->
-        <section class="slide" data-slide="13" data-edit-reserve-after="30">
+        <section class="slide" data-slide="14" data-edit-reserve-after="30">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2502,7 +2670,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">MEMORY GA · DREAMING PREVIEW</span>
-                    <span class="page-num">13 / 20</span>
+                    <span class="page-num">14 / 21</span>
                 </div>
             </header>
 
@@ -2604,9 +2772,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 14: FEATURE 07 — COPILOT CONNECTORS
+             SLIDE 15: FEATURE 07 — COPILOT CONNECTORS
              =========================================== -->
-        <section class="slide" data-slide="14">
+        <section class="slide" data-slide="15">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2614,7 +2782,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">14 / 20</span>
+                    <span class="page-num">15 / 21</span>
                 </div>
             </header>
 
@@ -2714,9 +2882,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 15: FEATURE 08 — COMPUTER USE
+             SLIDE 16: FEATURE 08 — COMPUTER USE
              =========================================== -->
-        <section class="slide" data-slide="15">
+        <section class="slide" data-slide="16">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2724,7 +2892,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">APP PREVIEW · VSCODE EXP</span>
-                    <span class="page-num">15 / 20</span>
+                    <span class="page-num">16 / 21</span>
                 </div>
             </header>
 
@@ -2824,9 +2992,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 16: FEATURE 09 — IMAGE GENERATION & EDITING
+             SLIDE 17: FEATURE 09 — IMAGE GENERATION & EDITING
              =========================================== -->
-        <section class="slide" data-slide="16">
+        <section class="slide" data-slide="17">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2834,7 +3002,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">16 / 20</span>
+                    <span class="page-num">17 / 21</span>
                 </div>
             </header>
 
@@ -2933,9 +3101,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 17: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
+             SLIDE 18: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
              =========================================== -->
-        <section class="slide" data-slide="17">
+        <section class="slide" data-slide="18">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2943,7 +3111,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ACTION PLAYBOOK</span>
-                    <span class="page-num">17 / 20</span>
+                    <span class="page-num">18 / 21</span>
                 </div>
             </header>
 
@@ -3040,7 +3208,7 @@ body.editing-mode .motion-ready .motion-diagram {
 <!-- ===========================================
              APPENDIX A: FUSION ROUTER TRAINING & JUDGES
              =========================================== -->
-        <section class="slide" data-slide="18" id="fusion-training" data-edit-scope="fusion-training">
+        <section class="slide" data-slide="19" id="fusion-training" data-edit-scope="fusion-training">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -3048,7 +3216,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">APPENDIX A · 附录 A</span>
-                    <span class="page-num">18 / 20</span>
+                    <span class="page-num">19 / 21</span>
                 </div>
             </header>
 
@@ -3127,7 +3295,7 @@ body.editing-mode .motion-ready .motion-diagram {
 <!-- ===========================================
              APPENDIX B: GITHUB INTELLIGENCE INTERNALS
              =========================================== -->
-        <section class="slide" data-slide="19" id="appendix-intelligence-internals">
+        <section class="slide" data-slide="20" id="appendix-intelligence-internals">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -3135,7 +3303,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">APPENDIX B · 附录 B</span>
-                    <span class="page-num">19 / 20</span>
+                    <span class="page-num">20 / 21</span>
                 </div>
             </header>
 
@@ -3244,7 +3412,7 @@ body.editing-mode .motion-ready .motion-diagram {
 <!-- ===========================================
              APPENDIX C: ZERO-BUILD AST ENGINE
              =========================================== -->
-        <section class="slide" data-slide="20" id="appendix-ast-engine">
+        <section class="slide" data-slide="21" id="appendix-ast-engine">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -3252,7 +3420,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">APPENDIX C · 附录 C</span>
-                    <span class="page-num">20 / 20</span>
+                    <span class="page-num">21 / 21</span>
                 </div>
             </header>
 
@@ -3370,7 +3538,7 @@ body.editing-mode .motion-ready .motion-diagram {
 <nav class="deck-controls" aria-label="Slide Navigation">
     <button class="nav-btn" id="prevBtn" title="上一页 (←)">上一页</button>
     <div class="nav-dots" id="navDots"></div>
-    <span id="slideCounter">01 / 20</span>
+    <span id="slideCounter">01 / 21</span>
     <button class="nav-btn speaker-toggle" id="speakerToggle" aria-pressed="true" title="切换演讲精简视图 / 完整讲义视图 (P)">演讲视图 [P]</button>
     <button class="nav-btn fullscreen-toggle" id="fullscreenToggle" aria-pressed="false" title="切换全屏演示 (快捷键 F 或双击背景)">全屏 [F]</button>
     <button class="nav-btn" id="nextBtn" title="下一页 (→)">下一页</button>
@@ -3441,7 +3609,9 @@ class SlidePresentation {
             ['.cap-card', 300, 80],
             ['.evaluation-table tbody tr', 150, 110],
             ['.evaluation-readout > div', 220, 100],
-            ['.scenario-ribbon, .evaluation-boundary', 500, 0]
+            ['.scenario-ribbon, .evaluation-boundary', 500, 0],
+            ['.benchmark-chart-card', 180, 90],
+            ['.benchmark-scope-note', 450, 0]
         ];
         this.slides.forEach(slide => {
             sequences.forEach(([selector, delay, step]) => {
