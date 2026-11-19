@@ -1243,13 +1243,19 @@ body:not(.speaker-mode) .cap-detail {
     color: var(--emerald);
 }
 
-.ui-compare-table code {
+.ui-compare-table code,
+.cap-detail code {
     font-family: 'Fira Code', monospace;
     font-size: 14px;
     padding: 1px 6px;
     border-radius: 5px;
     background: rgba(15, 23, 42, 0.06);
     color: var(--ink-primary);
+}
+
+.cap-detail strong {
+    color: var(--ink-primary);
+    font-weight: 700;
 }
 
 .ui-compare-links {
@@ -2024,36 +2030,36 @@ body.editing-mode .motion-ready .motion-diagram {
                 <div class="cap-card">
                     <div>
                         <div class="cap-card-head">
-                            <span class="cap-num">MODEL · ONLINE INFERENCE</span>
-                            <span class="cap-chip">ModernBERT-base</span>
+                            <span class="cap-num">LEVEL 01 · FUSION STANDARD</span>
+                            <span class="cap-chip">全计划可用 · Single + 本地路由</span>
                         </div>
-                        <h3 class="cap-name">CAPI 前置打分，四个需求独立预测</h3>
-                        <div class="cap-highlight">149M · ONNX 动态 INT8 · 4 个独立 Sigmoid 头</div>
-                        <p class="cap-detail">论文报告生产 CPU 推理中位数 86ms。另有部署记录给出 55ms P50 / 120ms P99；两者是不同测量口径，勿混为同一论文指标。</p>
+                        <h3 class="cap-name" data-edit-key="fusion-tier-std-name">Standard（含 Fast 与端侧模型）</h3>
+                        <div class="cap-highlight" data-edit-key="fusion-tier-std-hl">11/17 新增 MAI-Code-2 · 支持本地零 Token 分流</div>
+                        <p class="cap-detail" data-edit-key="fusion-tier-std-detail"><strong>云端模型池：</strong><code>MAI-Code-2</code>（新增）、<code>MAI Code 2 Flash</code>、<code>MAI-Code-1.1-Flash</code>、<code>Gemini 3.8 Flash</code>、<code>Claude Haiku 4.5</code>、<code>Claude Sonnet 5</code>、<code>GPT-5.6 Luna / Sol</code>（及 LTS 兜底 <code>GPT-5.3-Codex</code>）。<br><strong>端侧与行内：</strong>支持 <code>MAI Code 1.1 Flash</code>（Win）与 <code>Qwen3.8 Flash Next</code>（Ollama）本地优先路由；VS Code 行内自动启用 <code>Fusion Fast</code>。</p>
                     </div>
                 </div>
 
                 <div class="cap-card emerald-top">
                     <div>
                         <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">CAPABILITY · SHORTFALL</span>
-                            <span class="cap-chip">能力表与路由边界</span>
+                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">LEVEL 02 · FUSION HIGH</span>
+                            <span class="cap-chip">Pro+ / Max / 企服 · 默认主力档</span>
                         </div>
-                        <h3 class="cap-name">逐维短板不由其他维度优势抵消</h3>
-                        <div class="cap-highlight">逐维比对需求分与模型能力分，过滤超标短板</div>
-                        <p class="cap-detail">模型能力锚定公开基准后静态写入 YAML；新增或下线模型只改配置。CAPI 健康度一票否决后，在达标模型中选成本最低者。</p>
+                        <h3 class="cap-name" data-edit-key="fusion-tier-high-name">High：跨文件编码与级联升级池</h3>
+                        <div class="cap-highlight" data-edit-key="fusion-tier-high-hl">11/17 新增 GPT-6.1 Terra · Single / Cascade / Critique</div>
+                        <p class="cap-detail" data-edit-key="fusion-tier-high-detail"><strong>主力与升级池：</strong><code>GPT-6.1 Terra</code>（新增）、<code>GPT-6.1 Sol</code>、<code>GPT-6 Sol / Luna / Astra</code>、<code>Claude Sonnet 5 / 5.5</code>、<code>MAI-Code-2</code>。<br><strong>级联协同池：</strong>常规步骤由 <code>GPT-5.6 Sol / Luna</code>、<code>Gemini 3.8 Flash</code>、<code>Claude Haiku 4.5</code> 等高性价比模型起草，Judge 切片质检未达标时自动升级至 6.1 系强模型完结。</p>
                     </div>
                 </div>
 
                 <div class="cap-card amber-top">
                     <div>
                         <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">SESSION · CACHE AFFINITY</span>
-                            <span class="cap-chip">减少缓存失效</span>
+                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">LEVEL 03 · FUSION MAX</span>
+                            <span class="cap-chip">Pro+ / Max / 企服 · 深度推理档</span>
                         </div>
-                        <h3 class="cap-name">三类自然缓存边界触发重路由</h3>
-                        <div class="cap-highlight">首轮 · 用户 /compact · 后台自动摘要</div>
-                        <p class="cap-detail">其余轮次保持主模型，避免不必要的 Prompt Cache 失效。90% 折扣为所给部署说明中的口径；官方文档仅确认按自然缓存边界与系统健康度路由。</p>
+                        <h3 class="cap-name" data-edit-key="fusion-tier-max-name">Max：复杂架构与异构审校模型池</h3>
+                        <div class="cap-highlight" data-edit-key="fusion-tier-max-hl">11/17 新增 Claude Sonnet 5.5 · 异构旗舰并行挑刺</div>
+                        <p class="cap-detail" data-edit-key="fusion-tier-max-detail"><strong>旗舰主笔与审校池：</strong><code>Claude Opus 5.5</code>、<code>Claude Sonnet 5.5</code>（新增）、<code>GPT-6.1 Sol</code>、<code>GPT-6 Astra / Sol / Luna</code>（AA 实测约 68% Token 由 Opus 5.5 主笔，OpenAI 6 系并行 Critique）。<br><strong>企业策略门控：</strong>若企业禁用了 Max 任一必选前沿模型，选择器将自动隐藏该档位；11/30 前享 30% 折扣。</p>
                     </div>
                 </div>
             </div>
@@ -2061,8 +2067,9 @@ body.editing-mode .motion-ready .motion-diagram {
             <footer class="evaluation-sources">
                 <span>来源口径</span>
                 <a href="https://arxiv.org/abs/2605.17106v2" target="_blank" rel="noopener noreferrer">HyDRA · arXiv:2605.17106v2</a>
-                <a href="https://docs.github.com/copilot/concepts/models/copilot-fusion" target="_blank" rel="noopener noreferrer">Copilot Fusion · 官方文档</a>
-                <span>部署测量、7-Flag 与精确缓存边界为补充说明</span>
+                <a href="https://docs.github.com/en/copilot/reference/ai-models/supported-models#supported-ai-models-for-auto-model-selection-and-copilot-fusion" target="_blank" rel="noopener noreferrer">Supported Models · 官方模型池</a>
+                <a href="https://github.blog/changelog/2026-11-17-github-copilot-fusion-updates-more-availability-benchmarks-and-models/" target="_blank" rel="noopener noreferrer">11/17 Fusion 模型更新公告</a>
+                <span>各档位实际候选池受订阅计划、区域可用性与企业模型策略动态约束</span>
             </footer>
         </section>
 
