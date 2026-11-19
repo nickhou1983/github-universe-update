@@ -9,8 +9,8 @@
 
 1. **封面**：GitHub Universe '26 — Copilot 与 Agent 开发九大新功能深度解析
 2. **全景总览**：三大演进支柱（模型调度与端云协同、智能体运行底座、记忆演化与工具连接）与 9 项核心能力矩阵
-3. **Feature 01 · Copilot Fusion**：按 Effort 投入档位自动执行 Single / Cascade / Critique 多模型编排
-4. **Feature 01 · [Copilot Fusion 智能编排架构图](https://nickhou1983.github.io/github-universe-update/#fusion-architecture)**：从投入档位、任务路由和模型评审到最终结果，架构图内嵌，可离线查看
+3. **Feature 01 · [Copilot Fusion 智能编排架构图](https://nickhou1983.github.io/github-universe-update/#fusion-architecture)**：从投入档位、任务路由和模型评审到最终结果，架构图内嵌，可离线查看
+4. **Feature 01 · Copilot Fusion 功能总览**：按 Effort 投入档位自动执行 Single / Cascade / Critique 多模型编排
 5. **Feature 01 Deep Dive I · HyDRA 在线路由**：ModernBERT 的四维需求分、逐维 shortfall matching、健康度过滤与缓存边界粘性
 6. **Feature 01 · [Fusion 评测结果与解读](https://nickhou1983.github.io/github-universe-update/#fusion-results)**：Copilot Fusion Max in GitHub Copilot CLI 的 Index 得分 60 vs Claude Code Opus 5.5 Max 62，API 成本 $5.59/task vs $11.42/task；区分 AA 实测与 GitHub 官方耗时比较
 7. **Feature 01 Deep Dive · [Fusion 评测原图与基准对照](https://nickhou1983.github.io/github-universe-update/#fusion-benchmark-charts)**：GitHub Terminal-Bench 4.1 公共榜单，以及 Artificial Analysis Coding Agent Index v2.0 综合图与子项图
