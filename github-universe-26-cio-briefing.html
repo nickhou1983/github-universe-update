@@ -1,0 +1,2229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Universe '26 — 面向 CIO 的企业 AI 研发效能、安全与投资回报简报</title>
+
+    <!-- Google Fonts: Bricolage Grotesque + Noto Sans SC + Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Fira+Code:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===========================================
+           CSS CUSTOM PROPERTIES (THEME)
+           Porcelain & Cobalt Executive Boardroom System
+           =========================================== */
+        :root {
+            --stage-bg: #0b1120;
+            --slide-bg: #f8fafc;
+            --surface: #ffffff;
+            --surface-muted: #f1f5f9;
+            --surface-navy: #0f172a;
+            --ink-primary: #0f172a;
+            --ink-secondary: #334155;
+            --ink-muted: #64748b;
+
+            --cobalt: #1d4ed8;
+            --cobalt-soft: #eff6ff;
+            --cobalt-border: #bfdbfe;
+
+            --emerald: #047857;
+            --emerald-soft: #ecfdf5;
+            --emerald-border: #a7f3d0;
+
+            --amber: #b45309;
+            --amber-soft: #fffbeb;
+            --amber-border: #fde68a;
+
+            --border-crisp: #cbd5e1;
+            --border-light: #e2e8f0;
+
+            --font-display: 'Bricolage Grotesque', 'Noto Sans SC', sans-serif;
+            --font-body: 'Noto Sans SC', 'Bricolage Grotesque', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ===========================================
+           FIXED 16:9 STAGE: MANDATORY BASE STYLES
+           Include this ENTIRE file in every presentation.
+           Slides are authored at 1920×1080 and scaled as a whole.
+           =========================================== */
+
+        /* 1. Lock the browser viewport */
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: var(--stage-bg, #000);
+        }
+
+        /* 2. Full-window deck viewport */
+        .deck-viewport {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            background: var(--stage-bg, #000);
+        }
+
+        /* 3. Fixed 16:9 design canvas.
+           JavaScript sets transform: translate(...) scale(...). */
+        .deck-stage {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            transform-origin: 0 0;
+            background: var(--slide-bg, #fff);
+        }
+
+        /* 4. Slides stack inside the fixed stage.
+           Content must be laid out at 1920×1080, not reflowed per device. */
+        .slide {
+            position: absolute;
+            inset: 0;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            background: var(--slide-bg, #fff);
+        }
+
+        .slide.active,
+        .slide.visible {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 1;
+        }
+
+        /* 5. Keep media inside authored slide bounds */
+        img,
+        video,
+        canvas,
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* 6. Presentation chrome stays outside the slide design system */
+        .deck-controls {
+            position: fixed;
+            left: 50%;
+            bottom: 22px;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+        /* 7. Print one fixed-size slide per page */
+        @media print {
+            html,
+            body {
+                width: 1920px;
+                height: auto;
+                overflow: visible;
+                background: #fff;
+            }
+
+            .deck-viewport {
+                position: static;
+                overflow: visible;
+                background: #fff;
+            }
+
+            .deck-stage {
+                position: static;
+                width: auto;
+                height: auto;
+                transform: none !important;
+                background: none;
+            }
+
+            .slide {
+                position: relative;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                pointer-events: auto !important;
+                width: 1920px;
+                height: 1080px;
+                break-after: page;
+                page-break-after: always;
+            }
+
+            .slide:last-child {
+                break-after: auto;
+                page-break-after: auto;
+            }
+
+            .deck-controls {
+                display: none !important;
+            }
+        }
+
+        /* 8. Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                transition-delay: 0ms !important;
+            }
+        }
+
+        /* ===========================================
+           BOARDROOM SLIDE SHELL & TYPOGRAPHY
+           =========================================== */
+        .exec-slide {
+            padding: 46px 88px 98px;
+            display: grid;
+            grid-template-rows: auto auto 1fr auto;
+            gap: 24px;
+            font-family: var(--font-body);
+            color: var(--ink-primary);
+            background:
+                radial-gradient(circle at 88% 10%, rgba(29, 78, 216, 0.055), transparent 38%),
+                linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .cover-layout {
+            grid-template-rows: auto 1fr auto;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 18px;
+            border-bottom: 1.5px solid var(--border-light);
+        }
+
+        .crumb {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--cobalt);
+            letter-spacing: 0.04em;
+        }
+
+        .crumb-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--cobalt);
+        }
+
+        .meta-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--ink-muted);
+        }
+
+        .status-pill {
+            padding: 5px 14px;
+            border-radius: 999px;
+            background: var(--cobalt-soft);
+            border: 1px solid var(--cobalt-border);
+            color: var(--cobalt);
+            font-size: 13px;
+        }
+
+        .status-pill.emerald {
+            background: var(--emerald-soft);
+            border-color: var(--emerald-border);
+            color: var(--emerald);
+        }
+
+        .status-pill.amber {
+            background: var(--amber-soft);
+            border-color: var(--amber-border);
+            color: var(--amber);
+        }
+
+        /* Slide Header (One Clear Executive Thesis per Slide) */
+        .thesis-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+        }
+
+        .thesis-kicker {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--cobalt);
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .thesis-title {
+            font-family: var(--font-display);
+            font-size: 50px;
+            font-weight: 800;
+            line-height: 1.18;
+            letter-spacing: -0.015em;
+            color: var(--ink-primary);
+        }
+
+        .thesis-title span {
+            color: var(--cobalt);
+        }
+
+        .thesis-sub {
+            margin-top: 10px;
+            font-size: 22px;
+            color: var(--ink-secondary);
+            line-height: 1.45;
+            max-width: 1220px;
+        }
+
+        .hero-stat-box {
+            flex-shrink: 0;
+            background: var(--surface-navy);
+            color: #ffffff;
+            padding: 18px 28px;
+            border-radius: 14px;
+            text-align: right;
+            min-width: 280px;
+        }
+
+        .hero-stat-label {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #93c5fd;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+        }
+
+        .hero-stat-val {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        /* Bottom Decision Strip */
+        .decision-strip {
+            padding: 16px 28px;
+            border-radius: 14px;
+            background: var(--surface-navy);
+            color: #f8fafc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .decision-strip strong {
+            color: #93c5fd;
+            font-weight: 700;
+        }
+
+        .decision-strip a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border: 1px solid rgba(147, 197, 253, 0.4);
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .decision-strip a:hover {
+            background: rgba(147, 197, 253, 0.14);
+        }
+
+        /* ===========================================
+           SLIDE 01: COVER HERO
+           =========================================== */
+        .cover-grid {
+            display: grid;
+            grid-template-columns: 1.12fr 0.88fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .cover-eyebrow {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--cobalt);
+            margin-bottom: 18px;
+        }
+
+        .cover-h1 {
+            font-family: var(--font-display);
+            font-size: 76px;
+            font-weight: 900;
+            line-height: 1.16;
+            letter-spacing: -0.02em;
+            margin-bottom: 28px;
+        }
+
+        .cover-h1 span {
+            color: var(--cobalt);
+        }
+
+        .cover-lead {
+            font-size: 25px;
+            line-height: 1.6;
+            color: var(--ink-secondary);
+            max-width: 920px;
+        }
+
+        .kpi-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .kpi-row-card {
+            background: var(--surface);
+            border: 1px solid var(--border-crisp);
+            border-radius: 16px;
+            padding: 26px 32px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .tag-chip {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: var(--cobalt-soft);
+            color: var(--cobalt);
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .tag-chip.emerald {
+            background: var(--emerald-soft);
+            color: var(--emerald);
+        }
+
+        .tag-chip.amber {
+            background: var(--amber-soft);
+            color: var(--amber);
+        }
+
+        .kpi-row-title {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .kpi-row-desc {
+            font-size: 18px;
+            color: var(--ink-secondary);
+            line-height: 1.45;
+        }
+
+        .kpi-row-figure {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .kpi-row-figure strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1.05;
+            color: var(--ink-primary);
+        }
+
+        .kpi-row-figure span {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--ink-muted);
+        }
+
+        /* ===========================================
+           SLIDE 02: PARADIGM SHIFT (BEFORE -> AFTER)
+           =========================================== */
+        .shift-grid {
+            display: grid;
+            grid-template-columns: 1fr 120px 1.12fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .era-panel {
+            border-radius: 18px;
+            padding: 36px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .era-past {
+            background: var(--surface-muted);
+            border: 1px solid var(--border-crisp);
+        }
+
+        .era-now {
+            background: var(--surface);
+            border: 2px solid var(--cobalt);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        }
+
+        .era-head {
+            margin-bottom: 4px;
+        }
+
+        .era-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-top: 8px;
+        }
+
+        .era-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            flex: 1;
+            gap: 18px;
+        }
+
+        .era-item {
+            padding-top: 18px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .era-item-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .era-item-desc {
+            font-size: 18px;
+            color: var(--ink-secondary);
+            line-height: 1.5;
+        }
+
+        .shift-bridge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--cobalt);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .bridge-circle {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--cobalt);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 800;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14);
+        }
+
+        /* ===========================================
+           SLIDE 03: ROI & COST ECONOMICS
+           =========================================== */
+        .roi-layout {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 36px;
+            align-items: stretch;
+        }
+
+        .chart-panel {
+            background: var(--surface);
+            border: 1px solid var(--border-crisp);
+            border-radius: 18px;
+            padding: 34px 38px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .chart-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .chart-sub {
+            font-size: 16px;
+            color: var(--ink-muted);
+            margin-bottom: 24px;
+        }
+
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .bar-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .bar-track {
+            height: 44px;
+            background: var(--surface-muted);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 0 18px;
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .bar-fill.slate {
+            width: 92%;
+            background: #64748b;
+        }
+
+        .bar-fill.cobalt {
+            width: 45%;
+            background: var(--cobalt);
+        }
+
+        .quality-callout {
+            margin-top: 22px;
+            padding: 20px 24px;
+            border-radius: 12px;
+            background: var(--emerald-soft);
+            border: 1px solid var(--emerald-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quality-callout strong {
+            font-family: var(--font-display);
+            font-size: 34px;
+            color: var(--emerald);
+        }
+
+        .lever-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .lever-card {
+            flex: 1;
+            background: var(--surface);
+            border: 1px solid var(--border-crisp);
+            border-radius: 16px;
+            padding: 22px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .lever-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .lever-title {
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .lever-desc {
+            font-size: 18px;
+            color: var(--ink-secondary);
+            line-height: 1.48;
+        }
+
+        /* ===========================================
+           SLIDE 04: SECURITY & SANDBOX GOVERNANCE
+           =========================================== */
+        .three-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .gov-card {
+            background: var(--surface);
+            border: 1px solid var(--border-crisp);
+            border-radius: 18px;
+            padding: 32px 34px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.035);
+        }
+
+        .gov-card.highlight {
+            border: 2px solid var(--emerald);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        }
+
+        .gov-card-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 10px 0 8px;
+        }
+
+        .gov-scene {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--cobalt);
+            padding: 8px 14px;
+            background: var(--cobalt-soft);
+            border-radius: 8px;
+            margin-bottom: 18px;
+        }
+
+        .gov-card.highlight .gov-scene {
+            color: var(--emerald);
+            background: var(--emerald-soft);
+        }
+
+        .gov-points {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            font-size: 18px;
+            color: var(--ink-secondary);
+            line-height: 1.5;
+        }
+
+        .gov-points li strong {
+            color: var(--ink-primary);
+        }
+
+        .gov-foot {
+            margin-top: 22px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--ink-primary);
+        }
+
+        /* ===========================================
+           SLIDE 05 & 07: VISUAL ARCHITECTURE + METRICS
+           =========================================== */
+        .diagram-and-cards {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 24px;
+        }
+
+        .svg-board {
+            background: var(--surface);
+            border: 1px solid var(--border-crisp);
+            border-radius: 18px;
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .two-outcomes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .outcome-card {
+            background: var(--surface);
+            border: 1px solid var(--border-crisp);
+            border-radius: 16px;
+            padding: 26px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .outcome-title {
+            font-size: 25px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .outcome-desc {
+            font-size: 18px;
+            color: var(--ink-secondary);
+            line-height: 1.5;
+        }
+
+        .outcome-metric {
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .outcome-metric strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 46px;
+            font-weight: 800;
+            color: var(--cobalt);
+            line-height: 1.05;
+        }
+
+        .outcome-metric.emerald strong {
+            color: var(--emerald);
+        }
+
+        .outcome-metric span {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--ink-muted);
+        }
+
+        /* ===========================================
+           SLIDE 06: END-TO-END WORKFLOW CHAIN
+           =========================================== */
+        .chain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .chain-step {
+            background: var(--surface);
+            border: 1px solid var(--border-crisp);
+            border-radius: 18px;
+            padding: 32px 34px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .step-num-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .step-circle {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: var(--cobalt-soft);
+            color: var(--cobalt);
+            font-family: var(--font-mono);
+            font-size: 20px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chain-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .chain-desc {
+            font-size: 19px;
+            color: var(--ink-secondary);
+            line-height: 1.55;
+            margin-bottom: 20px;
+        }
+
+        .chain-value-box {
+            padding: 16px 18px;
+            border-radius: 12px;
+            background: var(--surface-muted);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--ink-primary);
+            line-height: 1.45;
+        }
+
+        /* ===========================================
+           SLIDE 08: EXECUTIVE MATURITY & BUDGET TABLE
+           =========================================== */
+        .ledger-wrap {
+            background: var(--surface);
+            border: 1px solid var(--border-crisp);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .exec-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .exec-table th {
+            background: var(--surface-navy);
+            color: #ffffff;
+            padding: 18px 26px;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        .exec-table td {
+            padding: 17px 26px;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 18px;
+            color: var(--ink-secondary);
+            vertical-align: middle;
+        }
+
+        .exec-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .exec-table td strong {
+            color: var(--ink-primary);
+            font-size: 19px;
+        }
+
+        /* ===========================================
+           SLIDE 09: 90-DAY CIO PLAYBOOK
+           =========================================== */
+        .roadmap-layout {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            gap: 24px;
+        }
+
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .phase-card {
+            background: var(--surface);
+            border: 1px solid var(--border-crisp);
+            border-radius: 18px;
+            padding: 30px 34px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .phase-time {
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--cobalt);
+            margin-bottom: 8px;
+        }
+
+        .phase-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+
+        .phase-actions {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 18px;
+            color: var(--ink-secondary);
+            line-height: 1.5;
+        }
+
+        .phase-target {
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border-light);
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--emerald);
+        }
+
+        .board-kpi-bar {
+            background: var(--cobalt-soft);
+            border: 1px solid var(--cobalt-border);
+            border-radius: 16px;
+            padding: 18px 30px;
+            display: grid;
+            grid-template-columns: auto 1fr 1fr 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .board-kpi-label {
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--cobalt);
+        }
+
+        .board-kpi-item {
+            font-size: 18px;
+            color: var(--ink-primary);
+        }
+
+        .board-kpi-item strong {
+            display: block;
+            font-size: 20px;
+            color: var(--cobalt);
+            margin-bottom: 2px;
+        }
+
+        /* ===========================================
+           OUTSIDE-STAGE CONTROLS & INLINE EDITOR
+           =========================================== */
+        .deck-controls {
+            bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 26px rgba(15, 23, 42, 0.28);
+            max-width: calc(100vw - 16px);
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #f8fafc;
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .nav-dots {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .nav-dot.active {
+            background: #60a5fa;
+            transform: scale(1.3);
+        }
+
+        #slideCounter {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 700;
+            color: #e2e8f0;
+            min-width: 60px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Non-slide UI outside the fixed 1920x1080 stage */
+        @media (max-width: 540px) {
+            .deck-controls {
+                gap: 6px;
+                padding: 5px 10px;
+            }
+            .deck-controls #fullscreenBtn {
+                display: none;
+            }
+            .nav-dots {
+                gap: 5px;
+            }
+            .nav-dot {
+                width: 7px;
+                height: 7px;
+            }
+        }
+
+        /* Inline Editing Controls (JS hover with 400ms delay) */
+        .edit-hotzone {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 84px;
+            height: 84px;
+            z-index: 10000;
+            cursor: pointer;
+        }
+
+        .edit-toggle {
+            position: fixed;
+            top: 18px;
+            left: 18px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(15, 23, 42, 0.92);
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            z-index: 10001;
+        }
+
+        .edit-toggle.show,
+        .edit-toggle.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .edit-toggle.active {
+            background: var(--cobalt);
+            border-color: #93c5fd;
+        }
+
+        body.editing-active [contenteditable="true"] {
+            outline: 2px dashed rgba(29, 78, 216, 0.45);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        /* ===========================================
+           STAGGERED REVEAL ANIMATIONS
+           =========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.6s var(--ease-out-expo),
+                        transform 0.6s var(--ease-out-expo);
+        }
+
+        .slide.visible .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .d1 { transition-delay: 0.06s; }
+        .d2 { transition-delay: 0.16s; }
+        .d3 { transition-delay: 0.26s; }
+    </style>
+</head>
+<body>
+    <!-- Inline Editor Hotzone & Toggle -->
+    <div class="edit-hotzone" title="进入在线文案编辑模式 (E)"></div>
+    <button class="edit-toggle" id="editToggle" title="切换文案编辑模式 (快捷键 E，Ctrl+S 导出 HTML)">编辑文案 [E]</button>
+
+    <div class="deck-viewport">
+        <main class="deck-stage" id="deckStage">
+
+            <!-- ===========================================
+                 SLIDE 01: EXECUTIVE COVER
+                 =========================================== -->
+            <section class="slide exec-slide cover-layout active visible" data-slide="1" id="cover">
+                <header class="topbar reveal d1">
+                    <div class="crumb">
+                        <span class="crumb-dot"></span>
+                        <span>GITHUB UNIVERSE ’26 · CIO EXECUTIVE BRIEFING</span>
+                    </div>
+                    <div class="meta-right">
+                        <span class="status-pill">企业管理层决策简报</span>
+                        <span class="page-num">01 / 09</span>
+                    </div>
+                </header>
+
+                <div class="cover-grid reveal d2">
+                    <div>
+                        <div class="cover-eyebrow">告别碎片化试用 · 迈入规模化研发治理</div>
+                        <h1 class="cover-h1">GitHub Copilot ’26<br><span>企业级效能、安全<br>与投资回报全景</span></h1>
+                        <p class="cover-lead">面向 CIO 与技术决策者的零术语速览：看清新一代研发智能体如何把推理账单砍半、零增项守住内网与终端红线，并在 90 天内转化为可衡量的组织产能。</p>
+                    </div>
+
+                    <div class="kpi-stack">
+                        <div class="kpi-row-card">
+                            <div>
+                                <span class="tag-chip">VALUE 01 · 投资回报与控本</span>
+                                <div class="kpi-row-title">智能分级派单，推理账单立省一半</div>
+                                <div class="kpi-row-desc">简单任务走轻量与本机算力，复杂攻坚自动多模型互审</div>
+                            </div>
+                            <div class="kpi-row-figure">
+                                <strong>-51%</strong>
+                                <span>单任务推理成本</span>
+                            </div>
+                        </div>
+
+                        <div class="kpi-row-card">
+                            <div>
+                                <span class="tag-chip emerald">VALUE 02 · 安全与合规底线</span>
+                                <div class="kpi-row-title">云端与员工终端双轨隔离护栏</div>
+                                <div class="kpi-row-desc">默认拦截越界读写与外联，真实密钥全程不落入沙箱</div>
+                            </div>
+                            <div class="kpi-row-figure">
+                                <strong>$0</strong>
+                                <span>本机沙箱增项费</span>
+                            </div>
+                        </div>
+
+                        <div class="kpi-row-card">
+                            <div>
+                                <span class="tag-chip amber">VALUE 03 · 组织级协同资产</span>
+                                <div class="kpi-row-title">组织规范自动沉淀与全链路连接</div>
+                                <div class="kpi-row-desc">跨仓库自动继承架构记忆，一站打通设计、监控与验收</div>
+                            </div>
+                            <div class="kpi-row-figure">
+                                <strong>26+</strong>
+                                <span>官方托管连接器</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="decision-strip reveal d3">
+                    <span>汇报主线：<strong>战略拐点 → 财务账本 → 安全护栏 → 协同产能 → 知识资产 → 采购与 90 天路线图</strong></span>
+                    <a href="index.html">查看配套 22 页架构师技术版 ↗</a>
+                </footer>
+            </section>
+
+            <!-- ===========================================
+                 SLIDE 02: STRATEGIC PARADIGM SHIFT
+                 =========================================== -->
+            <section class="slide exec-slide" data-slide="2" id="strategic-shift">
+                <header class="topbar">
+                    <div class="crumb">
+                        <span class="crumb-dot"></span>
+                        <span>01 · STRATEGIC SHIFT · 为什么今年是企业规模化治理拐点</span>
+                    </div>
+                    <div class="meta-right">
+                        <span class="status-pill">战略定位升级</span>
+                        <span class="page-num">02 / 09</span>
+                    </div>
+                </header>
+
+                <div class="thesis-header reveal d1">
+                    <div>
+                        <div class="thesis-kicker">EXECUTIVE TAKEAWAY // FROM CODING ASSISTANT TO GOVERNED PLATFORM</div>
+                        <h2 class="thesis-title">从“帮个人写快代码”跃迁为<span>“可审计的数字研发团队”</span></h2>
+                        <p class="thesis-sub">早期 AI 工具只解决单兵敲代码速度，却带来账单失控、权限裸奔与经验流失；Universe ’26 补齐了企业级平台底座。</p>
+                    </div>
+                    <div class="hero-stat-box">
+                        <div class="hero-stat-label">PLATFORM READINESS</div>
+                        <div class="hero-stat-val">4 项核心底座已 GA</div>
+                    </div>
+                </div>
+
+                <div class="shift-grid reveal d2">
+                    <div class="era-panel era-past">
+                        <div class="era-head">
+                            <span class="tag-chip" style="background:#e2e8f0; color:#475569;">2024–2025 · 单兵辅助阶段</span>
+                            <h3 class="era-title">局部提速，但管理成本高企</h3>
+                        </div>
+                        <ul class="era-list">
+                            <li class="era-item">
+                                <div class="era-item-title">账单不可控：大小问题全调最贵模型</div>
+                                <div class="era-item-desc">改一行文案与重构核心系统消耗同等旗舰算力，规模扩大后推理支出陡增。</div>
+                            </li>
+                            <li class="era-item">
+                                <div class="era-item-title">安全靠自觉：终端命令与密钥缺乏硬隔离</div>
+                                <div class="era-item-desc">智能体执行脚本拥有与员工相同权限，存在误改本机配置或外泄环境变量风险。</div>
+                            </li>
+                            <li class="era-item">
+                                <div class="era-item-title">经验留不住：每次新开对话都像“新招外包”</div>
+                                <div class="era-item-desc">团队踩过的坑和内部架构红线无法自动跨项目传承，资深骨干离职即断层。</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shift-bridge">
+                        <span>UNIVERSE ’26</span>
+                        <div class="bridge-circle">→</div>
+                        <span>平台化治理</span>
+                    </div>
+
+                    <div class="era-panel era-now">
+                        <div class="era-head">
+                            <span class="tag-chip">2026+ · 企业级智能体平台</span>
+                            <h3 class="era-title">成本精算、护栏内建、知识沉淀</h3>
+                        </div>
+                        <ul class="era-list">
+                            <li class="era-item">
+                                <div class="era-item-title">智能财务总管：按难度自动分级派单</div>
+                                <div class="era-item-desc">常规修改分流轻量模型或员工本机空闲算力，疑难杂症才启动多专家交叉评审。</div>
+                            </li>
+                            <li class="era-item">
+                                <div class="era-item-title">零信任执行底座：云端与本机双轨沙箱</div>
+                                <div class="era-item-desc">IT 可集中锁定目录读写与外网白名单，真实凭据全程代理注入，杜绝绕过与降级。</div>
+                            </li>
+                            <li class="era-item">
+                                <div class="era-item-title">组织级工程大脑：规范共享与跨仓统筹</div>
+                                <div class="era-item-desc">自动沉淀经过代码验证的团队规范，并由顶层协调智能体统筹前后端并行交付。</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <footer class="decision-strip reveal d3">
+                    <span>CIO 视角：<strong>AI 研发竞争已从“买没买席位”转向“谁能以更低单任务成本安全跑通全流程”</strong></span>
+                    <span>9 项发布覆盖成本 · 安全 · 协同</span>
+                </footer>
+            </section>
+
+            <!-- ===========================================
+                 SLIDE 03: FINANCIAL ROI & COST CONTROL
+                 =========================================== -->
+            <section class="slide exec-slide" data-slide="3" id="roi-economics">
+                <header class="topbar">
+                    <div class="crumb">
+                        <span class="crumb-dot"></span>
+                        <span>02 · FINANCIAL ROI · 如何让 AI 预算花在刀刃上</span>
+                    </div>
+                    <div class="meta-right">
+                        <span class="status-pill emerald">COPILOT FUSION 已正式商用</span>
+                        <span class="page-num">03 / 09</span>
+                    </div>
+                </header>
+
+                <div class="thesis-header reveal d1">
+                    <div>
+                        <div class="thesis-kicker">COST &amp; QUALITY BENCHMARK // ARTIFICIAL ANALYSIS v2.0 &amp; INTERNAL EVALS</div>
+                        <h2 class="thesis-title">保持一线工程交付质量，<span>单任务推理成本直降 51%</span></h2>
+                        <p class="thesis-sub">无需研发人员手动挑模型——系统像“医院分诊台”一样，按每一步的实际复杂度动态调配算力。</p>
+                    </div>
+                    <div class="hero-stat-box">
+                        <div class="hero-stat-label">INTERNAL BENCHMARK SAVING</div>
+                        <div class="hero-stat-val">内部实测最高省 65%</div>
+                    </div>
+                </div>
+
+                <div class="roi-layout reveal d2">
+                    <div class="chart-panel">
+                        <div>
+                            <div class="chart-title">第三方权威评测：单次复杂研发任务平均 API 成本对比</div>
+                            <div class="chart-sub">数据来源：Artificial Analysis Coding Agent Index v2.0（覆盖 290 项真实工程任务）</div>
+
+                            <div class="bar-group">
+                                <div>
+                                    <div class="bar-meta">
+                                        <span>传统单一旗舰模型方案（Claude Code Opus Max）</span>
+                                        <span>$11.42 / 任务</span>
+                                    </div>
+                                    <div class="bar-track">
+                                        <div class="bar-fill slate">$11.42 · 全程高价调用</div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="bar-meta">
+                                        <span style="color: var(--cobalt);">GitHub Copilot Fusion 多模型智能编排</span>
+                                        <span style="color: var(--cobalt);">$5.59 / 任务（立省 51%）</span>
+                                    </div>
+                                    <div class="bar-track">
+                                        <div class="bar-fill cobalt">$5.59 · 动态分级</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quality-callout">
+                            <div>
+                                <div style="font-size:20px; font-weight:800; color:var(--ink-primary);">交付质量稳居全球第一梯队</div>
+                                <div style="font-size:17px; color:var(--ink-secondary); margin-top:4px;">综合工程得分 60 vs. 62 基线几乎持平，同时显著压缩长尾高耗时任务账单</div>
+                            </div>
+                            <strong>97% 质量等效</strong>
+                        </div>
+                    </div>
+
+                    <div class="lever-stack">
+                        <div class="lever-card">
+                            <div class="lever-head">
+                                <span class="lever-title">抓手 1：三档预算水位，按场景精准控费</span>
+                                <span class="tag-chip emerald">GA 零配置生效</span>
+                            </div>
+                            <p class="lever-desc">日常编码用“高效/均衡档”秒级低成本响应；仅在核心重构与疑难排障时开启“高投入档”触发多模型交叉审校，减少返工缺陷。</p>
+                        </div>
+
+                        <div class="lever-card">
+                            <div class="lever-head">
+                                <span class="lever-title">抓手 2：唤醒员工电脑空闲算力，分流简单请求</span>
+                                <span class="tag-chip amber">实验预览</span>
+                            </div>
+                            <p class="lever-desc">本地模型智能路由可将日志分析、文件搜索等轻量步骤自动交由员工高配笔记本 GPU/NPU 处理，不消耗云端推理额度。</p>
+                        </div>
+
+                        <div class="lever-card">
+                            <div class="lever-head">
+                                <span class="lever-title">抓手 3：CI 流水线与智能体共用统一美元算力池</span>
+                                <span class="tag-chip">计费池打通</span>
+                            </div>
+                            <p class="lever-desc">告别过去僵化的“固定分钟数包”，企业月度 Actions 预算池可弹性通用于自动化测试与云端智能体沙箱，提升预算利用率。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="decision-strip reveal d3">
+                    <span>财务建议：<strong>全员默认启用 Copilot Fusion 自动档，无需增加席位预算即可立即摊薄高频调用成本</strong></span>
+                    <span>ROI 回收周期 &lt; 1 个月</span>
+                </footer>
+            </section>
+
+            <!-- ===========================================
+                 SLIDE 04: SECURITY & SANDBOX GOVERNANCE
+                 =========================================== -->
+            <section class="slide exec-slide" data-slide="4" id="security-governance">
+                <header class="topbar">
+                    <div class="crumb">
+                        <span class="crumb-dot"></span>
+                        <span>03 · SECURITY &amp; RISK GOVERNANCE · 如何放权给 AI 而不失控</span>
+                    </div>
+                    <div class="meta-right">
+                        <span class="status-pill emerald">端云沙箱均已正式商用 GA</span>
+                        <span class="page-num">04 / 09</span>
+                    </div>
+                </header>
+
+                <div class="thesis-header reveal d1">
+                    <div>
+                        <div class="thesis-kicker">ZERO-TRUST EXECUTION // CLOUD · PRIVATE RUNNER · LOCAL OS SANDBOX</div>
+                        <h2 class="thesis-title">三类隔离环境按密级选型，<span>本机防护 $0 额外算力费</span></h2>
+                        <p class="thesis-sub">无论代码跑在公有云、企业私有内网还是员工笔记本，管理员都能锁定文件读写范围、外联白名单与密钥可见性。</p>
+                    </div>
+                    <div class="hero-stat-box">
+                        <div class="hero-stat-label">ENTERPRISE POLICY</div>
+                        <div class="hero-stat-val">支持强制开启防降级</div>
+                    </div>
+                </div>
+
+                <div class="three-pillars reveal d2">
+                    <div class="gov-card">
+                        <div>
+                            <span class="tag-chip">模式 A · 云端托管隔离</span>
+                            <h3 class="gov-card-title">Cloud Sandboxes</h3>
+                            <div class="gov-scene">适用：移动办公应急、跨部门常规业务研发</div>
+                            <ul class="gov-points">
+                                <li><strong>物理隔离本机：</strong>在 GitHub 独立云端环境中检出代码与运行测试，零本地环境污染。</li>
+                                <li><strong>休眠快照不丢进度：</strong>突破传统 1 小时超时限制，空闲自动保存状态，随时秒级唤醒。</li>
+                                <li><strong>只读安全探查：</strong>对仅有阅读权限的代码仓也可零配置启动故障排查。</li>
+                            </ul>
+                        </div>
+                        <div class="gov-foot">
+                            <span>成熟度：正式商用 GA</span>
+                            <span>计费：共用 Actions 美元池</span>
+                        </div>
+                    </div>
+
+                    <div class="gov-card">
+                        <div>
+                            <span class="tag-chip amber">模式 B · 企业内网专属</span>
+                            <h3 class="gov-card-title">私有 Actions 运行器</h3>
+                            <div class="gov-scene">适用：金融/政企核心系统、需连内网数据库</div>
+                            <ul class="gov-points">
+                                <li><strong>代码不出内网边界：</strong>直接调度企业自建机房或专有云内的自托管 Runner 执行任务。</li>
+                                <li><strong>复用既有安全审计：</strong>完全继承企业现有防火墙、堡垒机与制品库访问策略。</li>
+                                <li><strong>多仓协同不受限：</strong>可在同一受控环境中拉取内部私有依赖包完成集成编译。</li>
+                            </ul>
+                        </div>
+                        <div class="gov-foot">
+                            <span>成熟度：正式商用 GA</span>
+                            <span>计费：复用企业自有机器</span>
+                        </div>
+                    </div>
+
+                    <div class="gov-card highlight">
+                        <div>
+                            <span class="tag-chip emerald">模式 C · 员工终端原生围栏（重点新增）</span>
+                            <h3 class="gov-card-title">Local Sandboxing 本机沙箱</h3>
+                            <div class="gov-scene">适用：日常本地编码，防范越界删改与密钥泄露</div>
+                            <ul class="gov-points">
+                                <li><strong>轻量化系统级围栏：</strong>免装虚拟机或容器，直接限制智能体仅能读写当前项目目录。</li>
+                                <li><strong>真实密钥不进沙箱：</strong>沙箱内仅见占位假凭据，仅访问授信域名时由本地代理自动注入。</li>
+                                <li><strong>MDM 强控防裸跑：</strong>安全团队可统一下发策略并开启“不可用即阻断”，杜绝私自关闭。</li>
+                            </ul>
+                        </div>
+                        <div class="gov-foot">
+                            <span style="color:var(--emerald);">成熟度：正式商用 GA</span>
+                            <span style="color:var(--emerald);">计费：$0 席位免费内含</span>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="decision-strip reveal d3">
+                    <span>CISO 协同建议：<strong>将“本机沙箱强制策略”纳入终端安全基线，零硬件采购即可消除本地 Agent 越权风险</strong></span>
+                    <span>覆盖 macOS · Linux · Windows 11</span>
+                </footer>
+            </section>
+
+            <!-- ===========================================
+                 SLIDE 05: ORGANIZATIONAL VELOCITY
+                 =========================================== -->
+            <section class="slide exec-slide" data-slide="5" id="org-velocity">
+                <header class="topbar">
+                    <div class="crumb">
+                        <span class="crumb-dot"></span>
+                        <span>04 · ORGANIZATIONAL VELOCITY · 重塑跨团队与全天候交付节奏</span>
+                    </div>
+                    <div class="meta-right">
+                        <span class="status-pill">多端接力 + 多仓统筹</span>
+                        <span class="page-num">05 / 09</span>
+                    </div>
+                </header>
+
+                <div class="thesis-header reveal d1">
+                    <div>
+                        <div class="thesis-kicker">SEAMLESS CONTINUITY // 7 ENTRY POINTS &amp; MULTI-REPO COORDINATION</div>
+                        <h2 class="thesis-title">随时随地响应故障，<span>一个指令并行推进前后端多仓库</span></h2>
+                        <p class="thesis-sub">打通聊天软件、手机与桌面研发工具链；由顶层协调智能体拆解大型需求，把负责人从琐碎催办解放到关键决策。</p>
+                    </div>
+                    <div class="hero-stat-box">
+                        <div class="hero-stat-label">COLLABORATION REACH</div>
+                        <div class="hero-stat-val">7 大办公入口实时同步</div>
+                    </div>
+                </div>
+
+                <div class="diagram-and-cards reveal d2">
+                    <div class="svg-board">
+                        <svg viewBox="0 0 1680 230" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="cio-arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#1D4ED8"/>
+                                </marker>
+                                <marker id="cio-arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#047857"/>
+                                </marker>
+                            </defs>
+
+                            <!-- Stage 1 -->
+                            <rect x="16" y="20" width="440" height="190" rx="16" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+                            <text x="236" y="54" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="14" font-weight="700">STAGE 01 · 全场景发起需求或应急排障</text>
+                            <rect x="42" y="72" width="388" height="52" rx="10" fill="#FFFFFF" stroke="#BFDBFE"/>
+                            <text x="236" y="104" text-anchor="middle" fill="#0F172A" font-size="18" font-weight="700">Slack / Teams 告警群 · 手机移动端 · 网页端</text>
+                            <rect x="42" y="138" width="388" height="52" rx="10" fill="#FFFFFF" stroke="#BFDBFE"/>
+                            <text x="236" y="170" text-anchor="middle" fill="#334155" font-size="17" font-weight="600">回到工位在 VS Code / 桌面端无缝接续同一会话</text>
+
+                            <line x1="466" y1="115" x2="536" y2="115" stroke="#1D4ED8" stroke-width="3" marker-end="url(#cio-arr-blue)"/>
+
+                            <!-- Stage 2 -->
+                            <rect x="546" y="20" width="540" height="190" rx="16" fill="#0F172A"/>
+                            <text x="816" y="54" text-anchor="middle" fill="#93C5FD" font-family="Fira Code, monospace" font-size="14" font-weight="700">STAGE 02 · 顶层协调官自动拆解与后台持续运行</text>
+                            <text x="816" y="98" text-anchor="middle" fill="#FFFFFF" font-size="24" font-weight="800">Copilot Projects 多仓库统筹中心</text>
+                            <text x="816" y="136" text-anchor="middle" fill="#CBD5E1" font-size="17" font-weight="500">统一阅读 PRD 与接口文档 · 并行派发后端 / 前端 / 文档任务</text>
+                            <text x="816" y="174" text-anchor="middle" fill="#6EE7B7" font-size="16" font-weight="700">独立后台守护进程：合上编辑器窗口也不中断长耗时构建</text>
+
+                            <line x1="1096" y1="115" x2="1166" y2="115" stroke="#047857" stroke-width="3" marker-end="url(#cio-arr-green)"/>
+
+                            <!-- Stage 3 -->
+                            <rect x="1176" y="20" width="488" height="190" rx="16" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+                            <text x="1420" y="54" text-anchor="middle" fill="#047857" font-family="Fira Code, monospace" font-size="14" font-weight="700">STAGE 03 · 人工把控关键审批与多仓合入</text>
+                            <rect x="1204" y="72" width="432" height="52" rx="10" fill="#FFFFFF" stroke="#A7F3D0"/>
+                            <text x="1420" y="104" text-anchor="middle" fill="#0F172A" font-size="18" font-weight="700">待办审批看板集中汇总风险决策点</text>
+                            <rect x="1204" y="138" width="432" height="52" rx="10" fill="#FFFFFF" stroke="#A7F3D0"/>
+                            <text x="1420" y="170" text-anchor="middle" fill="#047857" font-size="17" font-weight="700">一次性审查关联代码变更（PR）并支持定时巡检</text>
+                        </svg>
+                    </div>
+
+                    <div class="two-outcomes">
+                        <div class="outcome-card">
+                            <div>
+                                <div class="outcome-title">应急响应提速：值班排障不再受限于电脑旁</div>
+                                <p class="outcome-desc">生产告警触发后，值班工程师可在 IM 群或手机直接指派云端沙箱定位原因并生成修复草案，大幅压缩故障平均修复时间（MTTR）。</p>
+                            </div>
+                            <div class="outcome-metric">
+                                <strong>7×24</strong>
+                                <span>跨端无缝接力</span>
+                            </div>
+                        </div>
+
+                        <div class="outcome-card">
+                            <div>
+                                <div class="outcome-title">跨团队需求提效：一人统筹多系统联动改造</div>
+                                <p class="outcome-desc">面对涉及服务端、Web 端与 SDK 的联动升级，技术负责人可在同一项目空间内并行驱动多仓库修改，只对阻塞问题做集中拍板。</p>
+                            </div>
+                            <div class="outcome-metric emerald">
+                                <strong>N 仓并行</strong>
+                                <span>集中风险审批</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="decision-strip reveal d3">
+                    <span>管理收益：<strong>将高级工程师的时间从“跨仓库机械同步代码”转向“架构把关与业务方案评审”</strong></span>
+                    <span>人机协同：AI 执行 · 专家终审</span>
+                </footer>
+            </section>
+
+            <!-- ===========================================
+                 SLIDE 06: END-TO-END ECOSYSTEM & VERIFICATION
+                 =========================================== -->
+            <section class="slide exec-slide" data-slide="6" id="workflow-integration">
+                <header class="topbar">
+                    <div class="crumb">
+                        <span class="crumb-dot"></span>
+                        <span>05 · END-TO-END WORKFLOW · 打通外部工具链与“最后一公里”验收</span>
+                    </div>
+                    <div class="meta-right">
+                        <span class="status-pill amber">公开预览试点能力</span>
+                        <span class="page-num">06 / 09</span>
+                    </div>
+                </header>
+
+                <div class="thesis-header reveal d1">
+                    <div>
+                        <div class="thesis-kicker">CONNECTED TOOLCHAIN // COPILOT CONNECTORS · UI VERIFICATION · VISUAL ASSETS</div>
+                        <h2 class="thesis-title">不止于写代码：<span>需求、设计、监控与界面验收一站贯通</span></h2>
+                        <p class="thesis-sub">消除研发人员在十几个系统间反复切换与手工点选验证的隐性损耗，同时收拢第三方接口授权管理。</p>
+                    </div>
+                    <div class="hero-stat-box">
+                        <div class="hero-stat-label">MANAGED INTEGRATIONS</div>
+                        <div class="hero-stat-val">26 项官方托管连接器</div>
+                    </div>
+                </div>
+
+                <div class="chain-grid reveal d2">
+                    <div class="chain-step">
+                        <div>
+                            <div class="step-num-row">
+                                <div class="step-circle">01</div>
+                                <span class="tag-chip">COPILOT CONNECTORS</span>
+                            </div>
+                            <h3 class="chain-title">统一授权连接企业工具栈</h3>
+                            <p class="chain-desc">官方托管接入 Jira、Linear、Figma、Sentry、Datadog、Notion 等 26 款主流研发与运维系统。一次 OAuth 合规授权，全终端通用。</p>
+                        </div>
+                        <div class="chain-value-box">
+                            管理价值：告别员工在本地私配明文 API Key 的安全盲区，权限随企业账号统一回收。
+                        </div>
+                    </div>
+
+                    <div class="chain-step">
+                        <div>
+                            <div class="step-num-row">
+                                <div class="step-circle" style="background:var(--emerald-soft); color:var(--emerald);">02</div>
+                                <span class="tag-chip emerald">BROWSER &amp; COMPUTER USE</span>
+                            </div>
+                            <h3 class="chain-title">网页与桌面软件自动走查验收</h3>
+                            <p class="chain-desc">网页应用通过浏览器扩展结构化点击与校验表单；无接口的传统桌面软件则驱动本机界面完成实操验证，敏感支付/登录步自动停下交人工接管。</p>
+                        </div>
+                        <div class="chain-value-box">
+                            管理价值：补齐“代码写完但没人点过界面”的质量缺口，缩短前端与客户端回归测试周期。
+                        </div>
+                    </div>
+
+                    <div class="chain-step">
+                        <div>
+                            <div class="step-num-row">
+                                <div class="step-circle" style="background:var(--amber-soft); color:var(--amber);">03</div>
+                                <span class="tag-chip amber">IN-CHAT IMAGE STUDIO</span>
+                            </div>
+                            <h3 class="chain-title">架构图与产品视觉素材直出</h3>
+                            <p class="chain-desc">在研发对话内直接生成系统架构示意、原型占位配图与界面图标，支持局部微调并直接写入项目目录提交审核。</p>
+                        </div>
+                        <div class="chain-value-box">
+                            管理价值：内部技术汇报、MVP 原型验证无需跨部门排队等设计资源，加速创新概念验证。
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="decision-strip reveal d3">
+                    <span>治理亮点：<strong>外部连接走统一 OAuth 审计，浏览器/桌面自动化在登录与敏感操作前强制交回人工确认</strong></span>
+                    <span>效率与风控兼顾</span>
+                </footer>
+            </section>
+
+            <!-- ===========================================
+                 SLIDE 07: INSTITUTIONAL MEMORY & KNOWLEDGE FLYWHEEL
+                 =========================================== -->
+            <section class="slide exec-slide" data-slide="7" id="institutional-memory">
+                <header class="topbar">
+                    <div class="crumb">
+                        <span class="crumb-dot"></span>
+                        <span>06 · INSTITUTIONAL KNOWLEDGE · 把散落的个人经验沉淀为组织资产</span>
+                    </div>
+                    <div class="meta-right">
+                        <span class="status-pill emerald">MEMORY 正式商用 · DREAMING 预览</span>
+                        <span class="page-num">07 / 09</span>
+                    </div>
+                </header>
+
+                <div class="thesis-header reveal d1">
+                    <div>
+                        <div class="thesis-kicker">GITHUB INTELLIGENCE // VERIFIED ORGANIZATIONAL MEMORY &amp; SELF-EVOLUTION</div>
+                        <h2 class="thesis-title">让 AI 自动继承企业架构规范，<span>告别人员流动带来的知识断层</span></h2>
+                        <p class="thesis-sub">不只是搜索代码，更构建了一套“有据可查、过期自动清理、夜间自动复盘优化”的企业级工程记忆库。</p>
+                    </div>
+                    <div class="hero-stat-box">
+                        <div class="hero-stat-label">KNOWLEDGE GOVERNANCE</div>
+                        <div class="hero-stat-val">代码佐证 · 过期自动淘汰</div>
+                    </div>
+                </div>
+
+                <div class="diagram-and-cards reveal d2">
+                    <div class="svg-board">
+                        <svg viewBox="0 0 1680 226" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Step 1 -->
+                            <rect x="20" y="18" width="500" height="190" rx="16" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+                            <text x="270" y="54" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="14" font-weight="700">01 · 双层共享记忆 (MEMORY · GA)</text>
+                            <text x="270" y="96" text-anchor="middle" fill="#0F172A" font-size="23" font-weight="800">编码习惯与仓库红线全端同步</text>
+                            <text x="270" y="134" text-anchor="middle" fill="#334155" font-size="17">每条记忆必须绑定真实代码位置防幻觉</text>
+                            <text x="270" y="168" text-anchor="middle" fill="#1D4ED8" font-size="16" font-weight="700">编码、代码审查（Code Review）与命令行共享</text>
+
+                            <line x1="530" y1="113" x2="580" y2="113" stroke="#1D4ED8" stroke-width="3" marker-end="url(#cio-arr-blue)"/>
+
+                            <!-- Step 2 -->
+                            <rect x="590" y="18" width="500" height="190" rx="16" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5"/>
+                            <text x="840" y="54" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="14" font-weight="700">02 · 后台自我复盘 (DREAMING · PREVIEW)</text>
+                            <text x="840" y="96" text-anchor="middle" fill="#0F172A" font-size="23" font-weight="800">闲时复盘踩坑记录，主动提优化单</text>
+                            <text x="840" y="134" text-anchor="middle" fill="#334155" font-size="17">自动归纳高频返工问题与测试遗漏</text>
+                            <text x="840" y="168" text-anchor="middle" fill="#B45309" font-size="16" font-weight="700">以标准 PR 形式提交团队审核，批准后生效</text>
+
+                            <line x1="1100" y1="113" x2="1150" y2="113" stroke="#047857" stroke-width="3" marker-end="url(#cio-arr-green)"/>
+
+                            <!-- Step 3 -->
+                            <rect x="1160" y="18" width="500" height="190" rx="16" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+                            <text x="1410" y="54" text-anchor="middle" fill="#047857" font-family="Fira Code, monospace" font-size="14" font-weight="700">03 · 跨系统全景洞察 (CROSS-REPO SEARCH)</text>
+                            <text x="1410" y="96" text-anchor="middle" fill="#0F172A" font-size="23" font-weight="800">免配置理清数十个微服务依赖链</text>
+                            <text x="1410" y="134" text-anchor="middle" fill="#334155" font-size="17">无需繁琐编译配置即可追踪跨仓库调用影响</text>
+                            <text x="1410" y="168" text-anchor="middle" fill="#047857" font-size="16" font-weight="700">大幅降低历史遗留系统维护与新人上手门槛</text>
+                        </svg>
+                    </div>
+
+                    <div class="two-outcomes">
+                        <div class="outcome-card">
+                            <div>
+                                <div class="outcome-title">防止“陈旧经验误导”：自动保鲜机制</div>
+                                <p class="outcome-desc">系统实时比对记忆引用的真实源码，一旦对应模块重构或超过 90 天未被验证即自动降权清理，确保企业知识库始终鲜活准确。</p>
+                            </div>
+                            <div class="outcome-metric">
+                                <strong>90 天</strong>
+                                <span>动态保鲜周期</span>
+                            </div>
+                        </div>
+
+                        <div class="outcome-card">
+                            <div>
+                                <div class="outcome-title">新员工与外包赋能：首日即对齐专家标准</div>
+                                <p class="outcome-desc">新成员加入项目时，AI 自动携带仓库沉淀的安全规范、命名准则与历史避坑指南辅助编码与自检，减少资深专家重复评审负担。</p>
+                            </div>
+                            <div class="outcome-metric emerald">
+                                <strong>全员对齐</strong>
+                                <span>架构规范内建</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="decision-strip reveal d3">
+                    <span>长期护城河：<strong>企业使用越深入，沉淀的专属工程规范越厚实，形成外部难以复制的研发飞轮</strong></span>
+                    <span>全流程人工可审阅、可撤销</span>
+                </footer>
+            </section>
+
+            <!-- ===========================================
+                 SLIDE 08: PROCUREMENT & MATURITY MATRIX
+                 =========================================== -->
+            <section class="slide exec-slide" data-slide="8" id="maturity-matrix">
+                <header class="topbar">
+                    <div class="crumb">
+                        <span class="crumb-dot"></span>
+                        <span>07 · PORTFOLIO &amp; BUDGET MATRIX · 九大新能力准入与预算影响速查</span>
+                    </div>
+                    <div class="meta-right">
+                        <span class="status-pill">4 项全面推广 · 5 项受控试点</span>
+                        <span class="page-num">08 / 09</span>
+                    </div>
+                </header>
+
+                <div class="thesis-header reveal d1">
+                    <div>
+                        <div class="thesis-kicker">READINESS &amp; LICENSING // WHAT TO ROLL OUT NOW VS. PILOT NEXT</div>
+                        <h2 class="thesis-title">一张表分清<span>“立即可全员推广”与“先锋团队试点”</span></h2>
+                        <p class="thesis-sub">核心控本、隔离沙箱与组织记忆均已达到正式商用（GA）标准，且大部分直接包含在现有企业席位内。</p>
+                    </div>
+                    <div class="hero-stat-box">
+                        <div class="hero-stat-label">SEAT ECONOMICS</div>
+                        <div class="hero-stat-val">无强制附加订阅包</div>
+                    </div>
+                </div>
+
+                <div class="ledger-wrap reveal d2">
+                    <table class="exec-table" aria-label="九大能力成熟度与预算影响速查表">
+                        <thead>
+                            <tr>
+                                <th style="width: 24%;">能力模块</th>
+                                <th style="width: 15%;">当前成熟度</th>
+                                <th style="width: 35%;">核心业务价值</th>
+                                <th style="width: 26%;">预算影响与准入建议</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Copilot Fusion 多模型编排</strong></td>
+                                <td><span class="tag-chip emerald" style="margin:0;">正式商用 GA</span></td>
+                                <td>按任务难度自动派单与多模型互审，降低返工</td>
+                                <td><strong>降低约 51% 调用成本</strong> · 建议全员默认开启</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Local Sandboxing 本机沙箱</strong></td>
+                                <td><span class="tag-chip emerald" style="margin:0;">正式商用 GA</span></td>
+                                <td>终端目录隔离、外网白名单与凭据脱敏代理</td>
+                                <td><strong>$0 额外算力费</strong> · 建议纳入 IT 终端安全基线</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cloud Sandboxes 云端沙箱</strong></td>
+                                <td><span class="tag-chip emerald" style="margin:0;">正式商用 GA</span></td>
+                                <td>7 端实时接续同一云端环境，空闲快照恢复</td>
+                                <td><strong>共用 Actions 月度美元池</strong> · 按需开放给敏捷团队</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GitHub Intelligence (Memory)</strong></td>
+                                <td><span class="tag-chip emerald" style="margin:0;">Memory 已 GA</span></td>
+                                <td>跨终端继承仓库规范，跨系统检索 + 闲时复盘</td>
+                                <td><strong>席位内含</strong> · Memory 全员可用，Dreaming 先锋试点</td>
+                            </tr>
+                            <tr>
+                                <td><strong>后台守护运行与多仓统筹</strong></td>
+                                <td><span class="tag-chip amber" style="margin:0;">GA + 公开预览</span></td>
+                                <td>VS Code 后台守护（GA）+ Projects 跨仓并行推进</td>
+                                <td><strong>席位内含（按实际推理消耗）</strong> · 推荐多服务团队试点</td>
+                            </tr>
+                            <tr>
+                                <td><strong>连接器 · 界面验收 · 生图 · 本机模型</strong></td>
+                                <td><span class="tag-chip amber" style="margin:0;">公开预览 / 实验</span></td>
+                                <td>26 项托管 OAuth 连接、网页/桌面走查、本机算力分流</td>
+                                <td><strong>本机模型免云额度</strong> · 建议挑选 1–2 个标杆组验证</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <footer class="decision-strip reveal d3">
+                    <span>采购结论：<strong>无需新签额外软件采购合同，依托现有 Copilot 企业席位与 Actions 额度池即可启动升级</strong></span>
+                    <span>风险分级清晰 · 渐进放开</span>
+                </footer>
+            </section>
+
+            <!-- ===========================================
+                 SLIDE 09: 90-DAY CIO ACTION PLAYBOOK
+                 =========================================== -->
+            <section class="slide exec-slide" data-slide="9" id="cio-roadmap">
+                <header class="topbar">
+                    <div class="crumb">
+                        <span class="crumb-dot"></span>
+                        <span>08 · 90-DAY EXECUTION PLAYBOOK · 分三步兑现可衡量的组织收益</span>
+                    </div>
+                    <div class="meta-right">
+                        <span class="status-pill emerald">CIO 落地路线图</span>
+                        <span class="page-num">09 / 09</span>
+                    </div>
+                </header>
+
+                <div class="thesis-header reveal d1">
+                    <div>
+                        <div class="thesis-kicker">ACTIONABLE ROLLOUT // ZERO UPFRONT CAPEX · MEASURABLE MILESTONES</div>
+                        <h2 class="thesis-title">90 天三阶段推进路径：<span>先控本锁安全，再放开多仓自治</span></h2>
+                        <p class="thesis-sub">不搞“一刀切运动式推广”，每阶段都有明确的风控边界与向管理层复盘的量化指标。</p>
+                    </div>
+                    <div class="hero-stat-box">
+                        <div class="hero-stat-label">FIRST VALUE REALIZATION</div>
+                        <div class="hero-stat-val">第 1–2 周即见账单下降</div>
+                    </div>
+                </div>
+
+                <div class="roadmap-layout reveal d2">
+                    <div class="phase-grid">
+                        <div class="phase-card">
+                            <div>
+                                <div class="phase-time">PHASE 01 · 第 1–2 周（全员速赢）</div>
+                                <h3 class="phase-title">无感降本 + 终端安全筑底</h3>
+                                <ul class="phase-actions">
+                                    <li>• 全员默认切换至 <strong>Copilot Fusion 自动分级路由</strong>，立即压缩简单对话的高价模型消耗。</li>
+                                    <li>• 联合安全团队下发 <strong>Local Sandboxing 本机沙箱策略</strong>，锁死敏感目录与凭据保护。</li>
+                                    <li>• 开启 <strong>GitHub Memory</strong>，让核心仓库开始自动积累架构约定。</li>
+                                </ul>
+                            </div>
+                            <div class="phase-target">阶段交付物：单任务推理账单下降 + 终端零越权基线</div>
+                        </div>
+
+                        <div class="phase-card">
+                            <div>
+                                <div class="phase-time" style="color:var(--emerald);">PHASE 02 · 第 3–6 周（流程提效）</div>
+                                <h3 class="phase-title">打通值班应急与托管工具链</h3>
+                                <ul class="phase-actions">
+                                    <li>• 为运维与敏捷研发组开通 <strong>Cloud Sandboxes</strong> 与 IM 告警群联动（内网核心库绑定私有 Runner）。</li>
+                                    <li>• 管理员统一授权 3–5 个高频 <strong>Copilot Connectors</strong>（如 Jira、Sentry、Figma）。</li>
+                                    <li>• 前端组引入 <strong>Browser Use</strong> 建立页面改动自动走查习惯。</li>
+                                </ul>
+                            </div>
+                            <div class="phase-target">阶段交付物：线上故障响应周期缩短 + 收拢散落密钥</div>
+                        </div>
+
+                        <div class="phase-card">
+                            <div>
+                                <div class="phase-time" style="color:var(--amber);">PHASE 03 · 第 2–3 个月（组织飞轮）</div>
+                                <h3 class="phase-title">跨系统并行交付与规范自演进</h3>
+                                <ul class="phase-actions">
+                                    <li>• 选取跨前后端重点专项试点 <strong>Copilot Projects</strong>，验证多仓库并行交付模式。</li>
+                                    <li>• 在核心代码库开启 <strong>Dreaming 闲时复盘</strong>，按周审核 AI 提出的工程规范更新单。</li>
+                                    <li>• 评估高配开发机启用本机轻量模型分流，进一步优化年度算力预算。</li>
+                                </ul>
+                            </div>
+                            <div class="phase-target">阶段交付物：跨团队交付周期提速 + 企业专属知识库成型</div>
+                        </div>
+                    </div>
+
+                    <div class="board-kpi-bar">
+                        <div class="board-kpi-label">建议向董事会汇报的<br>3 项核心度量指标</div>
+                        <div class="board-kpi-item">
+                            <strong>01 · 财务效率指标</strong>
+                            单合并需求（PR）平均 AI 推理成本
+                        </div>
+                        <div class="board-kpi-item">
+                            <strong>02 · 交付与韧性指标</strong>
+                            线上告警平均定位时间（MTTR）与跨仓需求周期
+                        </div>
+                        <div class="board-kpi-item">
+                            <strong>03 · 组织与风控指标</strong>
+                            终端沙箱覆盖率 &amp; 新员工首月独立合入代码周期
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="decision-strip reveal d3">
+                    <span>下一步行动建议：<strong>本周由研发效能与信息安全负责人对齐 Phase 01 沙箱白名单，选定 1 个先锋业务线启动</strong></span>
+                    <a href="index.html">切换至 22 页架构师深度版核对底层细节 ↗</a>
+                </footer>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Outside-stage Navigation Bar -->
+    <nav class="deck-controls" aria-label="幻灯片导航">
+        <button class="nav-btn" id="prevBtn" title="上一页 (←)">上一页</button>
+        <div class="nav-dots" id="navDots"></div>
+        <span id="slideCounter">01 / 09</span>
+        <button class="nav-btn" id="fullscreenBtn" title="全屏演示 (F)">全屏 [F]</button>
+        <button class="nav-btn" id="nextBtn" title="下一页 (→)">下一页</button>
+    </nav>
+
+    <script>
+        /* ===========================================
+           SLIDE PRESENTATION CONTROLLER
+           Fixed 1920x1080 stage scaled uniformly
+           =========================================== */
+        class SlidePresentation {
+            constructor() {
+                this.slides = Array.from(document.querySelectorAll('.slide'));
+                this.currentSlide = 0;
+                this.stage = document.getElementById('deckStage');
+                this.counter = document.getElementById('slideCounter');
+                this.dotsContainer = document.getElementById('navDots');
+                this.wheelLock = false;
+
+                this.setupStageScale();
+                this.buildControls();
+                this.setupKeyboardNav();
+                this.setupTouchNav();
+                this.setupWheelNav();
+                this.setupHashRouting();
+            }
+
+            setupStageScale() {
+                const scale = () => {
+                    const factor = Math.min(window.innerWidth / 1960, window.innerHeight / 1080);
+                    const x = (window.innerWidth - 1920 * factor) / 2;
+                    const y = (window.innerHeight - 1080 * factor) / 2;
+                    this.stage.style.transform = `translate(${x}px, ${y}px) scale(${factor})`;
+                };
+                scale();
+                window.addEventListener('resize', scale);
+            }
+
+            buildControls() {
+                this.slides.forEach((_, idx) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'nav-dot';
+                    dot.setAttribute('aria-label', `跳转至第 ${idx + 1} 页`);
+                    dot.addEventListener('click', () => this.showSlide(idx));
+                    this.dotsContainer.appendChild(dot);
+                });
+
+                document.getElementById('prevBtn').addEventListener('click', () => this.showSlide(this.currentSlide - 1));
+                document.getElementById('nextBtn').addEventListener('click', () => this.showSlide(this.currentSlide + 1));
+                document.getElementById('fullscreenBtn').addEventListener('click', () => this.toggleFullscreen());
+            }
+
+            setupHashRouting() {
+                const syncFromHash = () => {
+                    const idx = this.slides.findIndex(s => `#${s.id}` === window.location.hash);
+                    this.showSlide(idx >= 0 ? idx : 0, false);
+                };
+                syncFromHash();
+                window.addEventListener('hashchange', syncFromHash);
+            }
+
+            setupKeyboardNav() {
+                document.addEventListener('keydown', (e) => {
+                    if (e.target && e.target.getAttribute('contenteditable') === 'true') return;
+                    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                        e.preventDefault();
+                        this.showSlide(this.currentSlide + 1);
+                    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                        e.preventDefault();
+                        this.showSlide(this.currentSlide - 1);
+                    } else if (e.key === 'Home') {
+                        e.preventDefault();
+                        this.showSlide(0);
+                    } else if (e.key === 'End') {
+                        e.preventDefault();
+                        this.showSlide(this.slides.length - 1);
+                    } else if (e.key === 'f' || e.key === 'F') {
+                        e.preventDefault();
+                        this.toggleFullscreen();
+                    }
+                });
+            }
+
+            setupTouchNav() {
+                let startX = 0;
+                window.addEventListener('touchstart', (e) => {
+                    startX = e.changedTouches[0].clientX;
+                }, { passive: true });
+                window.addEventListener('touchend', (e) => {
+                    const dx = e.changedTouches[0].clientX - startX;
+                    if (Math.abs(dx) > 50) {
+                        this.showSlide(this.currentSlide + (dx < 0 ? 1 : -1));
+                    }
+                }, { passive: true });
+            }
+
+            setupWheelNav() {
+                window.addEventListener('wheel', (e) => {
+                    if (this.wheelLock || Math.abs(e.deltaY) < 28) return;
+                    this.wheelLock = true;
+                    this.showSlide(this.currentSlide + (e.deltaY > 0 ? 1 : -1));
+                    setTimeout(() => { this.wheelLock = false; }, 420);
+                }, { passive: true });
+            }
+
+            toggleFullscreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(() => {});
+                } else {
+                    document.exitFullscreen().catch(() => {});
+                }
+            }
+
+            showSlide(index, updateHash = true) {
+                this.currentSlide = Math.max(0, Math.min(index, this.slides.length - 1));
+                this.slides.forEach((slide, i) => {
+                    const isActive = i === this.currentSlide;
+                    slide.classList.toggle('active', isActive);
+                    slide.classList.toggle('visible', isActive);
+                });
+                const dots = this.dotsContainer.querySelectorAll('.nav-dot');
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === this.currentSlide));
+
+                const total = String(this.slides.length).padStart(2, '0');
+                const current = String(this.currentSlide + 1).padStart(2, '0');
+                this.counter.textContent = `${current} / ${total}`;
+
+                const activeId = this.slides[this.currentSlide].id;
+                if (updateHash && activeId) {
+                    history.replaceState(null, '', `#${activeId}`);
+                }
+            }
+        }
+
+        /* ===========================================
+           INLINE DECK EDITOR (JS HOVER + LOCALSTORAGE)
+           =========================================== */
+        class InlineDeckEditor {
+            constructor(storageNamespace) {
+                this.storageKey = storageNamespace;
+                this.isActive = false;
+                this.editableSelector = 'h1, h2, h3, p, .cover-eyebrow, .thesis-kicker, .kpi-row-title, .kpi-row-desc, .era-item-title, .era-item-desc, .lever-title, .gov-scene, .outcome-title, .chain-value-box, .phase-target, li, td';
+                this.editables = Array.from(document.querySelectorAll('.slide ' + this.editableSelector.split(', ').join(', .slide ')));
+                this.assignKeys();
+                this.restoreSaved();
+                this.bindControls();
+            }
+
+            assignKeys() {
+                const perSlide = {};
+                this.editables.forEach((el) => {
+                    const slideId = el.closest('.slide')?.id || 'slide';
+                    const localIdx = perSlide[slideId] || 0;
+                    perSlide[slideId] = localIdx + 1;
+                    el.dataset.cioEditKey = `${slideId}:${localIdx}`;
+                });
+            }
+
+            restoreSaved() {
+                try {
+                    const saved = JSON.parse(localStorage.getItem(this.storageKey) || '{}');
+                    this.editables.forEach((el) => {
+                        const key = el.dataset.cioEditKey;
+                        if (saved[key] !== undefined) {
+                            el.innerHTML = saved[key];
+                        }
+                    });
+                } catch (_) {}
+            }
+
+            saveAll() {
+                try {
+                    const data = {};
+                    this.editables.forEach((el) => {
+                        data[el.dataset.cioEditKey] = el.innerHTML;
+                    });
+                    localStorage.setItem(this.storageKey, JSON.stringify(data));
+                } catch (_) {}
+            }
+
+            toggleEditMode() {
+                this.isActive = !this.isActive;
+                document.body.classList.toggle('editing-active', this.isActive);
+                const btn = document.getElementById('editToggle');
+                btn.classList.toggle('active', this.isActive);
+                btn.textContent = this.isActive ? '完成编辑 [Ctrl+S 导出]' : '编辑文案 [E]';
+
+                this.editables.forEach((el) => {
+                    if (this.isActive) {
+                        el.setAttribute('contenteditable', 'true');
+                    } else {
+                        el.removeAttribute('contenteditable');
+                    }
+                });
+                if (!this.isActive) this.saveAll();
+            }
+
+            exportHTML() {
+                this.saveAll();
+                const clone = document.documentElement.cloneNode(true);
+                clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+                clone.querySelector('body')?.classList.remove('editing-active');
+                const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html;charset=utf-8' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'github-universe-26-cio-briefing.html';
+                a.click();
+                URL.revokeObjectURL(a.href);
+            }
+
+            bindControls() {
+                const hotzone = document.querySelector('.edit-hotzone');
+                const editToggle = document.getElementById('editToggle');
+                let hideTimeout = null;
+
+                editToggle.addEventListener('click', () => this.toggleEditMode());
+                hotzone.addEventListener('click', () => this.toggleEditMode());
+
+                hotzone.addEventListener('mouseenter', () => {
+                    clearTimeout(hideTimeout);
+                    editToggle.classList.add('show');
+                });
+                hotzone.addEventListener('mouseleave', () => {
+                    hideTimeout = setTimeout(() => {
+                        if (!this.isActive) editToggle.classList.remove('show');
+                    }, 400);
+                });
+                editToggle.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+                editToggle.addEventListener('mouseleave', () => {
+                    hideTimeout = setTimeout(() => {
+                        if (!this.isActive) editToggle.classList.remove('show');
+                    }, 400);
+                });
+
+                this.editables.forEach((el) => {
+                    el.addEventListener('input', () => this.saveAll());
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if ((e.key === 'e' || e.key === 'E') && !e.target.getAttribute('contenteditable')) {
+                        e.preventDefault();
+                        this.toggleEditMode();
+                    } else if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+                        e.preventDefault();
+                        this.exportHTML();
+                    }
+                });
+            }
+        }
+
+        window.deck = new SlidePresentation();
+        window.editor = new InlineDeckEditor('github-universe-26-cio-briefing:v1');
+    </script>
+</body>
+</html>

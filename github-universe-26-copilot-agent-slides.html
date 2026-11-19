@@ -365,6 +365,28 @@ svg {
     display: block;
 }
 
+.slide.intelligence-slide {
+    padding: 44px 72px 40px;
+}
+
+.intelligence-infographic {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 12px;
+}
+
+.intelligence-infographic img {
+    display: block;
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
 /* === 3-PILLAR CAPABILITY CARDS === */
 .capability-grid-3 {
     display: grid;
@@ -681,15 +703,16 @@ svg {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     min-height: 42px;
     margin-top: 8px;
+    padding: 0 14px;
     border: 1px solid var(--border-strong);
     border-radius: 10px;
     background: var(--surface-subtle);
     color: var(--ink-muted);
-    font: 700 14px 'Fira Code', monospace;
-    letter-spacing: 0.04em;
+    font: 700 13.5px 'Fira Code', monospace;
+    letter-spacing: 0.03em;
 }
 
 .matrix-appendix-links a {
@@ -1076,6 +1099,171 @@ body:not(.speaker-mode) .cap-detail {
 }
 
 /* === CLOUD, ACTIONS, AND LOCAL SANDBOX COMPARISON === */
+.ui-compare-wrap {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: stretch;
+    margin: 4px 0 0;
+}
+
+.ui-compare-table {
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--surface-card);
+    border: 1.5px solid var(--border-strong);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.ui-compare-table th,
+.ui-compare-table td {
+    border-right: 1px solid var(--border-hairline);
+    border-bottom: 1px solid var(--border-hairline);
+    vertical-align: middle;
+}
+
+.ui-compare-table tr:last-child th,
+.ui-compare-table tr:last-child td {
+    border-bottom: 0;
+}
+
+.ui-compare-table th:last-child,
+.ui-compare-table td:last-child {
+    border-right: 0;
+}
+
+.ui-compare-table thead th {
+    height: 64px;
+    padding: 10px 20px;
+    background: var(--surface-dark);
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.ui-compare-table thead th:first-child {
+    width: 210px;
+    background: #E2E8F0;
+    color: var(--ink-secondary);
+    font-family: 'Fira Code', 'Noto Sans SC', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.ui-compare-table thead th.col-computer {
+    border-bottom: 4px solid #3B82F6;
+}
+
+.ui-compare-table thead th.col-browser {
+    border-bottom: 4px solid #10B981;
+}
+
+.ui-col-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.ui-col-title {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.col-computer .ui-col-title {
+    color: #93C5FD;
+}
+
+.col-browser .ui-col-title {
+    color: #6EE7B7;
+}
+
+.ui-col-tag {
+    font-family: 'Fira Code', 'Noto Sans SC', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #E2E8F0;
+    white-space: nowrap;
+}
+
+.ui-compare-table tbody th {
+    width: 210px;
+    padding: 10px 18px;
+    background: var(--surface-subtle);
+    color: var(--ink-primary);
+    text-align: left;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.ui-dim-num {
+    display: block;
+    font-family: 'Fira Code', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    margin-bottom: 2px;
+}
+
+.ui-compare-table tbody td {
+    padding: 10px 22px;
+    color: var(--ink-secondary);
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.42;
+}
+
+.ui-compare-table tbody td:nth-child(2) {
+    background: rgba(239, 246, 255, 0.36);
+}
+
+.ui-compare-table tbody td:nth-child(3) {
+    background: rgba(236, 253, 245, 0.36);
+}
+
+.ui-compare-table tbody td strong {
+    font-weight: 800;
+}
+
+.ui-compare-table tbody td:nth-child(2) strong {
+    color: var(--cobalt);
+}
+
+.ui-compare-table tbody td:nth-child(3) strong {
+    color: var(--emerald);
+}
+
+.ui-compare-table code {
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    padding: 1px 6px;
+    border-radius: 5px;
+    background: rgba(15, 23, 42, 0.06);
+    color: var(--ink-primary);
+}
+
+.ui-compare-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    white-space: nowrap;
+}
+
+.ui-compare-links a {
+    margin-top: 0;
+    font-size: 14px;
+}
+
 .sandbox-matrix-wrap {
     flex: 1;
     min-height: 0;
@@ -1398,7 +1586,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">9 CORE CAPABILITIES</span>
-                    <span class="page-num">01 / 21</span>
+                    <span class="page-num">01 / 22</span>
                 </div>
             </header>
 
@@ -1436,12 +1624,12 @@ body.editing-mode .motion-ready .motion-diagram {
                     <div class="layer-box emerald">
                         <div class="layer-tag" style="color: var(--emerald);">LAYER 02 · CONTINUOUS RUNTIME</div>
                         <div class="layer-title">跨端后台运行时与多仓协同层</div>
-                        <div class="layer-items">03 VS Code Agent Host &amp; AHP · 04 Copilot Projects · 05 Cloud Sandboxes</div>
+                        <div class="layer-items">03 VS Code Agent Host &amp; AHP · 04 Copilot Projects · 05 Cloud &amp; Local Sandboxes</div>
                     </div>
                     <div class="layer-box amber">
                         <div class="layer-tag" style="color: var(--amber);">LAYER 03 · CONTEXT &amp; LAST-MILE ACTION</div>
                         <div class="layer-title">自演进记忆、外部工具与桌面操控层</div>
-                        <div class="layer-items">06 GitHub Intelligence · 07 MCP Connectors · 08 Computer Use · 09 对话生图</div>
+                        <div class="layer-items">06 GitHub Intelligence · 07 MCP Connectors · 08 Computer / Browser Use · 09 对话生图</div>
                     </div>
                 </div>
             </div>
@@ -1470,7 +1658,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">4 GA · 4 PREVIEW · 1 EXP</span>
-                    <span class="page-num">02 / 21</span>
+                    <span class="page-num">02 / 22</span>
                 </div>
             </header>
 
@@ -1505,31 +1693,34 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 03 · P10</span>
+                        <span class="matrix-id">FEATURE 03 · 附录 D / P21</span>
                         <span class="matrix-badge">GA + PREVIEW</span>
                     </div>
                     <div class="matrix-name">VS Code Agent Host</div>
                     <div class="matrix-value">解耦窗口后台运行、多模型并行跑分融合与 AHP 开放协议</div>
+                    <a class="fusion-architecture-link" href="#appendix-agent-host">架构详解 · 附录 D / 21 →</a>
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 04 · P11</span>
+                        <span class="matrix-id">FEATURE 04 · 附录 E / P22</span>
                         <span class="matrix-badge preview">PUBLIC PREVIEW</span>
                     </div>
                     <div class="matrix-name">Copilot Projects</div>
                     <div class="matrix-value">顶层协调 Agent + 多仓库并行子会话 + Library 资料库与定时巡检</div>
+                    <a class="fusion-architecture-link" href="#appendix-copilot-projects">架构详解 · 附录 E / 22 →</a>
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 05 · P12</span>
+                        <span class="matrix-id">FEATURE 05 · P10–12</span>
                         <span class="matrix-badge">GA</span>
                     </div>
-                    <div class="matrix-name">Cloud Sandboxes</div>
-                    <div class="matrix-value">6 大入口同步同一云端会话，支持快照休眠恢复与共享算力池</div>
+                    <div class="matrix-name">Cloud &amp; Local Sandboxes</div>
+                    <div class="matrix-value">7 大入口同步云端快照沙箱 + 本机 MXC 系统级进程安全沙箱</div>
+                    <a class="fusion-architecture-link" href="#local-sandbox">Local Sandbox · 第 11 页 →</a>
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 06 · P14</span>
+                        <span class="matrix-id">FEATURE 06 · P13</span>
                         <span class="matrix-badge">MEMORY GA</span>
                     </div>
                     <div class="matrix-name">GitHub Intelligence</div>
@@ -1538,7 +1729,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 07 · P15</span>
+                        <span class="matrix-id">FEATURE 07 · P14</span>
                         <span class="matrix-badge preview">PUBLIC PREVIEW</span>
                     </div>
                     <div class="matrix-name">Copilot Connectors</div>
@@ -1546,15 +1737,15 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 08 · P16</span>
+                        <span class="matrix-id">FEATURE 08 · P15</span>
                         <span class="matrix-badge preview">PREVIEW / EXP</span>
                     </div>
-                    <div class="matrix-name">Computer Use</div>
-                    <div class="matrix-value">后台优先的本机桌面 GUI 树读取与点击输入，打通无 API 软件断点</div>
+                    <div class="matrix-name">Computer &amp; Browser Use</div>
+                    <div class="matrix-value">本机原生桌面 GUI 操控 vs. 浏览器扩展网页交互验收双轨对比</div>
                 </div>
                 <div class="matrix-cell">
                     <div class="matrix-cell-top">
-                        <span class="matrix-id">FEATURE 09 · P17</span>
+                        <span class="matrix-id">FEATURE 09 · P16</span>
                         <span class="matrix-badge preview">PUBLIC PREVIEW</span>
                     </div>
                     <div class="matrix-name">对话内图像生成与编辑</div>
@@ -1562,11 +1753,15 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
             </div>
             <footer class="matrix-appendix-links">
-                <span>BENCHMARKS + APPENDIX</span>
-                <a href="#fusion-benchmark-charts">原始评测图表 · 07</a>
-                <a href="#fusion-training">A · Fusion 路由训练 · 19</a>
-                <a href="#appendix-intelligence-internals">B · Intelligence 实现 · 20</a>
-                <a href="#appendix-ast-engine">C · AST 引擎 · 21</a>
+                <span>QUICK LINKS</span>
+                <a href="#fusion-benchmark-charts">原始评测图 · 07</a>
+                <a href="#local-sandbox">Local Sandbox · 11</a>
+                <a href="#browser-use">Computer vs. Browser Use · 15</a>
+                <a href="#fusion-training">A · Fusion 训练 · 18</a>
+                <a href="#appendix-intelligence-internals">B · Intelligence · 19</a>
+                <a href="#appendix-ast-engine">C · AST 引擎 · 20</a>
+                <a href="#appendix-agent-host">D · Agent Host · 21</a>
+                <a href="#appendix-copilot-projects">E · Copilot Projects · 22</a>
             </footer>
         </section>
 
@@ -1581,7 +1776,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">END-TO-END BLUEPRINT</span>
-                    <span class="page-num">03 / 21</span>
+                    <span class="page-num">03 / 22</span>
                 </div>
             </header>
 
@@ -1626,7 +1821,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">GENERALLY AVAILABLE</span>
-                    <span class="page-num">04 / 21</span>
+                    <span class="page-num">04 / 22</span>
                 </div>
             </header>
 
@@ -1769,7 +1964,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ARXIV:2605.17106v2</span>
-                    <span class="page-num">05 / 21</span>
+                    <span class="page-num">05 / 22</span>
                 </div>
             </header>
 
@@ -1880,7 +2075,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">AA CODING AGENT INDEX v2.0</span>
-                    <span class="page-num">06 / 21</span>
+                    <span class="page-num">06 / 22</span>
                 </div>
             </header>
 
@@ -1946,7 +2141,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">PUBLIC LEADERBOARD + INDEPENDENT INDEX</span>
-                    <span class="page-num">07 / 21</span>
+                    <span class="page-num">07 / 22</span>
                 </div>
             </header>
 
@@ -2016,7 +2211,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">3 BENCHMARKS · EQUAL WEIGHT</span>
-                    <span class="page-num">08 / 21</span>
+                    <span class="page-num">08 / 22</span>
                 </div>
             </header>
             <div class="feature-hero reveal d1">
@@ -2094,7 +2289,7 @@ body.editing-mode .motion-ready .motion-diagram {
 <!-- ===========================================
              SLIDE 09: FEATURE 02 — LOCAL MODEL ROUTING
              =========================================== -->
-        <section class="slide" data-slide="9">
+        <section class="slide" data-slide="9" data-edit-reserve-after="30">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2102,7 +2297,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">EXPERIMENTAL PREVIEW</span>
-                    <span class="page-num">09 / 21</span>
+                    <span class="page-num">09 / 22</span>
                 </div>
             </header>
 
@@ -2203,250 +2398,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 10: FEATURE 03 — VS CODE AGENT HOST & AHP
+             SLIDE 10: FEATURE 05 — UNIFIED CLOUD & SANDBOXES
              =========================================== -->
         <section class="slide" data-slide="10">
-            <header class="exec-topbar">
-                <div class="exec-breadcrumb">
-                    <span class="exec-dot"></span>
-                    <span>FEATURE 03 · VS CODE 1.144 AGENT HOST &amp; PARALLEL COMPARE</span>
-                </div>
-                <div class="exec-meta-right">
-                    <span class="maturity-pill">HOST GA · COMPARE PREVIEW</span>
-                    <span class="page-num">10 / 21</span>
-                </div>
-            </header>
-
-            <div class="feature-hero reveal d1">
-                <div class="feature-title-group">
-                    <div class="feature-index-tag">CAPABILITY 03 // DECOUPLED RUNTIME &amp; COMPETITIVE SYNTHESIS</div>
-                    <h2 class="feature-title"><span class="accent">VS Code Agent Host</span>：后台长驻、多路赛马与开放协议</h2>
-                    <p class="feature-tagline">将 Agent 从编辑器窗口生命周期中彻底解耦，并支持同一需求多模型并行实现与一键融合。</p>
-                </div>
-                <div class="hero-kpi">
-                    <div class="hero-kpi-label">OPEN PROTOCOL SDK</div>
-                    <div class="hero-kpi-value">AHP 五语言客户端</div>
-                </div>
-            </div>
-
-            <!-- SVG ARCHITECTURE DIAGRAM: AGENT HOST & PARALLEL SYNTHESIS -->
-            <div class="arch-diagram-box reveal d2">
-                <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Left: Clients over AHP -->
-                    <rect x="14" y="16" width="320" height="140" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
-                    <text x="174" y="44" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">CLIENTS (随时断开/重连)</text>
-                    <rect x="34" y="56" width="280" height="36" rx="8" fill="#EFF6FF" stroke="#93C5FD"/>
-                    <text x="174" y="79" text-anchor="middle" fill="#1D4ED8" font-size="15" font-weight="700">VS Code 窗口  ·  GitHub Mobile</text>
-                    <rect x="34" y="102" width="280" height="36" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
-                    <text x="174" y="125" text-anchor="middle" fill="#334155" font-size="14" font-weight="700">自研平台 (TS/Rust/Go/Kotlin/Swift)</text>
-
-                    <line x1="340" y1="86" x2="438" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#arr-blue)"/>
-                    <text x="389" y="74" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="12" font-weight="700">AHP 协议</text>
-
-                    <!-- Center: Decoupled Agent Host Daemon -->
-                    <rect x="446" y="16" width="310" height="140" rx="14" fill="#0F172A"/>
-                    <text x="601" y="48" text-anchor="middle" fill="#60A5FA" font-family="Fira Code, monospace" font-size="13" font-weight="700">DECOUPLED AGENT HOST (GA)</text>
-                    <text x="601" y="84" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="800">独立后台守护进程</text>
-                    <text x="601" y="114" text-anchor="middle" fill="#94A3B8" font-size="14" font-weight="600">本地 / SSH 远端编译机 / Dev Tunnels</text>
-                    <text x="601" y="138" text-anchor="middle" fill="#34D399" font-size="13" font-weight="700">关窗口不中断任务执行</text>
-
-                    <!-- Fork into Parallel Worktrees -->
-                    <path d="M 762 64 L 836 44" stroke="#047857" stroke-width="2.5" fill="none" marker-end="url(#arr-green)"/>
-                    <path d="M 762 108 L 836 128" stroke="#047857" stroke-width="2.5" fill="none" marker-end="url(#arr-green)"/>
-
-                    <!-- Parallel Runs -->
-                    <rect x="844" y="16" width="430" height="60" rx="10" fill="#ECFDF5" stroke="#047857" stroke-width="1.8"/>
-                    <text x="1059" y="42" text-anchor="middle" fill="#047857" font-size="15" font-weight="800">Worktree A：Copilot Harness + 模型 A</text>
-                    <text x="1059" y="64" text-anchor="middle" fill="#334155" font-size="13" font-weight="600">独立分支并发编码与单测验证</text>
-
-                    <rect x="844" y="96" width="430" height="60" rx="10" fill="#ECFDF5" stroke="#047857" stroke-width="1.8"/>
-                    <text x="1059" y="122" text-anchor="middle" fill="#047857" font-size="15" font-weight="800">Worktree B：Claude Harness + 模型 B</text>
-                    <text x="1059" y="144" text-anchor="middle" fill="#334155" font-size="13" font-weight="600">独立分支并发编码与单测验证</text>
-
-                    <path d="M 1280 46 L 1352 76" stroke="#B45309" stroke-width="2.5" fill="none" marker-end="url(#arr-amber)"/>
-                    <path d="M 1280 126 L 1352 96" stroke="#B45309" stroke-width="2.5" fill="none" marker-end="url(#arr-amber)"/>
-
-                    <!-- Right: Judge + Synthesize -->
-                    <rect x="1360" y="24" width="306" height="124" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
-                    <text x="1513" y="54" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="13" font-weight="700">JUDGE &amp; SYNTHESIZE</text>
-                    <text x="1513" y="88" text-anchor="middle" fill="#0F172A" font-size="19" font-weight="800">AI 评审推荐 + 一键融合</text>
-                    <text x="1513" y="118" text-anchor="middle" fill="#B45309" font-size="14" font-weight="700">吸收两路方案最优实现合入主分支</text>
-                </svg>
-            </div>
-
-            <div class="capability-grid-3 reveal d2">
-                <div class="cap-card">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num">MODULE 01 · AGENT HOST</span>
-                            <span class="cap-chip">GA 生产就绪</span>
-                        </div>
-                        <h3 class="cap-name">关窗口不中断 + 远端/手机接管</h3>
-                        <div class="cap-highlight">支持 SSH / Dev Tunnels / GitHub Mobile</div>
-                        <p class="cap-detail">关闭或重启 VS Code 不影响后台 Agent 执行；可将远端编译机注册为环境并在手机端随时查看进度与审批。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card emerald-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">MODULE 02 · COMPARE</span>
-                            <span class="cap-chip">PUBLIC PREVIEW</span>
-                        </div>
-                        <h3 class="cap-name">多模型/多 Harness 并行融合</h3>
-                        <div class="cap-highlight">隔离工作树并发实现 + Judge 推荐 + Synthesize</div>
-                        <p class="cap-detail">针对棘手需求同时派发多个模型或不同 Harness（Copilot / Claude），并排对比 Diff 后一键吸收各方案优点。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card amber-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">MODULE 03 · AHP &amp; PLUGINS</span>
-                            <span class="cap-chip">OPEN SPECIFICATION</span>
-                        </div>
-                        <h3 class="cap-name">开放协议 AHP 与插件市场</h3>
-                        <div class="cap-highlight">TS / Rust / Go / Kotlin / Swift SDK</div>
-                        <p class="cap-detail">公开 Agent Host Protocol 方便内部平台自建前端；新增 Agent Customizations 市场面板与 `.github/copilot/settings.json`。</p>
-                    </div>
-                </div>
-            </div>
-
-            <footer class="scenario-ribbon reveal d3">
-                <span class="ribbon-badge">典型实战流</span>
-                <div class="ribbon-flow">
-                    <span class="flow-step primary">远端大内存机启动重构</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step primary">2 路模型并行比选融合</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">合上电脑用手机审批收尾</span>
-                </div>
-                <div class="ribbon-boundary">使用注意：<strong>远程 Host 需保持宿主机进程在线</strong></div>
-            </footer>
-        </section>
-
-<!-- ===========================================
-             SLIDE 11: FEATURE 04 — COPILOT PROJECTS
-             =========================================== -->
-        <section class="slide" data-slide="11">
-            <header class="exec-topbar">
-                <div class="exec-breadcrumb">
-                    <span class="exec-dot"></span>
-                    <span>FEATURE 04 · COPILOT PROJECTS (MULTI-REPO COORDINATION)</span>
-                </div>
-                <div class="exec-meta-right">
-                    <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">11 / 21</span>
-                </div>
-            </header>
-
-            <div class="feature-hero reveal d1">
-                <div class="feature-title-group">
-                    <div class="feature-index-tag">CAPABILITY 04 // GOAL-ORIENTED PERSISTENT COORDINATOR</div>
-                    <h2 class="feature-title"><span class="accent">Copilot Projects</span>：面向长期目标的多仓库并行统筹</h2>
-                    <p class="feature-tagline">打破“单次会话绑定单仓库”局限，由顶层协调 Agent 统一调度多个子会话、共享资料库与定时巡检。</p>
-                </div>
-                <div class="hero-kpi">
-                    <div class="hero-kpi-label">COORDINATION MODEL</div>
-                    <div class="hero-kpi-value">1 Project → N 子会话</div>
-                </div>
-            </div>
-
-            <!-- SVG ARCHITECTURE DIAGRAM: COPILOT PROJECTS TOPOLOGY -->
-            <div class="arch-diagram-box reveal d2">
-                <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Left: Shared Library & Automations -->
-                    <rect x="14" y="16" width="340" height="140" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
-                    <text x="184" y="44" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="13" font-weight="700">SHARED CONTEXT &amp; CADENCE</text>
-                    <rect x="34" y="56" width="300" height="38" rx="8" fill="#FFFFFF" stroke="#FCD34D"/>
-                    <text x="184" y="80" text-anchor="middle" fill="#0F172A" font-size="15" font-weight="700">Library：共享架构图 / API 契约 / PRD</text>
-                    <rect x="34" y="104" width="300" height="38" rx="8" fill="#FFFFFF" stroke="#FCD34D"/>
-                    <text x="184" y="128" text-anchor="middle" fill="#B45309" font-size="15" font-weight="700">Automations：按分钟/每日/每周定时唤醒</text>
-
-                    <line x1="360" y1="86" x2="430" y2="86" stroke="#B45309" stroke-width="3" marker-end="url(#arr-amber)"/>
-
-                    <!-- Center: Persistent Project Coordinator -->
-                    <rect x="438" y="16" width="350" height="140" rx="14" fill="#0F172A"/>
-                    <text x="613" y="48" text-anchor="middle" fill="#60A5FA" font-family="Fira Code, monospace" font-size="13" font-weight="700">PERSISTENT PROJECT COORDINATOR</text>
-                    <text x="613" y="84" text-anchor="middle" fill="#FFFFFF" font-size="21" font-weight="800">顶层协调 Agent 主会话</text>
-                    <text x="613" y="114" text-anchor="middle" fill="#93C5FD" font-size="14" font-weight="600">Overview 队列：Needs Input · Working · Done</text>
-                    <text x="613" y="138" text-anchor="middle" fill="#34D399" font-size="13" font-weight="700">统一拆解目标 · 转发审批 · 汇总多仓 PR</text>
-
-                    <!-- Fan-out to 3 Repo Worktree Sessions -->
-                    <path d="M 794 52 L 876 32" stroke="#1D4ED8" stroke-width="2.5" fill="none" marker-end="url(#arr-blue)"/>
-                    <path d="M 794 86 L 876 86" stroke="#047857" stroke-width="2.5" fill="none" marker-end="url(#arr-green)"/>
-                    <path d="M 794 120 L 876 140" stroke="#1D4ED8" stroke-width="2.5" fill="none" marker-end="url(#arr-blue)"/>
-
-                    <!-- Right: 3 Isolated Repo Worktrees -->
-                    <rect x="886" y="10" width="780" height="44" rx="10" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
-                    <text x="910" y="37" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="14" font-weight="700">[子会话 01 · backend-api]</text>
-                    <text x="1150" y="37" fill="#0F172A" font-size="15" font-weight="700">独立 Git Worktree 实现服务端接口与单测 ──→ 产出 PR #101</text>
-
-                    <rect x="886" y="64" width="780" height="44" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
-                    <text x="910" y="91" fill="#047857" font-family="Fira Code, monospace" font-size="14" font-weight="700">[子会话 02 · web-frontend]</text>
-                    <text x="1150" y="91" fill="#0F172A" font-size="15" font-weight="700">独立 Git Worktree 联调前端组件与预览截图 ──→ 产出 PR #204</text>
-
-                    <rect x="886" y="118" width="780" height="44" rx="10" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
-                    <text x="910" y="145" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="14" font-weight="700">[子会话 03 · sdk-docs]</text>
-                    <text x="1150" y="145" fill="#0F172A" font-size="15" font-weight="700">独立 Git Worktree 同步更新 SDK 与变更文档 ──→ 产出 PR #89</text>
-                </svg>
-            </div>
-
-            <div class="capability-grid-3 reveal d2">
-                <div class="cap-card">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num">PILLAR 01 · MULTI-REPO</span>
-                            <span class="cap-chip">跨仓工作树隔离</span>
-                        </div>
-                        <h3 class="cap-name">顶层协调 + 多子会话并行</h3>
-                        <div class="cap-highlight">同时关联后端、前端、SDK 多个仓库</div>
-                        <p class="cap-detail">主对话负责架构拆解与任务派发，各子会话在独立 Git Worktree 中并行编码验证，完成后汇总 PR 卡片。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card emerald-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">PILLAR 02 · OVERVIEW &amp; LIBRARY</span>
-                            <span class="cap-chip">全局状态与共享知识</span>
-                        </div>
-                        <h3 class="cap-name">Needs Input 队列与共享资产库</h3>
-                        <div class="cap-highlight">Overview 聚合阻塞 · Library 沉淀规范</div>
-                        <p class="cap-detail">所有待审批计划与提问集中浮现至 Overview；Library 统一存放 PRD、接口契约与 Agent 产出的设计报告。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card amber-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">PILLAR 03 · AUTOMATIONS</span>
-                            <span class="cap-chip">自然语言定时任务</span>
-                        </div>
-                        <h3 class="cap-name">一句话创建项目级周期巡检</h3>
-                        <div class="cap-highlight">按分钟 / 每日 / 每周唤醒指定上下文</div>
-                        <p class="cap-detail">直接在对话中设定“每周一汇总跨仓 Issue 与错误趋势”，自动生成可随时暂停或调整的持久自动化任务。</p>
-                    </div>
-                </div>
-            </div>
-
-            <footer class="scenario-ribbon reveal d3">
-                <span class="ribbon-badge">跨团队特性交付</span>
-                <div class="ribbon-flow">
-                    <span class="flow-step">Library 导入契约文档</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step primary">并行派生 API / Web / Docs 子会话</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">Overview 统一审批合入</span>
-                </div>
-                <div class="ribbon-boundary">适用建议：<strong>单仓简单小改直接用普通 Session 更快</strong></div>
-            </footer>
-        </section>
-
-<!-- ===========================================
-             SLIDE 12: FEATURE 05 — UNIFIED CLOUD & SANDBOXES
-             =========================================== -->
-        <section class="slide" data-slide="12">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2454,7 +2408,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">GENERALLY AVAILABLE</span>
-                    <span class="page-num">12 / 21</span>
+                    <span class="page-num">10 / 22</span>
                 </div>
             </header>
 
@@ -2573,9 +2527,134 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 13: FEATURE 05 DEEP DIVE — EXECUTION ENVIRONMENT MATRIX
+             SLIDE 11: FEATURE 05 — LOCAL SANDBOXING
              =========================================== -->
-        <section class="slide" data-slide="13" id="sandbox-comparison" data-edit-scope="sandbox-comparison">
+        <section class="slide" data-slide="11" id="local-sandbox" data-edit-scope="local-sandbox">
+            <header class="exec-topbar">
+                <div class="exec-breadcrumb">
+                    <span class="exec-dot"></span>
+                    <span>FEATURE 05 · LOCAL SANDBOXING (OS-LEVEL PROCESS CONTAINMENT)</span>
+                </div>
+                <div class="exec-meta-right">
+                    <span class="maturity-pill">GENERALLY AVAILABLE</span>
+                    <span class="page-num">11 / 22</span>
+                </div>
+            </header>
+
+            <div class="feature-hero reveal d1">
+                <div class="feature-title-group">
+                    <div class="feature-index-tag">CAPABILITY 05B // MICROSOFT MXC · DENY-BY-DEFAULT · CREDENTIAL PROXY</div>
+                    <h2 class="feature-title"><span class="accent">Local Sandboxing</span>：本机系统级进程隔离与凭据代理</h2>
+                    <p class="feature-tagline">基于 Microsoft MXC 将统一安全策略编译为三大桌面系统原生隔离原语，零虚拟化损耗守护本机文件、外网与密钥。</p>
+                </div>
+                <div class="hero-kpi">
+                    <div class="hero-kpi-label">ISOLATION &amp; COST</div>
+                    <div class="hero-kpi-value">OS 原生隔离 · $0 算力费</div>
+                </div>
+            </div>
+
+            <!-- SVG ARCHITECTURE DIAGRAM: MXC OS BACKENDS + DENY-BY-DEFAULT + CREDENTIAL PROXY -->
+            <div class="arch-diagram-box reveal d2">
+                <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 1. Surfaces & Enforcement Scope -->
+                    <rect x="14" y="14" width="370" height="144" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+                    <text x="199" y="40" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">1. SURFACES &amp; ENFORCEMENT SCOPE</text>
+                    <rect x="30" y="52" width="338" height="42" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
+                    <text x="199" y="78" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">OS 强制级：Shell · ripgrep · 本地 MCP/LSP</text>
+                    <rect x="30" y="102" width="338" height="42" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+                    <text x="199" y="128" text-anchor="middle" fill="#334155" font-size="14" font-weight="700">软件校验级：CLI 进程内建读写工具同策检查</text>
+
+                    <line x1="390" y1="86" x2="430" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#arr-blue)"/>
+
+                    <!-- 2. Microsoft MXC Native Backends -->
+                    <rect x="438" y="14" width="420" height="144" rx="14" fill="#0F172A"/>
+                    <text x="648" y="40" text-anchor="middle" fill="#60A5FA" font-family="Fira Code, monospace" font-size="13" font-weight="700">2. MICROSOFT MXC (免重型 VM / 容器)</text>
+                    <rect x="456" y="54" width="120" height="86" rx="10" fill="#1E293B" stroke="#3B82F6"/>
+                    <text x="516" y="88" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="800">macOS 15+</text>
+                    <text x="516" y="116" text-anchor="middle" fill="#93C5FD" font-size="13" font-weight="700">Seatbelt</text>
+                    <rect x="588" y="54" width="120" height="86" rx="10" fill="#1E293B" stroke="#10B981"/>
+                    <text x="648" y="88" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="800">Linux</text>
+                    <text x="648" y="116" text-anchor="middle" fill="#6EE7B7" font-size="13" font-weight="700">bubblewrap</text>
+                    <rect x="720" y="54" width="120" height="86" rx="10" fill="#1E293B" stroke="#F59E0B"/>
+                    <text x="780" y="88" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="800">Windows 11</text>
+                    <text x="780" y="116" text-anchor="middle" fill="#FDE68A" font-size="13" font-weight="700">BaseContainer</text>
+
+                    <line x1="864" y1="86" x2="904" y2="86" stroke="#047857" stroke-width="3" marker-end="url(#arr-green)"/>
+
+                    <!-- 3. Deny-by-Default Filesystem Policy -->
+                    <rect x="912" y="14" width="380" height="144" rx="14" fill="#ECFDF5" stroke="#047857" stroke-width="2"/>
+                    <text x="1102" y="40" text-anchor="middle" fill="#047857" font-family="Fira Code, monospace" font-size="13" font-weight="700">3. DENY-BY-DEFAULT FILESYSTEM</text>
+                    <rect x="928" y="52" width="348" height="42" rx="8" fill="#FFFFFF" stroke="#6EE7B7"/>
+                    <text x="1102" y="78" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">读写：CWD 工作目录 + .git + 指定构建缓存</text>
+                    <rect x="928" y="102" width="348" height="42" rx="8" fill="#FFFFFF" stroke="#6EE7B7"/>
+                    <text x="1102" y="128" text-anchor="middle" fill="#047857" font-size="14" font-weight="800">只读：PATH 工具链 · 最高优先：Denied 路径</text>
+
+                    <line x1="1298" y1="86" x2="1338" y2="86" stroke="#B45309" stroke-width="3" marker-end="url(#arr-amber)"/>
+
+                    <!-- 4. Built-in Local Proxy & Credential Injection -->
+                    <rect x="1346" y="14" width="320" height="144" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
+                    <text x="1506" y="42" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="13" font-weight="700">4. CREDENTIAL &amp; NETWORK PROXY</text>
+                    <text x="1506" y="78" text-anchor="middle" fill="#0F172A" font-size="18" font-weight="800">占位符脱敏 + 出口域名白名单</text>
+                    <text x="1506" y="108" text-anchor="middle" fill="#334155" font-size="13" font-weight="600">代理仅向授信 HTTPS 注入真 Token</text>
+                    <text x="1506" y="136" text-anchor="middle" fill="#B45309" font-size="13" font-weight="700">企业可锁 Fail-Closed 禁降级裸跑</text>
+                </svg>
+            </div>
+
+            <div class="capability-grid-3 reveal d2">
+                <div class="cap-card">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num">MECHANISM 01 · MXC NATIVE BACKENDS</span>
+                            <span class="cap-chip">CLI · APP · VSCODE GA</span>
+                        </div>
+                        <h3 class="cap-name">MXC 跨平台映射三大 OS 原生隔离</h3>
+                        <div class="cap-highlight">macOS Seatbelt · Linux bwrap · Win11 进程容器</div>
+                        <p class="cap-detail">无需拉起笨重虚拟机或 Docker，由 Microsoft MXC 按命令动态下发进程级系统沙箱（默认涵盖 Shell、代码搜索及本地 MCP/LSP 子进程）。</p>
+                    </div>
+                </div>
+
+                <div class="cap-card emerald-top">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">MECHANISM 02 · POLICY &amp; PROXY</span>
+                            <span class="cap-chip">默认拒绝 + 凭据脱敏</span>
+                        </div>
+                        <h3 class="cap-name">路径最小权限与本地代理凭据注入</h3>
+                        <div class="cap-highlight">更具体路径优先 / Denied 置顶 · 假 Token 占位</div>
+                        <p class="cap-detail">环境变量与 <strong>git / gh</strong> 凭据在沙箱内仅见占位符，仅经内置本地代理访问授信 HTTPS 域名时才注入真实密钥（macOS 支持切断 Keychain）。</p>
+                    </div>
+                </div>
+
+                <div class="cap-card amber-top">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">MECHANISM 03 · AUDIT &amp; MDM</span>
+                            <span class="cap-chip">干跑预演与企业强控</span>
+                        </div>
+                        <h3 class="cap-name">策略预演审计与企业 Fail-Closed 锁死</h3>
+                        <div class="cap-highlight">/sandbox enable | policy [cmd] · MDM 强控</div>
+                        <p class="cap-detail">CLI 可用 <strong>/sandbox policy npm install</strong> 零执行预演有效挂载目录，App 可按仓库开启；企业托管可设 <strong>failIfUnavailable</strong> 严防降级裸跑。</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="scenario-ribbon reveal d3">
+                <span class="ribbon-badge">本机安全实战流</span>
+                <div class="ribbon-flow">
+                    <span class="flow-step">/sandbox policy 干跑预演</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-step primary">/sandbox enable 启用护栏</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-step primary">拦截越界读写与未授权外联</span>
+                </div>
+                <div class="ribbon-boundary">平台注意：<strong>CLI 与 App 独立配置 · Win11 代理依赖程序遵循系统设置</strong> · <a class="fusion-architecture-link" href="https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/" target="_blank" rel="noopener noreferrer">GA 发布 ↗</a></div>
+            </footer>
+        </section>
+
+<!-- ===========================================
+             SLIDE 12: FEATURE 05 DEEP DIVE — EXECUTION ENVIRONMENT MATRIX
+             =========================================== -->
+        <section class="slide" data-slide="12" id="sandbox-comparison" data-edit-scope="sandbox-comparison">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2583,7 +2662,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ENVIRONMENT MATRIX &amp; METERING</span>
-                    <span class="page-num">13 / 21</span>
+                    <span class="page-num">12 / 22</span>
                 </div>
             </header>
 
@@ -2662,9 +2741,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 14: FEATURE 06 — GITHUB INTELLIGENCE
+             SLIDE 13: FEATURE 06 — GITHUB INTELLIGENCE
              =========================================== -->
-        <section class="slide" data-slide="14" data-edit-reserve-after="30">
+        <section class="slide intelligence-slide" data-slide="13" data-edit-reserve-after="30">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2672,111 +2751,19 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill">MEMORY GA · DREAMING PREVIEW</span>
-                    <span class="page-num">14 / 21</span>
+                    <span class="page-num">13 / 22</span>
                 </div>
             </header>
 
-            <div class="feature-hero reveal d1">
-                <div class="feature-title-group">
-                    <div class="feature-index-tag">CAPABILITY 06 // SELF-EVOLVING ORGANIZATIONAL CONTEXT</div>
-                    <h2 class="feature-title"><span class="accent">GitHub Intelligence</span>：双层记忆、后台自省与跨仓检索</h2>
-                    <p class="feature-tagline">让 Copilot 记住个人偏好与仓库工程规约，并在后台自动将评审经验沉淀为 `.github` 改进 PR。</p>
-                </div>
-                <div class="hero-kpi">
-                    <div class="hero-kpi-label">MEMORY BENCHMARK</div>
-                    <div class="hero-kpi-value">偏好遵循 +93% · 效率 +42%</div>
-                </div>
+            <div class="intelligence-infographic reveal d1">
+                <img src="assets/github-intelligence-architecture.png" alt="GitHub Intelligence 架构与功能：上下文信号进入双层记忆，Dreaming 后台反思生成待人工审核的 PR，并通过语义和符号检索跨仓定位代码；底部展示治理与权限边界">
             </div>
-
-            <!-- SVG ARCHITECTURE DIAGRAM: MEMORY + DREAMING LOOP -->
-            <div class="arch-diagram-box reveal d2">
-                <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="14" y="20" width="330" height="132" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
-                    <text x="179" y="50" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">1. SIGNALS &amp; SESSIONS</text>
-                    <text x="179" y="84" text-anchor="middle" fill="#0F172A" font-size="19" font-weight="800">日常会话纠偏 + PR 评审</text>
-                    <text x="179" y="114" text-anchor="middle" fill="#334155" font-size="14" font-weight="600">采集开发者习惯、测试命令与代码审查反馈</text>
-
-                    <line x1="350" y1="86" x2="416" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#arr-blue)"/>
-
-                    <rect x="424" y="20" width="390" height="132" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-                    <text x="619" y="48" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">2. DUAL-LAYER MEMORY (GA)</text>
-                    <rect x="444" y="60" width="350" height="36" rx="8" fill="#1D4ED8"/>
-                    <text x="619" y="83" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="700">User Memory：个人编码风格跨所有仓库生效</text>
-                    <rect x="444" y="104" width="350" height="36" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
-                    <text x="619" y="127" text-anchor="middle" fill="#1D4ED8" font-size="14" font-weight="700">Repo Memory：仓库构建/目录规范全端共享</text>
-
-                    <line x1="820" y1="86" x2="886" y2="86" stroke="#047857" stroke-width="3" marker-end="url(#arr-green)"/>
-
-                    <rect x="894" y="20" width="390" height="132" rx="14" fill="#ECFDF5" stroke="#047857" stroke-width="2"/>
-                    <text x="1089" y="48" text-anchor="middle" fill="#047857" font-family="Fira Code, monospace" font-size="13" font-weight="700">3. DREAMING ENGINE (PREVIEW)</text>
-                    <text x="1089" y="82" text-anchor="middle" fill="#0F172A" font-size="19" font-weight="800">后台异步反思与去重归纳</text>
-                    <text x="1089" y="112" text-anchor="middle" fill="#047857" font-size="14" font-weight="700">清理过期记忆 · 提炼被采纳的 Review 规则</text>
-                    <text x="1089" y="136" text-anchor="middle" fill="#64748B" font-family="Fira Code, monospace" font-size="12">配合 Semantic Code Search 跨仓语义定位</text>
-
-                    <line x1="1290" y1="86" x2="1356" y2="86" stroke="#B45309" stroke-width="3" marker-end="url(#arr-amber)"/>
-
-                    <rect x="1364" y="20" width="302" height="132" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
-                    <text x="1515" y="50" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="13" font-weight="700">4. EVOLVED INSTRUCTIONS</text>
-                    <text x="1515" y="84" text-anchor="middle" fill="#0F172A" font-size="18" font-weight="800">自动发起 `.github` 改进 PR</text>
-                    <text x="1515" y="114" text-anchor="middle" fill="#B45309" font-size="14" font-weight="700">经团队人工 Review 后合入生效</text>
-                </svg>
-            </div>
-
-            <div class="capability-grid-3 reveal d2">
-                <div class="cap-card">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num">PILLAR 01 · MEMORY (GA)</span>
-                            <span class="cap-chip">全端全局共享</span>
-                        </div>
-                        <h3 class="cap-name">个人偏好 + 仓库约定双层记忆</h3>
-                        <div class="cap-highlight">一次交代测试命令与红线，全端自动遵守</div>
-                        <p class="cap-detail">个人记忆跨所有仓库生效；仓库记忆沉淀构建参数、目录规范与验证步骤，在 CLI、IDE、App 与 PR 审查间同步。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card emerald-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">PILLAR 02 · DREAMING</span>
-                            <span class="cap-chip">PUBLIC PREVIEW</span>
-                        </div>
-                        <h3 class="cap-name">后台反思并自动提 PR 更新规范</h3>
-                        <div class="cap-highlight">记忆去重 · 指令演进 PR · 提炼评审规则</div>
-                        <p class="cap-detail">开启后在后台归纳历史会话与被采纳的 Code Review 意见，自动向仓库发起更新自定义指令或 Skill 的 PR。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card amber-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">PILLAR 03 · CODE SEARCH</span>
-                            <span class="cap-chip">SEMANTIC + EXACT</span>
-                        </div>
-                        <h3 class="cap-name">跨组织仓库语义与符号检索</h3>
-                        <div class="cap-highlight">无需本地 Clone 即可追踪跨服务调用链</div>
-                        <p class="cap-detail">结合精确符号定位与自然语言语义搜索，直接在对话或 `/research` 中梳理微服务上下游定义与配置引用。</p>
-                    </div>
-                </div>
-            </div>
-
-            <footer class="scenario-ribbon reveal d3">
-                <span class="ribbon-badge">团队知识自演进</span>
-                <div class="ribbon-flow">
-                    <span class="flow-step">日常会话 &amp; PR 评审纠偏</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step primary">Memory 实时记录 + Dreaming 后台提炼</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">自动生成 `.github` 规范 PR</span>
-                </div>
-                <div class="ribbon-boundary">治理机制：<strong>Dreaming 需显式开启，所有规范变更均经 PR 人工合入</strong></div>
-            </footer>
         </section>
 
 <!-- ===========================================
-             SLIDE 15: FEATURE 07 — COPILOT CONNECTORS
+             SLIDE 14: FEATURE 07 — COPILOT CONNECTORS
              =========================================== -->
-        <section class="slide" data-slide="15">
+        <section class="slide" data-slide="14">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -2784,7 +2771,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">15 / 21</span>
+                    <span class="page-num">14 / 22</span>
                 </div>
             </header>
 
@@ -2884,119 +2871,106 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 16: FEATURE 08 — COMPUTER USE
+             SLIDE 15: FEATURE 08 — COMPUTER USE vs. BROWSER USE
              =========================================== -->
-        <section class="slide" data-slide="16">
+        <section class="slide" data-slide="15" id="browser-use" data-edit-scope="ui-automation-compare" data-edit-reserve="14">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
-                    <span>FEATURE 08 · COMPUTER USE (DESKTOP GUI AUTOMATION)</span>
+                    <span>FEATURE 08 · COMPUTER USE vs. BROWSER USE (UI AUTOMATION COMPARISON)</span>
                 </div>
                 <div class="exec-meta-right">
-                    <span class="maturity-pill preview">APP PREVIEW · VSCODE EXP</span>
-                    <span class="page-num">16 / 21</span>
+                    <span class="maturity-pill preview">PUBLIC PREVIEW · VSCODE EXP</span>
+                    <span class="page-num">15 / 22</span>
                 </div>
             </header>
 
-            <div class="feature-hero reveal d1">
+            <div class="feature-hero reveal d1" style="margin-top: 12px; margin-bottom: 10px;">
                 <div class="feature-title-group">
-                    <div class="feature-index-tag">CAPABILITY 08 // BACKGROUND-FIRST DESKTOP UI OBSERVATION &amp; CONTROL</div>
-                    <h2 class="feature-title"><span class="accent">Computer Use</span>：后台优先的本机桌面软件操控</h2>
-                    <p class="feature-tagline">当工作流卡在没有 API、CLI 或 MCP 的传统桌面软件时，在显式授权下直接读取窗口并完成交互验收。</p>
+                    <div class="feature-index-tag">CAPABILITY 08 // NATIVE DESKTOP GUI vs. AUTHENTICATED WEB AUTOMATION</div>
+                    <h2 class="feature-title"><span class="accent">Computer Use vs. Browser Use</span>：桌面软件与网页操控对比</h2>
+                    <p class="feature-tagline">同为补齐“无接口最后一公里”的受控 UI 能力：前者在后台操控本机原生软件，后者通过扩展在已登录浏览器中交互验收。</p>
                 </div>
                 <div class="hero-kpi">
-                    <div class="hero-kpi-label">EXECUTION POLICY</div>
-                    <div class="hero-kpi-value">后台操作 · 逐应用授权</div>
+                    <div class="hero-kpi-label">ROUTING BOUNDARY</div>
+                    <div class="hero-kpi-value">原生桌面 vs. 浏览器网页</div>
                 </div>
             </div>
 
-            <!-- SVG ARCHITECTURE DIAGRAM: COMPUTER USE DUAL ENGINE & SAFETY -->
-            <div class="arch-diagram-box reveal d2">
-                <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="14" y="20" width="340" height="132" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
-                    <text x="184" y="48" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">1. PER-APP CONSENT GATE</text>
-                    <text x="184" y="84" text-anchor="middle" fill="#0F172A" font-size="19" font-weight="800">逐应用授权 + 系统无障碍</text>
-                    <text x="184" y="114" text-anchor="middle" fill="#334155" font-size="14" font-weight="600">首次操控弹窗确认 · /computer on|show|off</text>
-
-                    <line x1="360" y1="86" x2="430" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#arr-blue)"/>
-
-                    <rect x="438" y="16" width="430" height="140" rx="14" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-                    <text x="653" y="44" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">2. DUAL PERCEPTION ENGINE (get_window_state)</text>
-                    <rect x="458" y="56" width="390" height="40" rx="8" fill="#1D4ED8"/>
-                    <text x="653" y="81" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="700">优先：Accessibility 控件树读取与 patch_text</text>
-                    <rect x="458" y="104" width="390" height="38" rx="8" fill="#FFFFFF" stroke="#93C5FD"/>
-                    <text x="653" y="128" text-anchor="middle" fill="#1D4ED8" font-size="14" font-weight="700">兜底：无控件树表面 (Canvas) 截图坐标点击</text>
-
-                    <line x1="874" y1="86" x2="944" y2="86" stroke="#047857" stroke-width="3" marker-end="url(#arr-green)"/>
-
-                    <rect x="952" y="16" width="370" height="140" rx="14" fill="#ECFDF5" stroke="#047857" stroke-width="2"/>
-                    <text x="1137" y="46" text-anchor="middle" fill="#047857" font-family="Fira Code, monospace" font-size="13" font-weight="700">3. BACKGROUND-FIRST &amp; YIELD</text>
-                    <text x="1137" y="84" text-anchor="middle" fill="#0F172A" font-size="19" font-weight="800">后台静默交互 + 主动礼让</text>
-                    <text x="1137" y="114" text-anchor="middle" fill="#047857" font-size="14" font-weight="700">不切前台不抢鼠键 · 遇人工输入立即暂停</text>
-
-                    <line x1="1328" y1="86" x2="1388" y2="86" stroke="#B45309" stroke-width="3" marker-end="url(#arr-amber)"/>
-
-                    <rect x="1396" y="16" width="270" height="140" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
-                    <text x="1531" y="46" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="13" font-weight="700">4. ACTION POLICY</text>
-                    <text x="1531" y="82" text-anchor="middle" fill="#0F172A" font-size="18" font-weight="800">高危操作强制人工确认</text>
-                    <text x="1531" y="112" text-anchor="middle" fill="#B45309" font-size="13" font-weight="700">禁改密码 · 删数据/发消息必审</text>
-                    <text x="1531" y="136" text-anchor="middle" fill="#64748B" font-family="Fira Code, monospace" font-size="12">按 Esc 键随时硬件级急停</text>
-                </svg>
+            <div class="ui-compare-wrap reveal d2">
+                <table class="ui-compare-table" aria-label="Computer Use 与 Browser Use 核心对比">
+                    <thead>
+                        <tr>
+                            <th scope="col">六大对比维度</th>
+                            <th scope="col" class="col-computer">
+                                <div class="ui-col-head">
+                                    <span class="ui-col-title">COMPUTER USE · 本机桌面软件操控</span>
+                                    <span class="ui-col-tag">Universe '26 · 原生 GUI</span>
+                                </div>
+                            </th>
+                            <th scope="col" class="col-browser">
+                                <div class="ui-col-head">
+                                    <span class="ui-col-title">BROWSER USE · 浏览器网页交互验收</span>
+                                    <span class="ui-col-tag">Ignite 11/17 · 浏览器扩展</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row"><span class="ui-dim-num">01 · TARGET</span>目标对象与场景</th>
+                            <td>面向<strong>无 API / CLI 的本机原生桌面应用</strong>（如 Finder、预览、本地客户端联调与遗留软件提取）。</td>
+                            <td>面向 <strong>Chrome / Edge 中的网页与 Web 应用</strong>（测试网页交互、复现前端问题、读取页面信息）。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span class="ui-dim-num">02 · ENGINE</span>底层感知与执行</th>
+                            <td><strong>OS 无障碍控件树优先</strong>（<code>Accessibility Tree</code>）+ Canvas 截图坐标兜底；<strong>后台静默交互</strong>不抢焦点，遇人工输入立即暂停礼让。</td>
+                            <td>通过 <strong>GitHub Copilot 浏览器扩展</strong>直连页面，结构化读取页面元素、点击控件、切换导航与填写表单。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span class="ui-dim-num">03 · CLIENTS</span>支持客户端范围</th>
+                            <td><strong>macOS / Windows 本地会话</strong>（Copilot App、CLI 为 Public Preview；VS Code 为 Experimental）。</td>
+                            <td><strong>Copilot App、CLI、VS Code、JetBrains</strong>（全部处于 Public Preview，默认关闭）。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span class="ui-dim-num">04 · SETUP</span>前置配置条件</th>
+                            <td>启用开关（如 <code>/computer on|show|off</code>），并在系统中授予<strong>辅助功能与屏幕录制</strong>权限。</td>
+                            <td>从 Chrome 商店安装 <strong>GitHub Copilot 扩展</strong>（使用 Edge 亦须安装 Chrome）并手动启用；<strong>App 内需同时开启 Computer Use</strong>。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span class="ui-dim-num">05 · SAFETY</span>权限与安全边界</th>
+                            <td><strong>逐应用首次弹窗授权</strong>；严禁修改密码，删数据 / 外发消息等高危操作强制人工确认，按 <code>Esc</code> 键随时急停。</td>
+                            <td>支持<strong>隔离标签页组，但仍复用现有浏览器登录态</strong>；须指定目标站点与允许操作，避免提交真实凭据，写操作先人工复核。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span class="ui-dim-num">06 · DEMO</span>本课件对应案例</th>
+                            <td>Finder 定位架构图 → macOS「预览」执行<strong>文件 → 导出 JPEG</strong> → 检查器核验 <code>1536 × 1024</code> 尺寸。</td>
+                            <td>打开演示站点 → 点击底部导航<strong>跳至第 13 页</strong> → 只读核对架构图与页码（避开纯桌面操控浏览器的窗口绑定限制）。</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <div class="capability-grid-3 reveal d2">
-                <div class="cap-card">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num">ENGINE 01 · DUAL PERCEPTION</span>
-                            <span class="cap-chip">精准控件定位</span>
-                        </div>
-                        <h3 class="cap-name">无障碍控件树 + 视觉截图双引擎</h3>
-                        <div class="cap-highlight">优先用 Accessibility Tree 精准修补文本</div>
-                        <p class="cap-detail">优先读取系统原生控件树执行点击与局部文本替换；遇到 Canvas 或自绘界面时自动结合截图坐标操作。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card emerald-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">ENGINE 02 · NON-INTRUSIVE</span>
-                            <span class="cap-chip">不抢占前台焦点</span>
-                        </div>
-                        <h3 class="cap-name">后台优先执行与主动礼让机制</h3>
-                        <div class="cap-highlight">检测到人工操作时自动暂停并重读界面</div>
-                        <p class="cap-detail">无需将目标软件切到前台霸占鼠标键盘；若开发者正在操作该窗口，Agent 会立刻中断礼让，避免抢焦点冲突。</p>
-                    </div>
-                </div>
-
-                <div class="cap-card amber-top">
-                    <div>
-                        <div class="cap-card-head">
-                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">ENGINE 03 · SAFETY GATES</span>
-                            <span class="cap-chip">多重权限护栏</span>
-                        </div>
-                        <h3 class="cap-name">逐应用审批 + 高危操作强制确认</h3>
-                        <div class="cap-highlight">支持 /computer on|show|off 与 Esc 急停</div>
-                        <p class="cap-detail">首次访问任何桌面应用均弹窗确认；涉及密码凭据、删除数据、外发消息或权限修改时强制交回人工确认。</p>
-                    </div>
-                </div>
-            </div>
-
-            <footer class="scenario-ribbon reveal d3">
+            <footer class="scenario-ribbon reveal d3" style="margin-top: 12px;">
                 <span class="ribbon-badge">工具选型黄金法则</span>
                 <div class="ribbon-flow">
                     <span class="flow-step">有 API / CLI / MCP 优先走接口</span>
                     <span class="flow-arrow">→</span>
-                    <span class="flow-step primary">仅桌面 GUI 可用时启用 Computer Use（客户端联调 / 遗留系统提取）</span>
+                    <span class="flow-step primary">网页与已登录 Web 系统选 Browser Use</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-step primary">仅原生桌面 GUI 可用时选 Computer Use</span>
                 </div>
-                <div class="ribbon-boundary">运行环境：<strong>仅限 macOS / Windows 本地会话，受企业策略开关管控</strong></div>
+                <div class="ribbon-boundary ui-compare-links">
+                    <a class="fusion-architecture-link" href="https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/computer-use" target="_blank" rel="noopener noreferrer">Computer Use 文档 ↗</a>
+                    <a class="fusion-architecture-link" href="https://github.blog/changelog/2026-11-17-let-github-copilot-interact-with-your-browser/" target="_blank" rel="noopener noreferrer">Browser Use 11/17 ↗</a>
+                </div>
             </footer>
         </section>
 
 <!-- ===========================================
-             SLIDE 17: FEATURE 09 — IMAGE GENERATION & EDITING
+             SLIDE 16: FEATURE 09 — IMAGE GENERATION & EDITING
              =========================================== -->
-        <section class="slide" data-slide="17">
+        <section class="slide" data-slide="16">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -3004,7 +2978,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill preview">PUBLIC PREVIEW</span>
-                    <span class="page-num">17 / 21</span>
+                    <span class="page-num">16 / 22</span>
                 </div>
             </header>
 
@@ -3103,9 +3077,9 @@ body.editing-mode .motion-ready .motion-diagram {
         </section>
 
 <!-- ===========================================
-             SLIDE 18: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
+             SLIDE 17: CLOSING — 3-PHASE ROLLOUT PLAYBOOK
              =========================================== -->
-        <section class="slide" data-slide="18">
+        <section class="slide" data-slide="17">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -3113,7 +3087,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">ACTION PLAYBOOK</span>
-                    <span class="page-num">18 / 21</span>
+                    <span class="page-num">17 / 22</span>
                 </div>
             </header>
 
@@ -3189,7 +3163,7 @@ body.editing-mode .motion-ready .motion-diagram {
                         </div>
                         <h3 class="cap-name">Projects 跨仓统筹与云沙箱接力</h3>
                         <div class="cap-highlight">Copilot Projects + Cloud Sandboxes + GUI 验收</div>
-                        <p class="cap-detail">用 Projects 统筹跨前后端大特性并行开发；长耗时验证交由 Cloud Sandboxes 快照托管；按需启用 Computer Use。</p>
+                        <p class="cap-detail">用 Projects 统筹跨前后端大特性并行开发；长耗时验证交由 Cloud Sandboxes 快照托管；按需启用 Browser / Computer Use。</p>
                     </div>
                 </div>
             </div>
@@ -3210,7 +3184,7 @@ body.editing-mode .motion-ready .motion-diagram {
 <!-- ===========================================
              APPENDIX A: FUSION ROUTER TRAINING & JUDGES
              =========================================== -->
-        <section class="slide" data-slide="19" id="fusion-training" data-edit-scope="fusion-training">
+        <section class="slide" data-slide="18" id="fusion-training" data-edit-scope="fusion-training">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -3218,7 +3192,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">APPENDIX A · 附录 A</span>
-                    <span class="page-num">19 / 21</span>
+                    <span class="page-num">18 / 22</span>
                 </div>
             </header>
 
@@ -3297,7 +3271,7 @@ body.editing-mode .motion-ready .motion-diagram {
 <!-- ===========================================
              APPENDIX B: GITHUB INTELLIGENCE INTERNALS
              =========================================== -->
-        <section class="slide" data-slide="20" id="appendix-intelligence-internals">
+        <section class="slide" data-slide="19" id="appendix-intelligence-internals">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -3305,7 +3279,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">APPENDIX B · 附录 B</span>
-                    <span class="page-num">20 / 21</span>
+                    <span class="page-num">19 / 22</span>
                 </div>
             </header>
 
@@ -3414,7 +3388,7 @@ body.editing-mode .motion-ready .motion-diagram {
 <!-- ===========================================
              APPENDIX C: ZERO-BUILD AST ENGINE
              =========================================== -->
-        <section class="slide" data-slide="21" id="appendix-ast-engine">
+        <section class="slide" data-slide="20" id="appendix-ast-engine">
             <header class="exec-topbar">
                 <div class="exec-breadcrumb">
                     <span class="exec-dot"></span>
@@ -3422,7 +3396,7 @@ body.editing-mode .motion-ready .motion-diagram {
                 </div>
                 <div class="exec-meta-right">
                     <span class="maturity-pill cobalt">APPENDIX C · 附录 C</span>
-                    <span class="page-num">21 / 21</span>
+                    <span class="page-num">20 / 22</span>
                 </div>
             </header>
 
@@ -3533,6 +3507,247 @@ body.editing-mode .motion-ready .motion-diagram {
             </footer>
         </section>
 
+<!-- ===========================================
+             APPENDIX D: FEATURE 03 — VS CODE AGENT HOST & AHP
+             =========================================== -->
+        <section class="slide" data-slide="21" id="appendix-agent-host">
+            <header class="exec-topbar">
+                <div class="exec-breadcrumb">
+                    <span class="exec-dot"></span>
+                    <span>APPENDIX D · FEATURE 03 · VS CODE 1.144 AGENT HOST &amp; PARALLEL COMPARE · 附录 D</span>
+                </div>
+                <div class="exec-meta-right">
+                    <span class="maturity-pill cobalt">APPENDIX D · HOST GA / COMPARE PREVIEW</span>
+                    <span class="page-num">21 / 22</span>
+                </div>
+            </header>
+
+            <div class="feature-hero reveal d1">
+                <div class="feature-title-group">
+                    <div class="feature-index-tag">APPENDIX D // CAPABILITY 03 · DECOUPLED RUNTIME &amp; COMPETITIVE SYNTHESIS</div>
+                    <h2 class="feature-title" data-edit-key="71"><span class="accent">VS Code Agent Host</span>：后台长驻、多路赛马与开放协议</h2>
+                    <p class="feature-tagline" data-edit-key="72">将 Agent 从编辑器窗口生命周期中彻底解耦，并支持同一需求多模型并行实现与一键融合。</p>
+                </div>
+                <div class="hero-kpi">
+                    <div class="hero-kpi-label">OPEN PROTOCOL SDK</div>
+                    <div class="hero-kpi-value" data-edit-key="73">AHP 五语言客户端</div>
+                </div>
+            </div>
+
+            <!-- SVG ARCHITECTURE DIAGRAM: AGENT HOST & PARALLEL SYNTHESIS -->
+            <div class="arch-diagram-box reveal d2">
+                <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Left: Clients over AHP -->
+                    <rect x="14" y="16" width="320" height="140" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+                    <text x="174" y="44" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="13" font-weight="700">CLIENTS (随时断开/重连)</text>
+                    <rect x="34" y="56" width="280" height="36" rx="8" fill="#EFF6FF" stroke="#93C5FD"/>
+                    <text x="174" y="79" text-anchor="middle" fill="#1D4ED8" font-size="15" font-weight="700">VS Code 窗口  ·  GitHub Mobile</text>
+                    <rect x="34" y="102" width="280" height="36" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+                    <text x="174" y="125" text-anchor="middle" fill="#334155" font-size="14" font-weight="700">自研平台 (TS/Rust/Go/Kotlin/Swift)</text>
+
+                    <line x1="340" y1="86" x2="438" y2="86" stroke="#1D4ED8" stroke-width="3" marker-end="url(#arr-blue)"/>
+                    <text x="389" y="74" text-anchor="middle" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="12" font-weight="700">AHP 协议</text>
+
+                    <!-- Center: Decoupled Agent Host Daemon -->
+                    <rect x="446" y="16" width="310" height="140" rx="14" fill="#0F172A"/>
+                    <text x="601" y="48" text-anchor="middle" fill="#60A5FA" font-family="Fira Code, monospace" font-size="13" font-weight="700">DECOUPLED AGENT HOST (GA)</text>
+                    <text x="601" y="84" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="800">独立后台守护进程</text>
+                    <text x="601" y="114" text-anchor="middle" fill="#94A3B8" font-size="14" font-weight="600">本地 / SSH 远端编译机 / Dev Tunnels</text>
+                    <text x="601" y="138" text-anchor="middle" fill="#34D399" font-size="13" font-weight="700">关窗口不中断任务执行</text>
+
+                    <!-- Fork into Parallel Worktrees -->
+                    <path d="M 762 64 L 836 44" stroke="#047857" stroke-width="2.5" fill="none" marker-end="url(#arr-green)"/>
+                    <path d="M 762 108 L 836 128" stroke="#047857" stroke-width="2.5" fill="none" marker-end="url(#arr-green)"/>
+
+                    <!-- Parallel Runs -->
+                    <rect x="844" y="16" width="430" height="60" rx="10" fill="#ECFDF5" stroke="#047857" stroke-width="1.8"/>
+                    <text x="1059" y="42" text-anchor="middle" fill="#047857" font-size="15" font-weight="800">Worktree A：Copilot Harness + 模型 A</text>
+                    <text x="1059" y="64" text-anchor="middle" fill="#334155" font-size="13" font-weight="600">独立分支并发编码与单测验证</text>
+
+                    <rect x="844" y="96" width="430" height="60" rx="10" fill="#ECFDF5" stroke="#047857" stroke-width="1.8"/>
+                    <text x="1059" y="122" text-anchor="middle" fill="#047857" font-size="15" font-weight="800">Worktree B：Claude Harness + 模型 B</text>
+                    <text x="1059" y="144" text-anchor="middle" fill="#334155" font-size="13" font-weight="600">独立分支并发编码与单测验证</text>
+
+                    <path d="M 1280 46 L 1352 76" stroke="#B45309" stroke-width="2.5" fill="none" marker-end="url(#arr-amber)"/>
+                    <path d="M 1280 126 L 1352 96" stroke="#B45309" stroke-width="2.5" fill="none" marker-end="url(#arr-amber)"/>
+
+                    <!-- Right: Judge + Synthesize -->
+                    <rect x="1360" y="24" width="306" height="124" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
+                    <text x="1513" y="54" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="13" font-weight="700">JUDGE &amp; SYNTHESIZE</text>
+                    <text x="1513" y="88" text-anchor="middle" fill="#0F172A" font-size="19" font-weight="800">AI 评审推荐 + 一键融合</text>
+                    <text x="1513" y="118" text-anchor="middle" fill="#B45309" font-size="14" font-weight="700">吸收两路方案最优实现合入主分支</text>
+                </svg>
+            </div>
+
+            <div class="capability-grid-3 reveal d2">
+                <div class="cap-card">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num">MODULE 01 · AGENT HOST</span>
+                            <span class="cap-chip">GA 生产就绪</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="74">关窗口不中断 + 远端/手机接管</h3>
+                        <div class="cap-highlight" data-edit-key="75">支持 SSH / Dev Tunnels / GitHub Mobile</div>
+                        <p class="cap-detail" data-edit-key="76">关闭或重启 VS Code 不影响后台 Agent 执行；可将远端编译机注册为环境并在手机端随时查看进度与审批。</p>
+                    </div>
+                </div>
+
+                <div class="cap-card emerald-top">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">MODULE 02 · COMPARE</span>
+                            <span class="cap-chip">PUBLIC PREVIEW</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="77">多模型/多 Harness 并行融合</h3>
+                        <div class="cap-highlight" data-edit-key="78">隔离工作树并发实现 + Judge 推荐 + Synthesize</div>
+                        <p class="cap-detail" data-edit-key="79">针对棘手需求同时派发多个模型或不同 Harness（Copilot / Claude），并排对比 Diff 后一键吸收各方案优点。</p>
+                    </div>
+                </div>
+
+                <div class="cap-card amber-top">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">MODULE 03 · AHP &amp; PLUGINS</span>
+                            <span class="cap-chip">OPEN SPECIFICATION</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="80">开放协议 AHP 与插件市场</h3>
+                        <div class="cap-highlight" data-edit-key="81">TS / Rust / Go / Kotlin / Swift SDK</div>
+                        <p class="cap-detail" data-edit-key="82">公开 Agent Host Protocol 方便内部平台自建前端；新增 Agent Customizations 市场面板与 `.github/copilot/settings.json`。</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="scenario-ribbon reveal d3">
+                <span class="ribbon-badge">典型实战流</span>
+                <div class="ribbon-flow">
+                    <span class="flow-step primary" data-edit-key="83">远端大内存机启动重构</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-step primary" data-edit-key="84">2 路模型并行比选融合</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-step" data-edit-key="85">合上电脑用手机审批收尾</span>
+                </div>
+                <div class="ribbon-boundary">使用注意：<strong>远程 Host 需保持宿主机进程在线</strong></div>
+            </footer>
+        </section>
+
+<!-- ===========================================
+             APPENDIX E: FEATURE 04 — COPILOT PROJECTS
+             =========================================== -->
+        <section class="slide" data-slide="22" id="appendix-copilot-projects">
+            <header class="exec-topbar">
+                <div class="exec-breadcrumb">
+                    <span class="exec-dot"></span>
+                    <span>APPENDIX E · FEATURE 04 · COPILOT PROJECTS (MULTI-REPO COORDINATION) · 附录 E</span>
+                </div>
+                <div class="exec-meta-right">
+                    <span class="maturity-pill cobalt">APPENDIX E · PUBLIC PREVIEW</span>
+                    <span class="page-num">22 / 22</span>
+                </div>
+            </header>
+
+            <div class="feature-hero reveal d1">
+                <div class="feature-title-group">
+                    <div class="feature-index-tag">APPENDIX E // CAPABILITY 04 · GOAL-ORIENTED PERSISTENT COORDINATOR</div>
+                    <h2 class="feature-title" data-edit-key="86"><span class="accent">Copilot Projects</span>：面向长期目标的多仓库并行统筹</h2>
+                    <p class="feature-tagline" data-edit-key="87">打破“单次会话绑定单仓库”局限，由顶层协调 Agent 统一调度多个子会话、共享资料库与定时巡检。</p>
+                </div>
+                <div class="hero-kpi">
+                    <div class="hero-kpi-label">COORDINATION MODEL</div>
+                    <div class="hero-kpi-value" data-edit-key="88">1 Project → N 子会话</div>
+                </div>
+            </div>
+
+            <!-- SVG ARCHITECTURE DIAGRAM: COPILOT PROJECTS TOPOLOGY -->
+            <div class="arch-diagram-box reveal d2">
+                <svg viewBox="0 0 1680 172" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Left: Shared Library & Automations -->
+                    <rect x="14" y="16" width="340" height="140" rx="14" fill="#FFFBEB" stroke="#B45309" stroke-width="2"/>
+                    <text x="184" y="44" text-anchor="middle" fill="#B45309" font-family="Fira Code, monospace" font-size="13" font-weight="700">SHARED CONTEXT &amp; CADENCE</text>
+                    <rect x="34" y="56" width="300" height="38" rx="8" fill="#FFFFFF" stroke="#FCD34D"/>
+                    <text x="184" y="80" text-anchor="middle" fill="#0F172A" font-size="15" font-weight="700">Library：共享架构图 / API 契约 / PRD</text>
+                    <rect x="34" y="104" width="300" height="38" rx="8" fill="#FFFFFF" stroke="#FCD34D"/>
+                    <text x="184" y="128" text-anchor="middle" fill="#B45309" font-size="15" font-weight="700">Automations：按分钟/每日/每周定时唤醒</text>
+
+                    <line x1="360" y1="86" x2="430" y2="86" stroke="#B45309" stroke-width="3" marker-end="url(#arr-amber)"/>
+
+                    <!-- Center: Persistent Project Coordinator -->
+                    <rect x="438" y="16" width="350" height="140" rx="14" fill="#0F172A"/>
+                    <text x="613" y="48" text-anchor="middle" fill="#60A5FA" font-family="Fira Code, monospace" font-size="13" font-weight="700">PERSISTENT PROJECT COORDINATOR</text>
+                    <text x="613" y="84" text-anchor="middle" fill="#FFFFFF" font-size="21" font-weight="800">顶层协调 Agent 主会话</text>
+                    <text x="613" y="114" text-anchor="middle" fill="#93C5FD" font-size="14" font-weight="600">Overview 队列：Needs Input · Working · Done</text>
+                    <text x="613" y="138" text-anchor="middle" fill="#34D399" font-size="13" font-weight="700">统一拆解目标 · 转发审批 · 汇总多仓 PR</text>
+
+                    <!-- Fan-out to 3 Repo Worktree Sessions -->
+                    <path d="M 794 52 L 876 32" stroke="#1D4ED8" stroke-width="2.5" fill="none" marker-end="url(#arr-blue)"/>
+                    <path d="M 794 86 L 876 86" stroke="#047857" stroke-width="2.5" fill="none" marker-end="url(#arr-green)"/>
+                    <path d="M 794 120 L 876 140" stroke="#1D4ED8" stroke-width="2.5" fill="none" marker-end="url(#arr-blue)"/>
+
+                    <!-- Right: 3 Isolated Repo Worktrees -->
+                    <rect x="886" y="10" width="780" height="44" rx="10" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+                    <text x="910" y="37" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="14" font-weight="700">[子会话 01 · backend-api]</text>
+                    <text x="1150" y="37" fill="#0F172A" font-size="15" font-weight="700">独立 Git Worktree 实现服务端接口与单测 ──→ 产出 PR #101</text>
+
+                    <rect x="886" y="64" width="780" height="44" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+                    <text x="910" y="91" fill="#047857" font-family="Fira Code, monospace" font-size="14" font-weight="700">[子会话 02 · web-frontend]</text>
+                    <text x="1150" y="91" fill="#0F172A" font-size="15" font-weight="700">独立 Git Worktree 联调前端组件与预览截图 ──→ 产出 PR #204</text>
+
+                    <rect x="886" y="118" width="780" height="44" rx="10" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+                    <text x="910" y="145" fill="#1D4ED8" font-family="Fira Code, monospace" font-size="14" font-weight="700">[子会话 03 · sdk-docs]</text>
+                    <text x="1150" y="145" fill="#0F172A" font-size="15" font-weight="700">独立 Git Worktree 同步更新 SDK 与变更文档 ──→ 产出 PR #89</text>
+                </svg>
+            </div>
+
+            <div class="capability-grid-3 reveal d2">
+                <div class="cap-card">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num">PILLAR 01 · MULTI-REPO</span>
+                            <span class="cap-chip">跨仓工作树隔离</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="89">顶层协调 + 多子会话并行</h3>
+                        <div class="cap-highlight" data-edit-key="90">同时关联后端、前端、SDK 多个仓库</div>
+                        <p class="cap-detail" data-edit-key="91">主对话负责架构拆解与任务派发，各子会话在独立 Git Worktree 中并行编码验证，完成后汇总 PR 卡片。</p>
+                    </div>
+                </div>
+
+                <div class="cap-card emerald-top">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num" style="color: var(--emerald); background: var(--emerald-bg);">PILLAR 02 · OVERVIEW &amp; LIBRARY</span>
+                            <span class="cap-chip">全局状态与共享知识</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="92">Needs Input 队列与共享资产库</h3>
+                        <div class="cap-highlight" data-edit-key="93">Overview 聚合阻塞 · Library 沉淀规范</div>
+                        <p class="cap-detail" data-edit-key="94">所有待审批计划与提问集中浮现至 Overview；Library 统一存放 PRD、接口契约与 Agent 产出的设计报告。</p>
+                    </div>
+                </div>
+
+                <div class="cap-card amber-top">
+                    <div>
+                        <div class="cap-card-head">
+                            <span class="cap-num" style="color: var(--amber); background: var(--amber-bg);">PILLAR 03 · AUTOMATIONS</span>
+                            <span class="cap-chip">自然语言定时任务</span>
+                        </div>
+                        <h3 class="cap-name" data-edit-key="95">一句话创建项目级周期巡检</h3>
+                        <div class="cap-highlight" data-edit-key="96">按分钟 / 每日 / 每周唤醒指定上下文</div>
+                        <p class="cap-detail" data-edit-key="97">直接在对话中设定“每周一汇总跨仓 Issue 与错误趋势”，自动生成可随时暂停或调整的持久自动化任务。</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="scenario-ribbon reveal d3">
+                <span class="ribbon-badge">跨团队特性交付</span>
+                <div class="ribbon-flow">
+                    <span class="flow-step" data-edit-key="98">Library 导入契约文档</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-step primary" data-edit-key="99">并行派生 API / Web / Docs 子会话</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-step" data-edit-key="100">Overview 统一审批合入</span>
+                </div>
+                <div class="ribbon-boundary">适用建议：<strong>单仓简单小改直接用普通 Session 更快</strong></div>
+            </footer>
+        </section>
+
     </main>
 </div>
 
@@ -3540,7 +3755,7 @@ body.editing-mode .motion-ready .motion-diagram {
 <nav class="deck-controls" aria-label="Slide Navigation">
     <button class="nav-btn" id="prevBtn" title="上一页 (←)">上一页</button>
     <div class="nav-dots" id="navDots"></div>
-    <span id="slideCounter">01 / 21</span>
+    <span id="slideCounter">01 / 22</span>
     <button class="nav-btn speaker-toggle" id="speakerToggle" aria-pressed="true" title="切换演讲精简视图 / 完整讲义视图 (P)">演讲视图 [P]</button>
     <button class="nav-btn fullscreen-toggle" id="fullscreenToggle" aria-pressed="false" title="切换全屏演示 (快捷键 F 或双击背景)">全屏 [F]</button>
     <button class="nav-btn" id="nextBtn" title="下一页 (→)">下一页</button>
@@ -3571,8 +3786,10 @@ class SlidePresentation {
             if (index >= 0) this.showSlide(index);
         };
         window.addEventListener('hashchange', showLinkedSlide);
-        document.querySelector('.fusion-architecture-link').addEventListener('click', event => {
-            if (event.currentTarget.hash === window.location.hash) showLinkedSlide();
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', event => {
+                if (event.currentTarget.hash === window.location.hash) showLinkedSlide();
+            });
         });
     }
 
@@ -3609,7 +3826,7 @@ class SlidePresentation {
             ['.matrix-cell', 100, 45],
             ['.fusion-architecture-frame', 150, 0],
             ['.cap-card', 300, 80],
-            ['.evaluation-table tbody tr', 150, 110],
+            ['.evaluation-table tbody tr, .ui-compare-table tbody tr', 150, 70],
             ['.evaluation-readout > div', 220, 100],
             ['.scenario-ribbon, .evaluation-boundary', 500, 0],
             ['.benchmark-chart-card', 180, 90],
